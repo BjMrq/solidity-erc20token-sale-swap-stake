@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "strict": true,
+    "moduleResolution": "node",
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./contracts/types"
+    ],
+    "types": [
+      "node",
+      "truffle-typings"
+    ]
+  },
+  "include": [
+    "./contracts/**/*.ts"
+  ],
+}
