@@ -5,6 +5,8 @@ export const nameAccounts = (accounts: Truffle.Accounts) => ({
   saleBuyerAccount: accounts[1],
   senderAccount: accounts[2],
   receiverAccount: accounts[3],
+  swapBuyerAccount: accounts[4],
+  swapBuyerAccount2: accounts[5],
 });
 
 export const foundAccountFrom =
@@ -16,7 +18,7 @@ export const foundAccountFrom =
       amount,
     }: {
       accountToFound: string;
-      amount: number;
+      amount: number | string;
     }
   ) => {
     await satiTokenInstance.transfer(accountToFound, amount, {

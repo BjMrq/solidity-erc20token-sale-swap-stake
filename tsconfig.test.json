@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "typeRoots": [
@@ -21,6 +22,6 @@
     ]
   },
   "include": [
-    "./contracts/tests/**/*.test.ts"
+    "./contracts/tests/**/*.ts"
   ],
 }

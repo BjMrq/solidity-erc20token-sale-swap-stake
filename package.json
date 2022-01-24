@@ -7,15 +7,14 @@
     "postinstall": "truffle compile && yarn generate-types",
     "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types 'contracts/build/contracts/*.json'",
     "compile": "truffle compile && yarn generate-types",
-    "migrate-reset": "npm run migrate-update --reset",
-    "migrate-update": "tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate",
+    "migrate": "tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset",
     "reset": "npm run compile && npm run migrate-reset",
-    "test": "tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test",
+    "test": "tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test ",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
-    "truffle": "^5.4.29",
+    "truffle": "5.4.30",
     "truffle-typings": "^1.0.8",
     "typechain": "^7.0.0"
   },
@@ -25,8 +24,8 @@
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.0.0",
     "@types/node": "^17.0.10",
-    "@types/web3": "^1.2.2",
-    "typescript": "^4.5.4"
+    "@types/web3": "1.2.2",
+    "typescript": "^4.5.5"
   },
   "author": "",
   "license": "ISC"

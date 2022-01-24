@@ -5,24 +5,8 @@ const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
 const KYCValidation = artifacts.require("KYCValidation");
 
-contract("SatiToken", (accounts) => {
-  const { deployerAccount, saleBuyerAccount } = nameAccounts(accounts);
-
-  it("should put half tokens supply of SatiToken in the token contract and half in the Sale contract", async () => {
-    const initialSupply = 1000000;
-
-    const deployedSatiTokenInstance = await SatiToken.deployed();
-
-    const deployerAccountBalance = await deployedSatiTokenInstance.balanceOf(
-      deployerAccount
-    );
-
-    assert.equal(
-      (await deployedSatiTokenInstance.totalSupply()).toString(),
-      String(initialSupply)
-    );
-    assert.equal(deployerAccountBalance.toString(), String(initialSupply / 2));
-  });
+contract("SatiTokenSale", (accounts) => {
+  const { saleBuyerAccount } = nameAccounts(accounts);
 
   it("Buyers need to complete KYC verification", async () => {
     const deployedSatiTokenInstance = await SatiToken.deployed();

@@ -1,5 +1,6 @@
 import { SatiTokenInstance } from "../types";
 import { foundAccountFrom, nameAccounts } from "./helpers/founding";
+import { tokenSupply } from "./helpers/variables";
 
 const SatiToken = artifacts.require("SatiToken");
 
@@ -71,7 +72,7 @@ contract("SatiToken", (accounts) => {
     try {
       await foundAccountWith(satiTokenInstance, {
         accountToFound: senderAccount,
-        amount: (await satiTokenInstance.totalSupply()) + 1,
+        amount: "1000000000000000000000001",
       });
     } catch (error) {
       assert.equal(

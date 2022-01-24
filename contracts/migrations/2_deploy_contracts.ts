@@ -1,11 +1,22 @@
 const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
 const KYCValidation = artifacts.require("KYCValidation");
+const SatiEthSwap = artifacts.require("SatiEthSwap");
 
 module.exports = async function (deployer) {
-  const initialSupply = 1000000;
+  const tokenSupply = {
+    total: "1000000000000000000000000",
+    swap: "500000000000000000000000", // totalSupply / 2
+    sale: "500000000000000000000000", // totalSupply / 2
+  };
+
   const [deployerAddresses] = await web3.eth.getAccounts();
-  await deployer.deploy(SatiToken, initialSupply);
+
+  // TOKEN
+  await deployer.deploy(SatiToken, tokenSupply.total);
+  const satiToken = await SatiToken.deployed();
+
+  // SALE
   await deployer.deploy(KYCValidation);
   await deployer.deploy(
     SatiTokenSale,
@@ -15,8 +26,12 @@ module.exports = async function (deployer) {
     KYCValidation.address
   );
 
-  const satiToken = await SatiToken.deployed();
-  await satiToken.transfer(SatiTokenSale.address, initialSupply / 2);
+  await satiToken.transfer(SatiTokenSale.address, tokenSupply.sale);
+
+  //SatiEthSwap
+  await deployer.deploy(SatiEthSwap, SatiToken.address);
+
+  await satiToken.transfer(SatiEthSwap.address, tokenSupply.swap);
 } as Truffle.Migration;
 
 // because of https://stackoverflow.com/questions/40900791/cannot-redeclare-block-scoped-variable-in-unrelated-files

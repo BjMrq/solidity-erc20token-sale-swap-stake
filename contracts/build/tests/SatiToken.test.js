@@ -48,7 +48,7 @@ contract("SatiToken", (accounts) => {
         try {
             await foundAccountWith(satiTokenInstance, {
                 accountToFound: senderAccount,
-                amount: (await satiTokenInstance.totalSupply()) + 1,
+                amount: "1000000000000000000000001",
             });
         }
         catch (error) {

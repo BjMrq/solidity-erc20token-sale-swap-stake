@@ -1202,7 +1202,7 @@
   dependencies:
     "@types/json-schema" "*"
 
-"@types/web3@^1.0.18", "@types/web3@^1.2.2":
+"@types/web3@1.2.2", "@types/web3@^1.0.18":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@types/web3/-/web3-1.2.2.tgz#d95a101547ce625c5ebd0470baa5dbd4b9f3c015"
   integrity sha512-eFiYJKggNrOl0nsD+9cMh2MLk4zVBfXfGnVeRFbpiZzBE20eet4KLA3fXcjSuHaBn0RnQzwLAGdgzgzdet4C0A==
@@ -8475,7 +8475,7 @@ truffle-typings@^1.0.8:
     "@types/mocha" "^5.2.5"
     "@types/web3" "^1.0.18"
 
-truffle@^5.4.29:
+truffle@5.4.30:
   version "5.4.30"
   resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.4.30.tgz#4fdbbdca0ee75eb8914eb69ee74b6a0741dc8d6e"
   integrity sha512-wGFvUO6Ki0Hpb4aaX7Q59tiGSdTVBDrVRq24GBOt5tcQUkWbWjpJhPSDxBpBFW3hiSeAivLZxQPYdjk7kXnr2Q==
@@ -8629,7 +8629,7 @@ typescript-tuple@^2.2.1:
   dependencies:
     typescript-compare "^0.0.2"
 
-typescript@^4.5.4:
+typescript@^4.5.5:
   version "4.5.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
   integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
