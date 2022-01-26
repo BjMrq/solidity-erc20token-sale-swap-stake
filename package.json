@@ -8,11 +8,13 @@
     "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types 'contracts/build/contracts/*.json'",
     "compile": "truffle compile && yarn generate-types",
     "migrate": "tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset",
+    "new-contracts": "npm run compile && npm run migrate",
     "reset": "npm run compile && npm run migrate-reset",
     "test": "tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test ",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@chainlink/contracts": "^0.3.1",
     "@openzeppelin/contracts": "^4.4.2",
     "truffle": "5.4.30",
     "truffle-typings": "^1.0.8",

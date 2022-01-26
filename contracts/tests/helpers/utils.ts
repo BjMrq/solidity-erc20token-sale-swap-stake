@@ -1,4 +1,4 @@
 import { toWei } from "web3-utils";
 
-export const numberOfToken = (amountWithoutDecimal: string): string =>
-  toWei(amountWithoutDecimal, "ether");
+export const token = (amountWithoutDecimal: string | number): string =>
+  toWei(String(amountWithoutDecimal), "ether");

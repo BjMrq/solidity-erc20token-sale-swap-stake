@@ -23,10 +23,41 @@ export interface OwnershipTransferred {
   };
 }
 
-type AllEvents = OwnershipTransferred;
+export interface Rate {
+  name: "Rate";
+  args: {
+    price: BN;
+    timeStamp: BN;
+    0: BN;
+    1: BN;
+  };
+}
+
+export interface SwapTransfer {
+  name: "SwapTransfer";
+  args: {
+    swapName: string;
+    beneficiary: string;
+    amountSent: BN;
+    amountReceived: BN;
+    0: string;
+    1: string;
+    2: BN;
+    3: BN;
+  };
+}
+
+type AllEvents = OwnershipTransferred | Rate | SwapTransfer;
 
 export interface SatiEthSwapInstance extends Truffle.ContractInstance {
-  ethToSatiRate(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+  getRate: {
+    (txDetails?: Truffle.TransactionDetails): Promise<
+      Truffle.TransactionResponse<AllEvents>
+    >;
+    call(txDetails?: Truffle.TransactionDetails): Promise<{ 0: BN; 1: BN }>;
+    sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
+    estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
+  };
 
   /**
    * Returns the address of the current owner.
@@ -68,21 +99,21 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  setEthToSatiRate: {
+  swapSatiForEth: {
     (
-      _rateToSet: number | BN | string,
+      _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _rateToSet: number | BN | string,
+      _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _rateToSet: number | BN | string,
+      _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _rateToSet: number | BN | string,
+      _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
@@ -97,7 +128,14 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
   };
 
   methods: {
-    ethToSatiRate(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+    getRate: {
+      (txDetails?: Truffle.TransactionDetails): Promise<
+        Truffle.TransactionResponse<AllEvents>
+      >;
+      call(txDetails?: Truffle.TransactionDetails): Promise<{ 0: BN; 1: BN }>;
+      sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
+      estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
+    };
 
     /**
      * Returns the address of the current owner.
@@ -139,21 +177,21 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    setEthToSatiRate: {
+    swapSatiForEth: {
       (
-        _rateToSet: number | BN | string,
+        _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _rateToSet: number | BN | string,
+        _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _rateToSet: number | BN | string,
+        _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _rateToSet: number | BN | string,
+        _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

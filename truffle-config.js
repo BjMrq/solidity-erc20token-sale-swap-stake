@@ -10,6 +10,11 @@ module.exports = {
   compilers: {
     solc: {
       version: "^0.8.11",
+      optimizer: {
+        enable: true,
+        runs: 200,
+      },
+      // evmVersion: "byzantium",
     },
   },
   networks: {

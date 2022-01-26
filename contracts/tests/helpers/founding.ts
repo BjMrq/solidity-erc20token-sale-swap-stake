@@ -5,8 +5,9 @@ export const nameAccounts = (accounts: Truffle.Accounts) => ({
   saleBuyerAccount: accounts[1],
   senderAccount: accounts[2],
   receiverAccount: accounts[3],
-  swapBuyerAccount: accounts[4],
-  swapBuyerAccount2: accounts[5],
+  swapSatiBuyerAccount: accounts[4],
+  swapEthBuyerAccount: accounts[5],
+  swapRateBuyerAccount: accounts[5],
 });
 
 export const foundAccountFrom =

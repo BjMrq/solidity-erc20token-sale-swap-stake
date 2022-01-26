@@ -4,6 +4,7 @@ const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
 const KYCValidation = artifacts.require("KYCValidation");
 const SatiEthSwap = artifacts.require("SatiEthSwap");
+const satiToEthRate = 100;
 module.exports = async function (deployer) {
     const tokenSupply = {
         total: "1000000000000000000000000",
@@ -16,7 +17,7 @@ module.exports = async function (deployer) {
     const satiToken = await SatiToken.deployed();
     // SALE
     await deployer.deploy(KYCValidation);
-    await deployer.deploy(SatiTokenSale, 1, deployerAddresses, SatiToken.address, KYCValidation.address);
+    await deployer.deploy(SatiTokenSale, satiToEthRate, deployerAddresses, SatiToken.address, KYCValidation.address);
     await satiToken.transfer(SatiTokenSale.address, tokenSupply.sale);
     //SatiEthSwap
     await deployer.deploy(SatiEthSwap, SatiToken.address);

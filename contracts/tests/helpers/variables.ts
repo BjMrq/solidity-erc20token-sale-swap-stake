@@ -3,3 +3,5 @@ export const tokenSupply = {
   swap: "500000000000000000000000", // totalSupply / 2
   sale: "500000000000000000000000", // totalSupply / 2
 };
+
+export const satiToEthRate = 100;

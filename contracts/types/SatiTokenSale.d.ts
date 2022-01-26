@@ -8,7 +8,7 @@ import { EventData, PastEventOptions } from "web3-eth-contract";
 export interface SatiTokenSaleContract
   extends Truffle.Contract<SatiTokenSaleInstance> {
   "new"(
-    _rate: number | BN | string,
+    _fixedExchangeRate: number | BN | string,
     _wallet: string,
     _token: string,
     _kycValidation: string,

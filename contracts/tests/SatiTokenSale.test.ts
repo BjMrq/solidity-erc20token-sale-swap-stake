@@ -1,5 +1,6 @@
 import { assert } from "chai";
 import { nameAccounts } from "./helpers/founding";
+import { token } from "./helpers/utils";
 
 const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
@@ -30,6 +31,30 @@ contract("SatiTokenSale", (accounts) => {
     assert.equal(buyerBalance.toString(), "0");
   });
 
+  it("Buyers need to have enough Ether to buy Sati", async () => {
+    const deployedSatiTokenInstance = await SatiToken.deployed();
+    const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
+
+    try {
+      await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
+        value: token(200),
+      });
+    } catch (error) {
+      assert.equal(
+        (error as Error).message.includes(
+          "Reason given: not enough Ether available"
+        ),
+        true
+      );
+    }
+
+    const buyerBalance = await deployedSatiTokenInstance.balanceOf(
+      saleBuyerAccount
+    );
+
+    assert.equal(buyerBalance.toString(), "0");
+  });
+
   it("Sale can distribute token to buyers after KYC verification", async () => {
     const deployedSatiTokenInstance = await SatiToken.deployed();
     const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
@@ -45,6 +70,6 @@ contract("SatiTokenSale", (accounts) => {
       saleBuyerAccount
     );
 
-    assert.equal(buyerBalance.toString(), "100");
+    assert.equal(buyerBalance.toString(), "10000");
   });
 });

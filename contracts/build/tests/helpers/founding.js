@@ -6,8 +6,9 @@ const nameAccounts = (accounts) => ({
     saleBuyerAccount: accounts[1],
     senderAccount: accounts[2],
     receiverAccount: accounts[3],
-    swapBuyerAccount: accounts[4],
-    swapBuyerAccount2: accounts[5],
+    swapSatiBuyerAccount: accounts[4],
+    swapEthBuyerAccount: accounts[5],
+    swapRateBuyerAccount: accounts[5],
 });
 exports.nameAccounts = nameAccounts;
 const foundAccountFrom = (accounts) => async (satiTokenInstance, { accountToFound, amount, }) => {
