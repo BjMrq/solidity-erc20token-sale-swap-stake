@@ -5,7 +5,7 @@ pragma solidity ^0.8.11;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract Ratable {
-    event Rate(int256 price, uint256 timeStamp);
+    event Rate(int256 indexed scaledPrice, uint256 indexed timeStamp);
 
     AggregatorV3Interface internal priceFeed;
 
@@ -13,11 +13,27 @@ contract Ratable {
         priceFeed = AggregatorV3Interface(_priceFeedContract);
     }
 
-    function getRate() public returns (int256, uint256) {
+    function scalePrice(
+        int256 _price,
+        uint8 _priceDecimals,
+        uint8 _decimals
+    ) internal pure returns (int256) {
+        if (_priceDecimals < _decimals) {
+            return _price * int256(10**uint256(_decimals - _priceDecimals));
+        } else if (_priceDecimals > _decimals) {
+            return _price / int256(10**uint256(_priceDecimals - _decimals));
+        }
+        return _price;
+    }
+
+    function getScaledRate(uint8 _scalingDecimal) public returns (int256) {
         (, int256 price, , uint256 timeStamp, ) = priceFeed.latestRoundData();
+        uint8 decimals = priceFeed.decimals();
 
-        emit Rate(price, timeStamp);
+        int256 scaledPrice = scalePrice(price, decimals, _scalingDecimal);
 
-        return (price, timeStamp);
+        emit Rate(scaledPrice, timeStamp);
+
+        return scaledPrice;
     }
 }

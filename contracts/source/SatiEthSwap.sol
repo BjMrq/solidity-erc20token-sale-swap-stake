@@ -12,14 +12,14 @@ contract SatiEthSwap is Context, Ownable, Ratable {
     SatiToken public satiToken;
 
     event SwapTransfer(
-        string swapName,
+        string indexed swapName,
         address beneficiary,
-        uint256 amountSent,
-        uint256 amountReceived
+        uint256 indexed amountSent,
+        uint256 indexed amountReceived
     );
 
-    constructor(SatiToken _satiToken)
-        Ratable(0x9326BFA02ADD2366b30bacB125260Af641031331)
+    constructor(SatiToken _satiToken, address _ethToUsdRate)
+        Ratable(_ethToUsdRate)
     {
         satiToken = _satiToken;
     }
