@@ -27,7 +27,7 @@ contract("SatiTokenSale", (accounts) => {
         const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
         try {
             await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
-                value: (0, utils_1.token)(200),
+                value: (0, utils_1.toUnit)(200),
             });
         }
         catch (error) {

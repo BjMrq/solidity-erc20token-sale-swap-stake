@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { nameAccounts } from "./helpers/founding";
-import { token } from "./helpers/utils";
+import { toUnit } from "./helpers/utils";
 
 const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
@@ -37,7 +37,7 @@ contract("SatiTokenSale", (accounts) => {
 
     try {
       await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
-        value: token(200),
+        value: toUnit(200),
       });
     } catch (error) {
       assert.equal(

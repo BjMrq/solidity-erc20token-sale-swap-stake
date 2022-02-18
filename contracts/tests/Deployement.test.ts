@@ -1,4 +1,4 @@
-import { token } from "./helpers/utils";
+import { toUnit } from "./helpers/utils";
 
 const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");
@@ -10,7 +10,7 @@ contract("Deployment state", (accounts) => {
 
     const totalSupply = await deployedSatiTokenInstance.totalSupply();
 
-    assert.equal(totalSupply.toString(), token("1000000"));
+    assert.equal(totalSupply.toString(), toUnit("1000000"));
   });
 
   it("Sale contract is deployed with half Sati token supply", async () => {
@@ -20,7 +20,7 @@ contract("Deployment state", (accounts) => {
       SatiTokenSale.address
     );
 
-    assert.equal(saleContractBalance.toString(), token("500000"));
+    assert.equal(saleContractBalance.toString(), toUnit("500000"));
   });
 
   it("Swap contract is deployed with half Sati token supply", async () => {
@@ -31,6 +31,6 @@ contract("Deployment state", (accounts) => {
       swapInstance.address
     );
 
-    assert.equal(swapContractBalance.toString(), token("500000"));
+    assert.equal(swapContractBalance.toString(), toUnit("250000"));
   });
 });

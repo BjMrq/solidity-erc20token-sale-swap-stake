@@ -1,7 +1,6 @@
 export const tokenSupply = {
   total: "1000000000000000000000000",
-  swap: "500000000000000000000000", // totalSupply / 2
-  sale: "500000000000000000000000", // totalSupply / 2
+  swapEth: "250000000000000000000000",
+  swapLink: "250000000000000000000000",
+  sale: "500000000000000000000000",
 };
-
-export const satiToEthRate = 100;

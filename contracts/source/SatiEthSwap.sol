@@ -6,17 +6,11 @@ import "./SatiToken.sol";
 
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./Ratable.sol";
+import "./Swapable.sol";
+import "./ISatiSwapable.sol";
 
-contract SatiEthSwap is Context, Ownable, Ratable {
+contract SatiEthSwap is Context, Ownable, Swapable {
     SatiToken public satiToken;
-
-    event SwapTransfer(
-        string indexed swapName,
-        address beneficiary,
-        uint256 indexed amountSent,
-        uint256 indexed amountReceived
-    );
 
     constructor(SatiToken _satiToken, address _ethToUsdRate)
         Ratable(_ethToUsdRate)
@@ -27,69 +21,84 @@ contract SatiEthSwap is Context, Ownable, Ratable {
     function requireHasEnoughSati(
         address _addressToValidate,
         uint256 _requiredAmount
-    ) internal view {
-        require(
-            satiToken.balanceOf(_addressToValidate) >= _requiredAmount,
-            "not enough Sati available"
-        );
+    ) internal view override {
+        requireHasEnoughToken(satiToken, _addressToValidate, _requiredAmount);
     }
 
-    function requireHasEnoughEther(
+    function requireHasEnoughSwapToken(
         address _addressToValidate,
         uint256 _requiredAmount
-    ) internal view {
+    ) internal view override {
         require(
             address(_addressToValidate).balance >= _requiredAmount,
-            "not enough Ether available"
+            "not enough ETH"
         );
     }
 
-    function getSatiTokenAmountFromRate(uint256 _weiAmount)
-        internal
+    //////////////////
+    //// Buy Sati ////
+    //////////////////
+
+    function getAmountOfSatiFromSwapToken(uint256 _weiAmount)
+        public
+        override
         returns (uint256)
     {
-        (int256 exchangeRate, ) = getRate();
-        return _weiAmount * uint256(exchangeRate);
-    }
-
-    function getEthTokenAmountFromRate(uint256 _satiAmount)
-        internal
-        returns (uint256)
-    {
-        (int256 exchangeRate, ) = getRate();
-        return _satiAmount / uint256(exchangeRate);
-    }
-
-    function swapSatiForEth(uint256 _satiTokenAmount) external payable {
-        requireHasEnoughSati(_msgSender(), _satiTokenAmount);
-
-        uint256 weiAmount = getEthTokenAmountFromRate(_satiTokenAmount);
-
-        requireHasEnoughEther(address(_msgSender()), weiAmount);
-
-        satiToken.transferFrom(_msgSender(), address(this), _satiTokenAmount);
-
-        emit SwapTransfer(
-            "Sati to Eth",
-            _msgSender(),
-            _satiTokenAmount,
-            weiAmount
+        uint256 tokenAmountToExchange = getSatiTokenAmountForFromRate(
+            _weiAmount
         );
+
+        emit SwapRate("ETH to STI", _weiAmount, tokenAmountToExchange);
+
+        return tokenAmountToExchange;
     }
 
-    function swapEthForSati() external payable {
-        uint256 satiTokenAmount = getSatiTokenAmountFromRate(msg.value);
+    function swapSwapTokenForSati(uint256 _swapTokenAmount)
+        external
+        payable
+        override
+    {
+        uint256 satiTokenAmount = getAmountOfSatiFromSwapToken(
+            _swapTokenAmount
+        );
 
         requireHasEnoughSati(address(this), satiTokenAmount);
-        requireHasEnoughEther(address(this), msg.value);
+        requireHasEnoughSwapToken(address(this), _swapTokenAmount);
 
         satiToken.transfer(_msgSender(), satiTokenAmount);
 
-        emit SwapTransfer(
-            "Eth to Sati",
-            _msgSender(),
-            msg.value,
-            satiTokenAmount
-        );
+        emit SwapTransfer(_msgSender(), _swapTokenAmount, satiTokenAmount);
+    }
+
+    ///////////////////
+    //// Sell Sati ////
+    ///////////////////
+
+    function getNumberOfSwapTokenFromSati(uint256 _satiAmount)
+        public
+        override
+        returns (uint256)
+    {
+        uint256 tokenAmountToExchange = getSwapTokenAmountFromRate(_satiAmount);
+
+        emit SwapRate("STI to ETH", _satiAmount, tokenAmountToExchange);
+
+        return tokenAmountToExchange;
+    }
+
+    function swapSatiForSwapToken(uint256 _satiTokenAmount)
+        external
+        payable
+        override
+    {
+        requireHasEnoughSati(_msgSender(), _satiTokenAmount);
+
+        uint256 weiAmount = getNumberOfSwapTokenFromSati(_satiTokenAmount);
+
+        requireHasEnoughSwapToken(address(_msgSender()), weiAmount);
+
+        satiToken.transferFrom(_msgSender(), address(this), _satiTokenAmount);
+
+        emit SwapTransfer(_msgSender(), _satiTokenAmount, weiAmount);
     }
 }

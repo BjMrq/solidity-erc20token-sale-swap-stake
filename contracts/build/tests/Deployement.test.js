@@ -8,18 +8,18 @@ contract("Deployment state", (accounts) => {
     it("SatiToken is deployed with the correct initial supply", async () => {
         const deployedSatiTokenInstance = await SatiToken.deployed();
         const totalSupply = await deployedSatiTokenInstance.totalSupply();
-        assert.equal(totalSupply.toString(), (0, utils_1.token)("1000000"));
+        assert.equal(totalSupply.toString(), (0, utils_1.toUnit)("1000000"));
     });
     it("Sale contract is deployed with half Sati token supply", async () => {
         const deployedSatiTokenInstance = await SatiToken.deployed();
         const saleContractBalance = await deployedSatiTokenInstance.balanceOf(SatiTokenSale.address);
-        assert.equal(saleContractBalance.toString(), (0, utils_1.token)("500000"));
+        assert.equal(saleContractBalance.toString(), (0, utils_1.toUnit)("500000"));
     });
     it("Swap contract is deployed with half Sati token supply", async () => {
         const deployedSatiTokenInstance = await SatiToken.deployed();
         const swapInstance = await SatiEthSwap.deployed();
         const swapContractBalance = await deployedSatiTokenInstance.balanceOf(swapInstance.address);
-        assert.equal(swapContractBalance.toString(), (0, utils_1.token)("500000"));
+        assert.equal(swapContractBalance.toString(), (0, utils_1.toUnit)("250000"));
     });
 });
 //# sourceMappingURL=Deployement.test.js.map

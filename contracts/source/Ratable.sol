@@ -13,6 +13,22 @@ contract Ratable {
         priceFeed = AggregatorV3Interface(_priceFeedContract);
     }
 
+    function scaleTokenForMultiplication(uint256 _tokenAmount, uint8 _decimals)
+        internal
+        pure
+        returns (uint256)
+    {
+        return _tokenAmount / uint256(10**uint256(_decimals));
+    }
+
+    function scaleTokenForDivision(uint256 _tokenAmount, uint8 _decimals)
+        internal
+        pure
+        returns (uint256)
+    {
+        return _tokenAmount * uint256(10**uint256(_decimals));
+    }
+
     function scalePrice(
         int256 _price,
         uint8 _priceDecimals,

@@ -2,50 +2,75 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import { AggregatorV3InterfaceContract } from "./AggregatorV3Interface";
 import { CrowdsaleContract } from "./Crowdsale";
 import { ERC20Contract } from "./ERC20";
-import { EthSwapContract } from "./EthSwap";
+import { ERC20BurnableContract } from "./ERC20Burnable";
+import { ERC20PresetFixedSupplyContract } from "./ERC20PresetFixedSupply";
 import { IERC20Contract } from "./IERC20";
 import { IERC20MetadataContract } from "./IERC20Metadata";
+import { ISatiSwapableContract } from "./ISatiSwapable";
 import { KYCValidationContract } from "./KYCValidation";
 import { MigrationsContract } from "./Migrations";
+import { MockERC20TokenContract } from "./MockERC20Token";
 import { MockV3AggregatorContract } from "./MockV3Aggregator";
 import { OwnableContract } from "./Ownable";
 import { RatableContract } from "./Ratable";
 import { SatiEthSwapContract } from "./SatiEthSwap";
+import { SatiSwapTokenSwapContract } from "./SatiSwapTokenSwap";
 import { SatiTokenContract } from "./SatiToken";
 import { SatiTokenSaleContract } from "./SatiTokenSale";
+import { SwapableContract } from "./Swapable";
 
 declare global {
   namespace Truffle {
     interface Artifacts {
+      require(name: "AggregatorV3Interface"): AggregatorV3InterfaceContract;
       require(name: "Crowdsale"): CrowdsaleContract;
       require(name: "ERC20"): ERC20Contract;
-      require(name: "EthSwap"): EthSwapContract;
+      require(name: "ERC20Burnable"): ERC20BurnableContract;
+      require(name: "ERC20PresetFixedSupply"): ERC20PresetFixedSupplyContract;
       require(name: "IERC20"): IERC20Contract;
       require(name: "IERC20Metadata"): IERC20MetadataContract;
+      require(name: "ISatiSwapable"): ISatiSwapableContract;
       require(name: "KYCValidation"): KYCValidationContract;
       require(name: "Migrations"): MigrationsContract;
+      require(name: "MockERC20Token"): MockERC20TokenContract;
       require(name: "MockV3Aggregator"): MockV3AggregatorContract;
       require(name: "Ownable"): OwnableContract;
       require(name: "Ratable"): RatableContract;
       require(name: "SatiEthSwap"): SatiEthSwapContract;
+      require(name: "SatiSwapTokenSwap"): SatiSwapTokenSwapContract;
       require(name: "SatiToken"): SatiTokenContract;
       require(name: "SatiTokenSale"): SatiTokenSaleContract;
+      require(name: "Swapable"): SwapableContract;
     }
   }
 }
 
+export {
+  AggregatorV3InterfaceContract,
+  AggregatorV3InterfaceInstance,
+} from "./AggregatorV3Interface";
 export { CrowdsaleContract, CrowdsaleInstance } from "./Crowdsale";
 export { ERC20Contract, ERC20Instance } from "./ERC20";
-export { EthSwapContract, EthSwapInstance } from "./EthSwap";
+export { ERC20BurnableContract, ERC20BurnableInstance } from "./ERC20Burnable";
+export {
+  ERC20PresetFixedSupplyContract,
+  ERC20PresetFixedSupplyInstance,
+} from "./ERC20PresetFixedSupply";
 export { IERC20Contract, IERC20Instance } from "./IERC20";
 export {
   IERC20MetadataContract,
   IERC20MetadataInstance,
 } from "./IERC20Metadata";
+export { ISatiSwapableContract, ISatiSwapableInstance } from "./ISatiSwapable";
 export { KYCValidationContract, KYCValidationInstance } from "./KYCValidation";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
+export {
+  MockERC20TokenContract,
+  MockERC20TokenInstance,
+} from "./MockERC20Token";
 export {
   MockV3AggregatorContract,
   MockV3AggregatorInstance,
@@ -53,5 +78,10 @@ export {
 export { OwnableContract, OwnableInstance } from "./Ownable";
 export { RatableContract, RatableInstance } from "./Ratable";
 export { SatiEthSwapContract, SatiEthSwapInstance } from "./SatiEthSwap";
+export {
+  SatiSwapTokenSwapContract,
+  SatiSwapTokenSwapInstance,
+} from "./SatiSwapTokenSwap";
 export { SatiTokenContract, SatiTokenInstance } from "./SatiToken";
 export { SatiTokenSaleContract, SatiTokenSaleInstance } from "./SatiTokenSale";
+export { SwapableContract, SwapableInstance } from "./Swapable";

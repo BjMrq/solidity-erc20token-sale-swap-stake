@@ -9,12 +9,12 @@ module.exports = {
   migrations_directory: "./contracts/build/migrations",
   compilers: {
     solc: {
-      version: "^0.8.11",
+      version: "0.8.11",
       optimizer: {
         enable: true,
         runs: 200,
       },
-      // evmVersion: "byzantium",
+      evmVersion: "byzantium",
     },
   },
   networks: {

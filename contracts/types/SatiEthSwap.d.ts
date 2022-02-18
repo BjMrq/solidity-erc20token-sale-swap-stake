@@ -9,6 +9,7 @@ export interface SatiEthSwapContract
   extends Truffle.Contract<SatiEthSwapInstance> {
   "new"(
     _satiToken: string,
+    _ethToUsdRate: string,
     meta?: Truffle.TransactionDetails
   ): Promise<SatiEthSwapInstance>;
 }
@@ -26,37 +27,57 @@ export interface OwnershipTransferred {
 export interface Rate {
   name: "Rate";
   args: {
-    price: BN;
+    scaledPrice: BN;
     timeStamp: BN;
     0: BN;
     1: BN;
   };
 }
 
+export interface SwapRate {
+  name: "SwapRate";
+  args: {
+    exchangeType: string;
+    sellingAmount: BN;
+    buyingAmount: BN;
+    0: string;
+    1: BN;
+    2: BN;
+  };
+}
+
 export interface SwapTransfer {
   name: "SwapTransfer";
   args: {
-    swapName: string;
     beneficiary: string;
     amountSent: BN;
     amountReceived: BN;
     0: string;
-    1: string;
+    1: BN;
     2: BN;
-    3: BN;
   };
 }
 
-type AllEvents = OwnershipTransferred | Rate | SwapTransfer;
+type AllEvents = OwnershipTransferred | Rate | SwapRate | SwapTransfer;
 
 export interface SatiEthSwapInstance extends Truffle.ContractInstance {
-  getRate: {
-    (txDetails?: Truffle.TransactionDetails): Promise<
-      Truffle.TransactionResponse<AllEvents>
-    >;
-    call(txDetails?: Truffle.TransactionDetails): Promise<{ 0: BN; 1: BN }>;
-    sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
-    estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
+  getScaledRate: {
+    (
+      _scalingDecimal: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _scalingDecimal: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+    sendTransaction(
+      _scalingDecimal: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _scalingDecimal: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
   };
 
   /**
@@ -99,7 +120,64 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapSatiForEth: {
+  getAmountOfSatiFromSwapToken: {
+    (
+      _weiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _weiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+    sendTransaction(
+      _weiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _weiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  swapSwapTokenForSati: {
+    (
+      _swapTokenAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _swapTokenAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      _swapTokenAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _swapTokenAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  getNumberOfSwapTokenFromSati: {
+    (
+      _satiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      _satiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+    sendTransaction(
+      _satiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      _satiAmount: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  swapSatiForSwapToken: {
     (
       _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -118,23 +196,24 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapEthForSati: {
-    (txDetails?: Truffle.TransactionDetails): Promise<
-      Truffle.TransactionResponse<AllEvents>
-    >;
-    call(txDetails?: Truffle.TransactionDetails): Promise<void>;
-    sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
-    estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
-  };
-
   methods: {
-    getRate: {
-      (txDetails?: Truffle.TransactionDetails): Promise<
-        Truffle.TransactionResponse<AllEvents>
-      >;
-      call(txDetails?: Truffle.TransactionDetails): Promise<{ 0: BN; 1: BN }>;
-      sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
-      estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
+    getScaledRate: {
+      (
+        _scalingDecimal: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _scalingDecimal: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<BN>;
+      sendTransaction(
+        _scalingDecimal: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _scalingDecimal: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
     };
 
     /**
@@ -177,7 +256,64 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    swapSatiForEth: {
+    getAmountOfSatiFromSwapToken: {
+      (
+        _weiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _weiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<BN>;
+      sendTransaction(
+        _weiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _weiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    swapSwapTokenForSati: {
+      (
+        _swapTokenAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _swapTokenAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        _swapTokenAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _swapTokenAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    getNumberOfSwapTokenFromSati: {
+      (
+        _satiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        _satiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<BN>;
+      sendTransaction(
+        _satiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        _satiAmount: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    swapSatiForSwapToken: {
       (
         _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -194,15 +330,6 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
         _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
-    };
-
-    swapEthForSati: {
-      (txDetails?: Truffle.TransactionDetails): Promise<
-        Truffle.TransactionResponse<AllEvents>
-      >;
-      call(txDetails?: Truffle.TransactionDetails): Promise<void>;
-      sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
-      estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
   };
 

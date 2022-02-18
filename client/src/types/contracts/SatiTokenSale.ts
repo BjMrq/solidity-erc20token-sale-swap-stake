@@ -52,7 +52,7 @@ export interface SatiTokenSale extends BaseContract {
 
     /**
      */
-    token(): NonPayableTransactionObject<string>;
+    toUnit(): NonPayableTransactionObject<string>;
 
     /**
      */

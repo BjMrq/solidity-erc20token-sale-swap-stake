@@ -42,7 +42,7 @@ export interface Crowdsale extends BaseContract {
   methods: {
     /**
      */
-    token(): NonPayableTransactionObject<string>;
+    toUnit(): NonPayableTransactionObject<string>;
 
     /**
      */

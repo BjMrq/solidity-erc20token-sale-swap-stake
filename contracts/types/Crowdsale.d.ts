@@ -33,7 +33,7 @@ type AllEvents = TokensPurchased;
 export interface CrowdsaleInstance extends Truffle.ContractInstance {
   /**
    */
-  token(txDetails?: Truffle.TransactionDetails): Promise<string>;
+  toUnit(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
   /**
    */
@@ -72,7 +72,7 @@ export interface CrowdsaleInstance extends Truffle.ContractInstance {
   methods: {
     /**
      */
-    token(txDetails?: Truffle.TransactionDetails): Promise<string>;
+    toUnit(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
     /**
      */

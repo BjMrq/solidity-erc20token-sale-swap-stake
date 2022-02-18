@@ -49,7 +49,7 @@ export interface SatiTokenInstance extends Truffle.ContractInstance {
   ): Promise<BN>;
 
   /**
-   * See {IERC20-approve}. Requirements: - `spender` cannot be the zero address.
+   * See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.
    */
   approve: {
     (
@@ -155,56 +155,56 @@ export interface SatiTokenInstance extends Truffle.ContractInstance {
   totalSupply(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   /**
-   * See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.
+   * See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`.
    */
   transfer: {
     (
-      recipient: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      recipient: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<boolean>;
     sendTransaction(
-      recipient: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      recipient: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
   /**
-   * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`.
+   * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`.
    */
   transferFrom: {
     (
-      sender: string,
-      recipient: string,
+      from: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      sender: string,
-      recipient: string,
+      from: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<boolean>;
     sendTransaction(
-      sender: string,
-      recipient: string,
+      from: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      sender: string,
-      recipient: string,
+      from: string,
+      to: string,
       amount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -221,7 +221,7 @@ export interface SatiTokenInstance extends Truffle.ContractInstance {
     ): Promise<BN>;
 
     /**
-     * See {IERC20-approve}. Requirements: - `spender` cannot be the zero address.
+     * See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.
      */
     approve: {
       (
@@ -327,56 +327,56 @@ export interface SatiTokenInstance extends Truffle.ContractInstance {
     totalSupply(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
     /**
-     * See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.
+     * See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`.
      */
     transfer: {
       (
-        recipient: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        recipient: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<boolean>;
       sendTransaction(
-        recipient: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        recipient: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
     /**
-     * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`.
+     * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`.
      */
     transferFrom: {
       (
-        sender: string,
-        recipient: string,
+        from: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        sender: string,
-        recipient: string,
+        from: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<boolean>;
       sendTransaction(
-        sender: string,
-        recipient: string,
+        from: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        sender: string,
-        recipient: string,
+        from: string,
+        to: string,
         amount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;

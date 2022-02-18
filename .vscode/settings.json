@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
-    "Crowdsale"
-  ]
+    "Crowdsale",
+    "numberify",
+    "Swapable"
+  ],
+  "solidity.compileUsingRemoteVersion": "v0.8.11+commit.d7f03943"
 }
