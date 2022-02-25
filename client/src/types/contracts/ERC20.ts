@@ -72,10 +72,10 @@ export interface ERC20 extends BaseContract {
     balanceOf(account: string): NonPayableTransactionObject<string>;
 
     /**
-     * See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.
+     * See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`.
      */
     transfer(
-      recipient: string,
+      to: string,
       amount: number | string | BN
     ): NonPayableTransactionObject<boolean>;
 
@@ -88,7 +88,7 @@ export interface ERC20 extends BaseContract {
     ): NonPayableTransactionObject<string>;
 
     /**
-     * See {IERC20-approve}. Requirements: - `spender` cannot be the zero address.
+     * See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.
      */
     approve(
       spender: string,
@@ -96,11 +96,11 @@ export interface ERC20 extends BaseContract {
     ): NonPayableTransactionObject<boolean>;
 
     /**
-     * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`.
+     * See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`.
      */
     transferFrom(
-      sender: string,
-      recipient: string,
+      from: string,
+      to: string,
       amount: number | string | BN
     ): NonPayableTransactionObject<boolean>;
 

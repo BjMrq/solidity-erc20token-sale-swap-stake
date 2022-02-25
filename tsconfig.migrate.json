@@ -21,6 +21,7 @@
     ]
   },
   "include": [
-    "./contracts/migrations/**/*.ts"
+    "./contracts/migrations/**/*.ts",
+    "./contracts/helpers/**/*.ts"
   ],
 }

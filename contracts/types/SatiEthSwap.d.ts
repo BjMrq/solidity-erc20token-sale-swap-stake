@@ -120,7 +120,7 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  getAmountOfSatiFromSwapToken: {
+  getAmountOfSatiFromPairedToken: {
     (
       _weiAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -139,26 +139,26 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapSwapTokenForSati: {
+  swapPairedTokenForSati: {
     (
-      _swapTokenAmount: number | BN | string,
+      _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _swapTokenAmount: number | BN | string,
+      _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _swapTokenAmount: number | BN | string,
+      _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _swapTokenAmount: number | BN | string,
+      _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  getNumberOfSwapTokenFromSati: {
+  getNumberOfPairedTokenFromSati: {
     (
       _satiAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -177,7 +177,7 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapSatiForSwapToken: {
+  swapSatiForPairedToken: {
     (
       _satiTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -256,7 +256,7 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    getAmountOfSatiFromSwapToken: {
+    getAmountOfSatiFromPairedToken: {
       (
         _weiAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -275,26 +275,26 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    swapSwapTokenForSati: {
+    swapPairedTokenForSati: {
       (
-        _swapTokenAmount: number | BN | string,
+        _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _swapTokenAmount: number | BN | string,
+        _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _swapTokenAmount: number | BN | string,
+        _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _swapTokenAmount: number | BN | string,
+        _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
-    getNumberOfSwapTokenFromSati: {
+    getNumberOfPairedTokenFromSati: {
       (
         _satiAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -313,7 +313,7 @@ export interface SatiEthSwapInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    swapSatiForSwapToken: {
+    swapSatiForPairedToken: {
       (
         _satiTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails

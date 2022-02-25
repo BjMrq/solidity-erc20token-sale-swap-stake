@@ -7,6 +7,7 @@ import { CrowdsaleContract } from "./Crowdsale";
 import { ERC20Contract } from "./ERC20";
 import { ERC20BurnableContract } from "./ERC20Burnable";
 import { ERC20PresetFixedSupplyContract } from "./ERC20PresetFixedSupply";
+import { FaucetContract } from "./Faucet";
 import { IERC20Contract } from "./IERC20";
 import { IERC20MetadataContract } from "./IERC20Metadata";
 import { ISatiSwapableContract } from "./ISatiSwapable";
@@ -16,8 +17,9 @@ import { MockERC20TokenContract } from "./MockERC20Token";
 import { MockV3AggregatorContract } from "./MockV3Aggregator";
 import { OwnableContract } from "./Ownable";
 import { RatableContract } from "./Ratable";
+import { SatiERC20TokenSwapContract } from "./SatiERC20TokenSwap";
 import { SatiEthSwapContract } from "./SatiEthSwap";
-import { SatiSwapTokenSwapContract } from "./SatiSwapTokenSwap";
+import { SatiSwapContractFactoryContract } from "./SatiSwapContractFactory";
 import { SatiTokenContract } from "./SatiToken";
 import { SatiTokenSaleContract } from "./SatiTokenSale";
 import { SwapableContract } from "./Swapable";
@@ -30,6 +32,7 @@ declare global {
       require(name: "ERC20"): ERC20Contract;
       require(name: "ERC20Burnable"): ERC20BurnableContract;
       require(name: "ERC20PresetFixedSupply"): ERC20PresetFixedSupplyContract;
+      require(name: "Faucet"): FaucetContract;
       require(name: "IERC20"): IERC20Contract;
       require(name: "IERC20Metadata"): IERC20MetadataContract;
       require(name: "ISatiSwapable"): ISatiSwapableContract;
@@ -39,8 +42,9 @@ declare global {
       require(name: "MockV3Aggregator"): MockV3AggregatorContract;
       require(name: "Ownable"): OwnableContract;
       require(name: "Ratable"): RatableContract;
+      require(name: "SatiERC20TokenSwap"): SatiERC20TokenSwapContract;
       require(name: "SatiEthSwap"): SatiEthSwapContract;
-      require(name: "SatiSwapTokenSwap"): SatiSwapTokenSwapContract;
+      require(name: "SatiSwapContractFactory"): SatiSwapContractFactoryContract;
       require(name: "SatiToken"): SatiTokenContract;
       require(name: "SatiTokenSale"): SatiTokenSaleContract;
       require(name: "Swapable"): SwapableContract;
@@ -59,6 +63,7 @@ export {
   ERC20PresetFixedSupplyContract,
   ERC20PresetFixedSupplyInstance,
 } from "./ERC20PresetFixedSupply";
+export { FaucetContract, FaucetInstance } from "./Faucet";
 export { IERC20Contract, IERC20Instance } from "./IERC20";
 export {
   IERC20MetadataContract,
@@ -77,11 +82,15 @@ export {
 } from "./MockV3Aggregator";
 export { OwnableContract, OwnableInstance } from "./Ownable";
 export { RatableContract, RatableInstance } from "./Ratable";
+export {
+  SatiERC20TokenSwapContract,
+  SatiERC20TokenSwapInstance,
+} from "./SatiERC20TokenSwap";
 export { SatiEthSwapContract, SatiEthSwapInstance } from "./SatiEthSwap";
 export {
-  SatiSwapTokenSwapContract,
-  SatiSwapTokenSwapInstance,
-} from "./SatiSwapTokenSwap";
+  SatiSwapContractFactoryContract,
+  SatiSwapContractFactoryInstance,
+} from "./SatiSwapContractFactory";
 export { SatiTokenContract, SatiTokenInstance } from "./SatiToken";
 export { SatiTokenSaleContract, SatiTokenSaleInstance } from "./SatiTokenSale";
 export { SwapableContract, SwapableInstance } from "./Swapable";

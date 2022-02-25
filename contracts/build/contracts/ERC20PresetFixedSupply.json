@@ -12171,7 +12171,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-02-18T03:24:39.665Z",
+  "updatedAt": "2022-02-20T17:43:29.914Z",
   "devdoc": {
     "details": "{ERC20} token, including:  - Preminted initial supply  - Ability for holders to burn (destroy) their tokens  - No access control mechanism (for minting/pausing) and hence no governance This contract uses {ERC20Burnable} to include burn capabilities - head to its documentation for details. _Available since v3.4._ _Deprecated in favor of https://wizard.openzeppelin.com/[Contracts Wizard]._",
     "kind": "dev",

@@ -25,7 +25,7 @@ contract SatiEthSwap is Context, Ownable, Swapable {
         requireHasEnoughToken(satiToken, _addressToValidate, _requiredAmount);
     }
 
-    function requireHasEnoughSwapToken(
+    function requireHasEnoughPairedToken(
         address _addressToValidate,
         uint256 _requiredAmount
     ) internal view override {
@@ -39,7 +39,7 @@ contract SatiEthSwap is Context, Ownable, Swapable {
     //// Buy Sati ////
     //////////////////
 
-    function getAmountOfSatiFromSwapToken(uint256 _weiAmount)
+    function getAmountOfSatiFromPairedToken(uint256 _weiAmount)
         public
         override
         returns (uint256)
@@ -53,49 +53,51 @@ contract SatiEthSwap is Context, Ownable, Swapable {
         return tokenAmountToExchange;
     }
 
-    function swapSwapTokenForSati(uint256 _swapTokenAmount)
+    function swapPairedTokenForSati(uint256 _ERC20TokenAmount)
         external
         payable
         override
     {
-        uint256 satiTokenAmount = getAmountOfSatiFromSwapToken(
-            _swapTokenAmount
+        uint256 satiTokenAmount = getAmountOfSatiFromPairedToken(
+            _ERC20TokenAmount
         );
 
         requireHasEnoughSati(address(this), satiTokenAmount);
-        requireHasEnoughSwapToken(address(this), _swapTokenAmount);
+        requireHasEnoughPairedToken(address(this), _ERC20TokenAmount);
 
         satiToken.transfer(_msgSender(), satiTokenAmount);
 
-        emit SwapTransfer(_msgSender(), _swapTokenAmount, satiTokenAmount);
+        emit SwapTransfer(_msgSender(), _ERC20TokenAmount, satiTokenAmount);
     }
 
     ///////////////////
     //// Sell Sati ////
     ///////////////////
 
-    function getNumberOfSwapTokenFromSati(uint256 _satiAmount)
+    function getNumberOfPairedTokenFromSati(uint256 _satiAmount)
         public
         override
         returns (uint256)
     {
-        uint256 tokenAmountToExchange = getSwapTokenAmountFromRate(_satiAmount);
+        uint256 tokenAmountToExchange = getERC20TokenAmountFromRate(
+            _satiAmount
+        );
 
         emit SwapRate("STI to ETH", _satiAmount, tokenAmountToExchange);
 
         return tokenAmountToExchange;
     }
 
-    function swapSatiForSwapToken(uint256 _satiTokenAmount)
+    function swapSatiForPairedToken(uint256 _satiTokenAmount)
         external
         payable
         override
     {
         requireHasEnoughSati(_msgSender(), _satiTokenAmount);
 
-        uint256 weiAmount = getNumberOfSwapTokenFromSati(_satiTokenAmount);
+        uint256 weiAmount = getNumberOfPairedTokenFromSati(_satiTokenAmount);
 
-        requireHasEnoughSwapToken(address(_msgSender()), weiAmount);
+        requireHasEnoughPairedToken(address(_msgSender()), weiAmount);
 
         satiToken.transferFrom(_msgSender(), address(this), _satiTokenAmount);
 

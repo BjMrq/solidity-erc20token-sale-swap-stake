@@ -9,11 +9,18 @@ const nameAccounts = (accounts) => ({
     swapSatiBuyerAccount: accounts[4],
     swapEthBuyerAccount: accounts[5],
     swapRateBuyerAccount: accounts[5],
+    swapERC20TokenBuyerAccount: accounts[6],
+    faucetProviderAccount: accounts[7],
+    maliciousAccount: accounts[7],
 });
 exports.nameAccounts = nameAccounts;
-const foundAccountFrom = (accounts) => async (satiTokenInstance, { accountToFound, amount, }) => {
-    await satiTokenInstance.transfer(accountToFound, amount, {
-        from: accounts[0],
+const foundAccountFrom = (accounts) => async (tokenInstance, { accountToFound, amount, }) => {
+    const { deployerAccount } = (0, exports.nameAccounts)(accounts);
+    await tokenInstance.approve(deployerAccount, amount, {
+        from: deployerAccount,
+    });
+    await tokenInstance.transferFrom(deployerAccount, accountToFound, amount, {
+        from: deployerAccount,
     });
 };
 exports.foundAccountFrom = foundAccountFrom;

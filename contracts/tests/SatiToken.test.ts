@@ -1,5 +1,5 @@
 import { SatiTokenInstance } from "../types";
-import { foundAccountFrom, nameAccounts } from "./helpers/founding";
+import { foundAccountFrom, nameAccounts } from "../helpers/founding";
 
 const SatiToken = artifacts.require("SatiToken");
 

@@ -10,25 +10,28 @@ abstract contract ISatiSwapable {
         uint256 _requiredAmount
     ) internal view virtual;
 
-    function requireHasEnoughSwapToken(
+    function requireHasEnoughPairedToken(
         address _addressToValidate,
         uint256 _requiredAmount
     ) internal view virtual;
 
-    function getAmountOfSatiFromSwapToken(uint256 _swapTokenAmount)
+    function getAmountOfSatiFromPairedToken(uint256 _ERC20TokenAmount)
         public
         virtual
         returns (uint256);
 
-    function swapSwapTokenForSati(uint256 _swapTokenAmount)
+    function swapPairedTokenForSati(uint256 _ERC20TokenAmount)
         external
         payable
         virtual;
 
-    function getNumberOfSwapTokenFromSati(uint256 _satiAmount)
+    function getNumberOfPairedTokenFromSati(uint256 _satiAmount)
         public
         virtual
         returns (uint256);
 
-    function swapSatiForSwapToken(uint256 _satiAmount) external payable virtual;
+    function swapSatiForPairedToken(uint256 _satiAmount)
+        external
+        payable
+        virtual;
 }

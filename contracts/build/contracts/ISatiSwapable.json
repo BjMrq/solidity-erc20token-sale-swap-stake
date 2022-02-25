@@ -5,11 +5,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_swapTokenAmount",
+          "name": "_ERC20TokenAmount",
           "type": "uint256"
         }
       ],
-      "name": "getAmountOfSatiFromSwapToken",
+      "name": "getAmountOfSatiFromPairedToken",
       "outputs": [
         {
           "internalType": "uint256",
@@ -24,11 +24,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_swapTokenAmount",
+          "name": "_ERC20TokenAmount",
           "type": "uint256"
         }
       ],
-      "name": "swapSwapTokenForSati",
+      "name": "swapPairedTokenForSati",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
@@ -41,7 +41,7 @@
           "type": "uint256"
         }
       ],
-      "name": "getNumberOfSwapTokenFromSati",
+      "name": "getNumberOfPairedTokenFromSati",
       "outputs": [
         {
           "internalType": "uint256",
@@ -60,13 +60,13 @@
           "type": "uint256"
         }
       ],
-      "name": "swapSatiForSwapToken",
+      "name": "swapSatiForPairedToken",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_swapTokenAmount\",\"type\":\"uint256\"}],\"name\":\"getAmountOfSatiFromSwapToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"getNumberOfSwapTokenFromSati\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"swapSatiForSwapToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_swapTokenAmount\",\"type\":\"uint256\"}],\"name\":\"swapSwapTokenForSati\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/ISatiSwapable.sol\":\"ISatiSwapable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0xf2b6c9adb3552254df1445b73563cf014434ff5e78663e9b961b6c059506ceb5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c1f59e0c7334c22fb54288728fc32546bdc9c8133d6db0d60223e3c28f52120\",\"dweb:/ipfs/QmeuxawUVBhMWQJXaEhhnubCTc4Jwn5wYK8gbhq6NjrpfG\"]},\"project:/contracts/source/ISatiSwapable.sol\":{\"keccak256\":\"0x5ff160f34fa2a6abaa8c4f8742bec81f41ff06d82a0a2071174d6d29d29ad117\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9eced1caf0cd633d604827bec95ffca426f2f8b27ce868b3d964dede34a9a162\",\"dweb:/ipfs/QmdsWFyYpQHnnPgxGN8ejY5BmBbUC6y2bPtr16KwMyG88Q\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"getAmountOfSatiFromPairedToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"getNumberOfPairedTokenFromSati\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"swapPairedTokenForSati\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"swapSatiForPairedToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/ISatiSwapable.sol\":\"ISatiSwapable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0xf2b6c9adb3552254df1445b73563cf014434ff5e78663e9b961b6c059506ceb5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c1f59e0c7334c22fb54288728fc32546bdc9c8133d6db0d60223e3c28f52120\",\"dweb:/ipfs/QmeuxawUVBhMWQJXaEhhnubCTc4Jwn5wYK8gbhq6NjrpfG\"]},\"project:/contracts/source/ISatiSwapable.sol\":{\"keccak256\":\"0x95173fbae3c1bdff41474dd099d9749968f12d69d333dba8fc78593fea3e0f71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5fa044d4aa8728003337b1959413e7d965c1f0bce744bd1e659121bc628df63e\",\"dweb:/ipfs/Qme4aueEYAZvUWDAsDiCMHXrD35ya3waeKw3MQNDTTudmC\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -74,7 +74,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\nabstract contract ISatiSwapable {\n    function requireHasEnoughSati(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function requireHasEnoughSwapToken(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function getAmountOfSatiFromSwapToken(uint256 _swapTokenAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapSwapTokenForSati(uint256 _swapTokenAmount)\n        external\n        payable\n        virtual;\n\n    function getNumberOfSwapTokenFromSati(uint256 _satiAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapSatiForSwapToken(uint256 _satiAmount) external payable virtual;\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\nabstract contract ISatiSwapable {\n    function requireHasEnoughSati(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function requireHasEnoughPairedToken(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function getAmountOfSatiFromPairedToken(uint256 _ERC20TokenAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapPairedTokenForSati(uint256 _ERC20TokenAmount)\n        external\n        payable\n        virtual;\n\n    function getNumberOfPairedTokenFromSati(uint256 _satiAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapSatiForPairedToken(uint256 _satiAmount)\n        external\n        payable\n        virtual;\n}\n",
   "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/ISatiSwapable.sol",
   "ast": {
     "absolutePath": "project:/contracts/source/ISatiSwapable.sol",
@@ -83,15 +83,15 @@
         45
       ],
       "ISatiSwapable": [
-        2077
+        905
       ]
     },
-    "id": 2078,
+    "id": 906,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2037,
+        "id": 865,
         "literals": [
           "solidity",
           "^",
@@ -99,17 +99,17 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:11"
+        "src": "33:24:6"
       },
       {
         "absolutePath": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
         "file": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
-        "id": 2038,
+        "id": 866,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2078,
+        "scope": 906,
         "sourceUnit": 46,
-        "src": "59:76:11",
+        "src": "59:76:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -120,35 +120,35 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
-        "id": 2077,
+        "id": 905,
         "linearizedBaseContracts": [
-          2077
+          905
         ],
         "name": "ISatiSwapable",
-        "nameLocation": "155:13:11",
+        "nameLocation": "155:13:6",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 2045,
+            "id": 873,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "requireHasEnoughSati",
-            "nameLocation": "184:20:11",
+            "nameLocation": "184:20:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2043,
+              "id": 871,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2040,
+                  "id": 868,
                   "mutability": "mutable",
                   "name": "_addressToValidate",
-                  "nameLocation": "222:18:11",
+                  "nameLocation": "222:18:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2045,
-                  "src": "214:26:11",
+                  "scope": 873,
+                  "src": "214:26:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -156,10 +156,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2039,
+                    "id": 867,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "214:7:11",
+                    "src": "214:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -170,13 +170,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2042,
+                  "id": 870,
                   "mutability": "mutable",
                   "name": "_requiredAmount",
-                  "nameLocation": "258:15:11",
+                  "nameLocation": "258:15:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2045,
-                  "src": "250:23:11",
+                  "scope": 873,
+                  "src": "250:23:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -184,10 +184,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2041,
+                    "id": 869,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "250:7:11",
+                    "src": "250:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -196,41 +196,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "204:75:11"
+              "src": "204:75:6"
             },
             "returnParameters": {
-              "id": 2044,
+              "id": 872,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "301:0:11"
+              "src": "301:0:6"
             },
-            "scope": 2077,
-            "src": "175:127:11",
+            "scope": 905,
+            "src": "175:127:6",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           },
           {
-            "id": 2052,
+            "id": 880,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughSwapToken",
-            "nameLocation": "317:25:11",
+            "name": "requireHasEnoughPairedToken",
+            "nameLocation": "317:27:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2050,
+              "id": 878,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2047,
+                  "id": 875,
                   "mutability": "mutable",
                   "name": "_addressToValidate",
-                  "nameLocation": "360:18:11",
+                  "nameLocation": "362:18:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2052,
-                  "src": "352:26:11",
+                  "scope": 880,
+                  "src": "354:26:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -238,10 +238,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2046,
+                    "id": 874,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "352:7:11",
+                    "src": "354:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -252,13 +252,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2049,
+                  "id": 877,
                   "mutability": "mutable",
                   "name": "_requiredAmount",
-                  "nameLocation": "396:15:11",
+                  "nameLocation": "398:15:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2052,
-                  "src": "388:23:11",
+                  "scope": 880,
+                  "src": "390:23:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -266,10 +266,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2048,
+                    "id": 876,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "388:7:11",
+                    "src": "390:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -278,42 +278,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "342:75:11"
+              "src": "344:75:6"
             },
             "returnParameters": {
-              "id": 2051,
+              "id": 879,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "439:0:11"
+              "src": "441:0:6"
             },
-            "scope": 2077,
-            "src": "308:132:11",
+            "scope": 905,
+            "src": "308:134:6",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           },
           {
-            "functionSelector": "055386e3",
-            "id": 2059,
+            "functionSelector": "1dda1a82",
+            "id": 887,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getAmountOfSatiFromSwapToken",
-            "nameLocation": "455:28:11",
+            "name": "getAmountOfSatiFromPairedToken",
+            "nameLocation": "457:30:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2055,
+              "id": 883,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2054,
+                  "id": 882,
                   "mutability": "mutable",
-                  "name": "_swapTokenAmount",
-                  "nameLocation": "492:16:11",
+                  "name": "_ERC20TokenAmount",
+                  "nameLocation": "496:17:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2059,
-                  "src": "484:24:11",
+                  "scope": 887,
+                  "src": "488:25:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -321,10 +321,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2053,
+                    "id": 881,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "484:7:11",
+                    "src": "488:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -333,21 +333,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "483:26:11"
+              "src": "487:27:6"
             },
             "returnParameters": {
-              "id": 2058,
+              "id": 886,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2057,
+                  "id": 885,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2059,
-                  "src": "558:7:11",
+                  "scope": 887,
+                  "src": "563:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -355,10 +355,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2056,
+                    "id": 884,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "558:7:11",
+                    "src": "563:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -367,36 +367,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "557:9:11"
+              "src": "562:9:6"
             },
-            "scope": 2077,
-            "src": "446:121:11",
+            "scope": 905,
+            "src": "448:124:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
           },
           {
-            "functionSelector": "8907f80d",
-            "id": 2064,
+            "functionSelector": "f0b58706",
+            "id": 892,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSwapTokenForSati",
-            "nameLocation": "582:20:11",
+            "name": "swapPairedTokenForSati",
+            "nameLocation": "587:22:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2062,
+              "id": 890,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2061,
+                  "id": 889,
                   "mutability": "mutable",
-                  "name": "_swapTokenAmount",
-                  "nameLocation": "611:16:11",
+                  "name": "_ERC20TokenAmount",
+                  "nameLocation": "618:17:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2064,
-                  "src": "603:24:11",
+                  "scope": 892,
+                  "src": "610:25:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -404,10 +404,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2060,
+                    "id": 888,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "603:7:11",
+                    "src": "610:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -416,42 +416,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "602:26:11"
+              "src": "609:27:6"
             },
             "returnParameters": {
-              "id": 2063,
+              "id": 891,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "677:0:11"
+              "src": "685:0:6"
             },
-            "scope": 2077,
-            "src": "573:105:11",
+            "scope": 905,
+            "src": "578:108:6",
             "stateMutability": "payable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "functionSelector": "7a1b7be6",
-            "id": 2071,
+            "functionSelector": "c94e8204",
+            "id": 899,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getNumberOfSwapTokenFromSati",
-            "nameLocation": "693:28:11",
+            "name": "getNumberOfPairedTokenFromSati",
+            "nameLocation": "701:30:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2067,
+              "id": 895,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2066,
+                  "id": 894,
                   "mutability": "mutable",
                   "name": "_satiAmount",
-                  "nameLocation": "730:11:11",
+                  "nameLocation": "740:11:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2071,
-                  "src": "722:19:11",
+                  "scope": 899,
+                  "src": "732:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -459,10 +459,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2065,
+                    "id": 893,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "722:7:11",
+                    "src": "732:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -471,21 +471,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "721:21:11"
+              "src": "731:21:6"
             },
             "returnParameters": {
-              "id": 2070,
+              "id": 898,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2069,
+                  "id": 897,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2071,
-                  "src": "791:7:11",
+                  "scope": 899,
+                  "src": "801:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -493,10 +493,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2068,
+                    "id": 896,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "791:7:11",
+                    "src": "801:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -505,36 +505,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "790:9:11"
+              "src": "800:9:6"
             },
-            "scope": 2077,
-            "src": "684:116:11",
+            "scope": 905,
+            "src": "692:118:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
           },
           {
-            "functionSelector": "7f9d055b",
-            "id": 2076,
+            "functionSelector": "3561b7df",
+            "id": 904,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSatiForSwapToken",
-            "nameLocation": "815:20:11",
+            "name": "swapSatiForPairedToken",
+            "nameLocation": "825:22:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2074,
+              "id": 902,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2073,
+                  "id": 901,
                   "mutability": "mutable",
                   "name": "_satiAmount",
-                  "nameLocation": "844:11:11",
+                  "nameLocation": "856:11:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2076,
-                  "src": "836:19:11",
+                  "scope": 904,
+                  "src": "848:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -542,10 +542,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2072,
+                    "id": 900,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "836:7:11",
+                    "src": "848:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -554,27 +554,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "835:21:11"
+              "src": "847:21:6"
             },
             "returnParameters": {
-              "id": 2075,
+              "id": 903,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "881:0:11"
+              "src": "917:0:6"
             },
-            "scope": 2077,
-            "src": "806:76:11",
+            "scope": 905,
+            "src": "816:102:6",
             "stateMutability": "payable",
             "virtual": true,
             "visibility": "external"
           }
         ],
-        "scope": 2078,
-        "src": "137:747:11",
+        "scope": 906,
+        "src": "137:783:6",
         "usedErrors": []
       }
     ],
-    "src": "33:852:11"
+    "src": "33:888:6"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/source/ISatiSwapable.sol",
@@ -583,15 +583,15 @@
         45
       ],
       "ISatiSwapable": [
-        2077
+        905
       ]
     },
-    "id": 2078,
+    "id": 906,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2037,
+        "id": 865,
         "literals": [
           "solidity",
           "^",
@@ -599,17 +599,17 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:11"
+        "src": "33:24:6"
       },
       {
         "absolutePath": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
         "file": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
-        "id": 2038,
+        "id": 866,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2078,
+        "scope": 906,
         "sourceUnit": 46,
-        "src": "59:76:11",
+        "src": "59:76:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -620,35 +620,35 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
-        "id": 2077,
+        "id": 905,
         "linearizedBaseContracts": [
-          2077
+          905
         ],
         "name": "ISatiSwapable",
-        "nameLocation": "155:13:11",
+        "nameLocation": "155:13:6",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 2045,
+            "id": 873,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "requireHasEnoughSati",
-            "nameLocation": "184:20:11",
+            "nameLocation": "184:20:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2043,
+              "id": 871,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2040,
+                  "id": 868,
                   "mutability": "mutable",
                   "name": "_addressToValidate",
-                  "nameLocation": "222:18:11",
+                  "nameLocation": "222:18:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2045,
-                  "src": "214:26:11",
+                  "scope": 873,
+                  "src": "214:26:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -656,10 +656,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2039,
+                    "id": 867,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "214:7:11",
+                    "src": "214:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -670,13 +670,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2042,
+                  "id": 870,
                   "mutability": "mutable",
                   "name": "_requiredAmount",
-                  "nameLocation": "258:15:11",
+                  "nameLocation": "258:15:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2045,
-                  "src": "250:23:11",
+                  "scope": 873,
+                  "src": "250:23:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -684,10 +684,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2041,
+                    "id": 869,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "250:7:11",
+                    "src": "250:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -696,41 +696,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "204:75:11"
+              "src": "204:75:6"
             },
             "returnParameters": {
-              "id": 2044,
+              "id": 872,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "301:0:11"
+              "src": "301:0:6"
             },
-            "scope": 2077,
-            "src": "175:127:11",
+            "scope": 905,
+            "src": "175:127:6",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           },
           {
-            "id": 2052,
+            "id": 880,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughSwapToken",
-            "nameLocation": "317:25:11",
+            "name": "requireHasEnoughPairedToken",
+            "nameLocation": "317:27:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2050,
+              "id": 878,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2047,
+                  "id": 875,
                   "mutability": "mutable",
                   "name": "_addressToValidate",
-                  "nameLocation": "360:18:11",
+                  "nameLocation": "362:18:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2052,
-                  "src": "352:26:11",
+                  "scope": 880,
+                  "src": "354:26:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -738,10 +738,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2046,
+                    "id": 874,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "352:7:11",
+                    "src": "354:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -752,13 +752,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2049,
+                  "id": 877,
                   "mutability": "mutable",
                   "name": "_requiredAmount",
-                  "nameLocation": "396:15:11",
+                  "nameLocation": "398:15:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2052,
-                  "src": "388:23:11",
+                  "scope": 880,
+                  "src": "390:23:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -766,10 +766,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2048,
+                    "id": 876,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "388:7:11",
+                    "src": "390:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -778,42 +778,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "342:75:11"
+              "src": "344:75:6"
             },
             "returnParameters": {
-              "id": 2051,
+              "id": 879,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "439:0:11"
+              "src": "441:0:6"
             },
-            "scope": 2077,
-            "src": "308:132:11",
+            "scope": 905,
+            "src": "308:134:6",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           },
           {
-            "functionSelector": "055386e3",
-            "id": 2059,
+            "functionSelector": "1dda1a82",
+            "id": 887,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getAmountOfSatiFromSwapToken",
-            "nameLocation": "455:28:11",
+            "name": "getAmountOfSatiFromPairedToken",
+            "nameLocation": "457:30:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2055,
+              "id": 883,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2054,
+                  "id": 882,
                   "mutability": "mutable",
-                  "name": "_swapTokenAmount",
-                  "nameLocation": "492:16:11",
+                  "name": "_ERC20TokenAmount",
+                  "nameLocation": "496:17:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2059,
-                  "src": "484:24:11",
+                  "scope": 887,
+                  "src": "488:25:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -821,10 +821,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2053,
+                    "id": 881,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "484:7:11",
+                    "src": "488:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -833,21 +833,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "483:26:11"
+              "src": "487:27:6"
             },
             "returnParameters": {
-              "id": 2058,
+              "id": 886,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2057,
+                  "id": 885,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2059,
-                  "src": "558:7:11",
+                  "scope": 887,
+                  "src": "563:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -855,10 +855,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2056,
+                    "id": 884,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "558:7:11",
+                    "src": "563:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -867,36 +867,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "557:9:11"
+              "src": "562:9:6"
             },
-            "scope": 2077,
-            "src": "446:121:11",
+            "scope": 905,
+            "src": "448:124:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
           },
           {
-            "functionSelector": "8907f80d",
-            "id": 2064,
+            "functionSelector": "f0b58706",
+            "id": 892,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSwapTokenForSati",
-            "nameLocation": "582:20:11",
+            "name": "swapPairedTokenForSati",
+            "nameLocation": "587:22:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2062,
+              "id": 890,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2061,
+                  "id": 889,
                   "mutability": "mutable",
-                  "name": "_swapTokenAmount",
-                  "nameLocation": "611:16:11",
+                  "name": "_ERC20TokenAmount",
+                  "nameLocation": "618:17:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2064,
-                  "src": "603:24:11",
+                  "scope": 892,
+                  "src": "610:25:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -904,10 +904,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2060,
+                    "id": 888,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "603:7:11",
+                    "src": "610:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -916,42 +916,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "602:26:11"
+              "src": "609:27:6"
             },
             "returnParameters": {
-              "id": 2063,
+              "id": 891,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "677:0:11"
+              "src": "685:0:6"
             },
-            "scope": 2077,
-            "src": "573:105:11",
+            "scope": 905,
+            "src": "578:108:6",
             "stateMutability": "payable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "functionSelector": "7a1b7be6",
-            "id": 2071,
+            "functionSelector": "c94e8204",
+            "id": 899,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getNumberOfSwapTokenFromSati",
-            "nameLocation": "693:28:11",
+            "name": "getNumberOfPairedTokenFromSati",
+            "nameLocation": "701:30:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2067,
+              "id": 895,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2066,
+                  "id": 894,
                   "mutability": "mutable",
                   "name": "_satiAmount",
-                  "nameLocation": "730:11:11",
+                  "nameLocation": "740:11:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2071,
-                  "src": "722:19:11",
+                  "scope": 899,
+                  "src": "732:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -959,10 +959,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2065,
+                    "id": 893,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "722:7:11",
+                    "src": "732:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -971,21 +971,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "721:21:11"
+              "src": "731:21:6"
             },
             "returnParameters": {
-              "id": 2070,
+              "id": 898,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2069,
+                  "id": 897,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2071,
-                  "src": "791:7:11",
+                  "scope": 899,
+                  "src": "801:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -993,10 +993,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2068,
+                    "id": 896,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "791:7:11",
+                    "src": "801:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1005,36 +1005,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "790:9:11"
+              "src": "800:9:6"
             },
-            "scope": 2077,
-            "src": "684:116:11",
+            "scope": 905,
+            "src": "692:118:6",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
           },
           {
-            "functionSelector": "7f9d055b",
-            "id": 2076,
+            "functionSelector": "3561b7df",
+            "id": 904,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSatiForSwapToken",
-            "nameLocation": "815:20:11",
+            "name": "swapSatiForPairedToken",
+            "nameLocation": "825:22:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2074,
+              "id": 902,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2073,
+                  "id": 901,
                   "mutability": "mutable",
                   "name": "_satiAmount",
-                  "nameLocation": "844:11:11",
+                  "nameLocation": "856:11:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2076,
-                  "src": "836:19:11",
+                  "scope": 904,
+                  "src": "848:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1042,10 +1042,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2072,
+                    "id": 900,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "836:7:11",
+                    "src": "848:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1054,27 +1054,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "835:21:11"
+              "src": "847:21:6"
             },
             "returnParameters": {
-              "id": 2075,
+              "id": 903,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "881:0:11"
+              "src": "917:0:6"
             },
-            "scope": 2077,
-            "src": "806:76:11",
+            "scope": 905,
+            "src": "816:102:6",
             "stateMutability": "payable",
             "virtual": true,
             "visibility": "external"
           }
         ],
-        "scope": 2078,
-        "src": "137:747:11",
+        "scope": 906,
+        "src": "137:783:6",
         "usedErrors": []
       }
     ],
-    "src": "33:852:11"
+    "src": "33:888:6"
   },
   "compiler": {
     "name": "solc",
@@ -1082,7 +1082,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-02-18T03:29:57.882Z",
+  "updatedAt": "2022-02-25T00:20:53.233Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

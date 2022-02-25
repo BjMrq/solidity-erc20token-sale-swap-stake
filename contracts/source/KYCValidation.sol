@@ -2,9 +2,7 @@
 
 pragma solidity ^0.8.11;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract KYCValidation is Ownable {
+contract KYCValidation {
     mapping(address => bool) public KYCCompletedRegistry;
 
     function seKYCCompletedFor(address _userAddress) external {

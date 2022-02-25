@@ -1,6 +1,6 @@
 import { assert } from "chai";
-import { nameAccounts } from "./helpers/founding";
-import { toUnit } from "./helpers/utils";
+import { nameAccounts } from "../helpers/founding";
+import { toUnit } from "../helpers/utils";
 
 const SatiToken = artifacts.require("SatiToken");
 const SatiTokenSale = artifacts.require("SatiTokenSale");

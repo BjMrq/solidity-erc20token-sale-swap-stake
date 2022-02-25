@@ -41,18 +41,18 @@ abstract contract Swapable is Ratable, Utils, ISatiSwapable {
         return _tokenToCheckBalanceOf.balanceOf(address(this));
     }
 
-    function getSatiTokenAmountForFromRate(uint256 _swapTokenAmount)
+    function getSatiTokenAmountForFromRate(uint256 _ERC20TokenAmount)
         internal
         returns (uint256)
     {
         int256 exchangeRate = getScaledRate(precisionDecimals);
 
         return
-            scaleTokenForMultiplication(_swapTokenAmount, precisionDecimals) *
+            scaleTokenForMultiplication(_ERC20TokenAmount, precisionDecimals) *
             uint256(exchangeRate);
     }
 
-    function getSwapTokenAmountFromRate(uint256 _satiAmount)
+    function getERC20TokenAmountFromRate(uint256 _satiAmount)
         internal
         returns (uint256)
     {
