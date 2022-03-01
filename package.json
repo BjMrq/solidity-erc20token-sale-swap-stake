@@ -6,15 +6,16 @@
   "scripts": {
     "postinstall": "truffle compile && yarn generate-types",
     "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types 'contracts/build/contracts/*.json'",
-    "compile": "truffle compile && yarn generate-types",
+    "compile": "truffle compile",
     "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset",
     "new-contracts": "npm run compile && npm run migrate",
-    "reset": "npm run compile && npm run migrate-reset",
+    "fresh": "npm run compile && generate-types && npm run migrate",
     "test": "rimraf ./contracts/build/tests && tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test ",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.0",
+    "@metamask/detect-provider": "^1.2.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@truffle/hdwallet-provider": "^2.0.3",
     "dotenv": "^16.0.0",

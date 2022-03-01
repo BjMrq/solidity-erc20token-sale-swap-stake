@@ -1,25 +1,17 @@
 import React from 'react';
 import './App.css';
-import logo from "./logo.svg";
+import { Web3Root } from "./components/Web3Root/Web3Root";
+import Web3ContextProvider from "./contexts/web3";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to explode.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Web3ContextProvider><div className="App">
+      <header className="App-body">
+        <Web3Root/>
       </header>
-    </div>
+    </div></Web3ContextProvider>
   );
 }
 

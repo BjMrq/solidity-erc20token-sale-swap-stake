@@ -18,12 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "contract/*": [
-        "../contracts/build/contracts/*"
-      ]
-    },
+    "jsx": "react-jsx"
   },
   "include": [
     "src"

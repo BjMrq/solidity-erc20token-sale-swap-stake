@@ -16,10 +16,10 @@ contract Faucet {
             block.timestamp > lockTime[msg.sender],
             "Lock time has not expired, please try again later"
         );
-        require(
-            _beneficiary.balance <= 0.2 ether,
-            "You already have enough ether to play around with"
-        );
+        // require(
+        //     _beneficiary.balance <= 0.2 ether,
+        //     "You already have enough ether to play around with"
+        // );
         require(
             address(this).balance >= faucetDistribution,
             "Faucet is dry, consider sending some ether to it"

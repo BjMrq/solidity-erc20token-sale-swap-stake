@@ -6,7 +6,7 @@ module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
   contracts_directory: "./contracts/source",
-  contracts_build_directory: "./contracts/build/contracts",
+  contracts_build_directory: "./contracts/build/abis",
   test_directory: "./contracts/build/tests/tests",
   migrations_directory: "./contracts/build/migrations/migrations",
   compilers: {
@@ -28,12 +28,12 @@ module.exports = {
     ganache_local: {
       provider() {
         return new HDWalletProvider(
-          process.env.MNEMONIC,
+          process.env.LOCAL_MNEMONIC,
           "http://127.0.0.1:8545",
           0
         );
       },
-      network_id: "5777",
+      network_id: "1337",
     },
   },
 };
