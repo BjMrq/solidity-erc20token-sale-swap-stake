@@ -5,89 +5,55 @@ import React, {
   ReactElement, useEffect, useRef, useState
 } from "react";
 import Web3 from "web3";
-import { AbiItem } from "web3-utils";
-import { Faucet } from "../contracts/types/Faucet";
-import FaucetAbi from "../contracts/abis/Faucet.json";
-import { stringFromHexadecimalNumber } from "../utils";
-
-type EthereumAvailableGuard = <TCallback extends (...args: any) => any>(web3Callback: TCallback) => (...callbackArgs: any[]) => ReturnType<TCallback>
-
-type AbiWithNetworks = {networks: Record<string, {address: string}>, abi: AbiItem[]};
-export type DeployedNetwork = "1337"
+import { Faucet } from "../../contracts/types/Faucet";
+import FaucetAbi from "../../contracts/abis/Faucet.json";
+import { stringFromHexadecimalNumber } from "../../utils";
+import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFunctions, InitWeb3 } from "./types";
 
 
 //State
-const initialInfoState = {
+const initialWeb3ContextState = {
   connected: false,
   currentAccount: "",
-  contractsDeployedOnCurrentChain: false
+  contractsDeployedOnCurrentChain: false,
+  web3Instance: new Web3(),
+  contracts : {faucetContract: {} as Faucet}
 };
 
-const initialContractState = {
-  faucetContract: {} as Faucet
-}
-
-const initialWeb3Instance = {
-  web3Instance: new Web3()
-}
-
-//Functions
-type InitWeb3 = () => Promise<void>
-
-type Web3ContextFunctions = {
-  initWeb3: InitWeb3
-}
 
 //Merge
-type Web3ContextState = typeof initialInfoState & typeof initialContractState & typeof initialWeb3Instance;
+type Web3ContextState = typeof initialWeb3ContextState;
 
 type Web3ContextType = Web3ContextState & Web3ContextFunctions;
 
 //Context
 export const Web3Context = createContext<Web3ContextType>(
   //@ts-expect-error since we are not defining functions
-  {...initialInfoState, ...initialContractState} as Web3ContextState
+  initialWeb3ContextState as Web3ContextState
 );
 
 
-const useEffectOnlyOnUpdate = (callback: any, dependencies: any[]) => {
-  const didMount = React.useRef(false);
-
-  React.useEffect(() => {
-
-    (async () => {
-     
-      if (didMount.current) {
-        callback(dependencies);
-      } else {
-        didMount.current = true;
-      }
-    }
-    )();
-  }, [callback, dependencies]);
-};
-
+const ifEthereumAvailableDo: EthereumAvailableGuard = (web3Callback: any) => (...callbackArgs: any[]) => {
+  try {
+    if(window.ethereum !== undefined) return web3Callback(...callbackArgs);
+    console.error("Ethereum is not available on the window");
+  } catch {
+    console.error("There where a problem with web3");
+  }
+}
 
 //Provider
 export default function Web3ContextProvider({
   children,
 }: InferProps<typeof Web3ContextProvider.propTypes>): ReactElement {
-  const ifEthereumAvailableDo: EthereumAvailableGuard = (web3Callback: any) => (...callbackArgs: any[]) => {
-    try {
-      if(window.ethereum !== undefined) return web3Callback(...callbackArgs);
-      console.error("Ethereum is not available on the window");
-    } catch {
-      console.error("There where a problem with web3");
-    }
-  }
-
-  const [web3ContractsState, setWeb3ContractsState] = useState<typeof initialContractState>(initialContractState);
+  
+  const [web3ContractsState, setWeb3ContractsState] = useState<Web3ContextState["contracts"]>(initialWeb3ContextState.contracts);
   const [mainAccount, setMainAccount] = useState("");
 
   const web3InstanceRef = useRef(ifEthereumAvailableDo(() => new Web3(window.ethereum))());
   const [chainId, setChainId] = useState("");
 
-  const initWeb3 = ifEthereumAvailableDo(async () => {
+  const initWeb3: InitWeb3 = ifEthereumAvailableDo(async () => {
     window.ethereum.request({ method: "eth_requestAccounts" });
   })
 
@@ -147,7 +113,7 @@ export default function Web3ContextProvider({
         connected: Boolean( mainAccount),
         contractsDeployedOnCurrentChain: areContractsDeployedOnChain(chainId),
         currentAccount: mainAccount,
-        ...web3ContractsState,
+        contracts: web3ContractsState,
         initWeb3
       }}
     >

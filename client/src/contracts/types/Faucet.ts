@@ -38,7 +38,7 @@ export interface Faucet extends BaseContract {
   methods: {
     lockTime(arg0: string): NonPayableTransactionObject<string>;
 
-    makeItRain(_beneficiary: string): PayableTransactionObject<void>;
+    makeItRain(): PayableTransactionObject<void>;
   };
   events: {
     Request(cb?: Callback<Request>): EventEmitter;

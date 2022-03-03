@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Web3Context } from "../../../contexts/web3";
+import { Web3Context } from "../../../contexts/web3/context";
 
 
 export function Connect() {
