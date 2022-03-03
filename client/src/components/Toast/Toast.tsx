@@ -8,7 +8,7 @@ export function Toast(): ReactElement {
     <>
       <ToastContainer
         position="top-right"
-        autoClose={60000000}
+        autoClose={6000}
         newestOnTop
         closeOnClick
         theme="colored"

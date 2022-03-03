@@ -24,9 +24,6 @@ export const toastContractCall = async (contractFunctionToCall: PromiEvent<Trans
       },
       success: {
         render({data, closeToast, toastProps}: ToastContentProps<TransactionReceipt>){
-          //TODO create a link to scan, review toast size and display time
-          // https://kovan.etherscan.io/tx/0xc8ed5fce86c7ce0af18db5f7ef835fead4b7b6fcf20f3a8d38416d53115216e0
-          console.log("Success", data);
           return TransactionSuccessToast({closeToast, toastProps, data})
         }
       },
