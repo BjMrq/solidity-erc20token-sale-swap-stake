@@ -16,11 +16,10 @@ const LabelDiv = styled.div`
 
 const RateP = styled.div`
   margin-top: 10px;
-  /* min-width: 50vw; */
   font-size: 20px;
 `
 const LabelP = styled.div`
-  /* min-width: 50vw; */
+
 `
 
 const InputDiv = styled.div`
@@ -36,6 +35,12 @@ const InputDiv = styled.div`
 const BuyingInput = styled.input`
   height: 35px;
   border-radius: 6px 0 0 6px;
+  padding: 9px;
+  border: solid 1px #E5E5E5;
+  outline: 0;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  background: #FFFFFF;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 `
 
 
@@ -55,7 +60,7 @@ export function SatiSale() {
       </LabelDiv>
       <InputDiv>
         <BuyingInput type="number" step=".001" onChange={({target: {value}}) => setBuyingAmount(String(value))}/>
-        <Button style={{borderRadius: "0px 6px 6px 0px", height: "38px"}} onClick={buySati}>Buy</Button>
+        <Button style={{borderRadius: "0px 6px 6px 0px", height: "35px"}} onClick={buySati}>Buy</Button>
       </InputDiv>
     </SatiSaleDiv>
   );
