@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const deploy_mocks_1 = require("../helpers/deploy-mocks");
 const founding_1 = require("../helpers/founding");
 const utils_1 = require("../helpers/utils");
 const variables_1 = require("../helpers/variables");
-const deploy_mocks_1 = require("../helpers/deploy-mocks");
 const SatiToken = artifacts.require("SatiToken");
 const SatiERC20TokenSwap = artifacts.require("SatiERC20TokenSwap");
 const initialSwapTestSatiSupply = "100";
@@ -92,14 +92,21 @@ contract("SatiERC20TokenSwap", (accounts) => {
         });
         const [rateEvent, swapRateEvent, swapTransferEvent] = swapLogs;
         expect(rateEvent.event).equal("Rate");
+        //@ts-expect-error
         expect(rateEvent.args.timeStamp.toString()).equal("1");
+        //@ts-expect-error
         expect(rateEvent.args.scaledPrice.toString()).equal((0, utils_1.toUnit)(18));
         expect(swapRateEvent.event).equal("SwapRate");
+        //@ts-expect-error
         expect(swapRateEvent.args.sellingAmount.toString()).equal((0, utils_1.toUnit)(1));
+        //@ts-expect-error
         expect(swapRateEvent.args.buyingAmount.toString()).equal((0, utils_1.toUnit)(18));
         expect(swapTransferEvent.event).equal("SwapTransfer");
+        //@ts-expect-error
         expect(swapTransferEvent.args.beneficiary.toString()).equal(swapSatiBuyerAccount);
+        //@ts-expect-error
         expect(swapTransferEvent.args.amountSent.toString()).equal((0, utils_1.toUnit)(1));
+        //@ts-expect-error
         expect(swapTransferEvent.args.amountReceived.toString()).equal((0, utils_1.toUnit)(18));
     });
     it("Can not swap sati for ERC20 Token if buyer does not have enough sati", async () => {

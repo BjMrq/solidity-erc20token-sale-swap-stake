@@ -4,7 +4,6 @@
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
-    "postinstall": "truffle compile && yarn generate-types",
     "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types './contracts/build/abis/*.json'",
     "compile": "truffle compile --network ganache",
     "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset --network ganache",
