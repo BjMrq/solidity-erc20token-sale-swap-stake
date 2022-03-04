@@ -15,13 +15,11 @@
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.0",
-    "@metamask/detect-provider": "^1.2.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@truffle/hdwallet-provider": "^2.0.3",
     "dotenv": "^16.0.0",
-    "ramda": "^0.28.0",
     "rimraf": "^3.0.2",
-    "truffle": "5.5.0",
+    "truffle": "5.5.3",
     "truffle-typings": "^1.0.8",
     "typechain": "^7.0.0"
   },
