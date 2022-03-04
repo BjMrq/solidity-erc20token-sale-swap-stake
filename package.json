@@ -8,7 +8,7 @@
     "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types './contracts/build/abis/*.json'",
     "compile": "truffle compile --network ganache",
     "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset --network ganache",
-    "migrate-kovan": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --network kovan",
+    "migrate-kovan": "truffle compile --network kovan && rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --network kovan",
     "new-contracts": "npm run compile && npm run migrate",
     "fresh": "npm run compile && generate-types && npm run migrate",
     "test": "rimraf ./contracts/build/tests && tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test ",

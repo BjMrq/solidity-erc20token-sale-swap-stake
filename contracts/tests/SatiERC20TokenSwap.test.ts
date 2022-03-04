@@ -1,15 +1,14 @@
 import {
-  SatiERC20TokenSwapInstance,
-  SatiTokenInstance,
-  MockERC20TokenInstance,
-} from "../types";
+  deployERC20TokenMockWithAddressOf,
+  deployPriceFeedMockWithRateOf
+} from "../helpers/deploy-mocks";
 import { foundAccountFrom, nameAccounts } from "../helpers/founding";
 import { toToken, toUnit } from "../helpers/utils";
 import { satiTokenSupply } from "../helpers/variables";
 import {
-  deployERC20TokenMockWithAddressOf,
-  deployPriceFeedMockWithRateOf,
-} from "../helpers/deploy-mocks";
+  MockERC20TokenInstance, SatiERC20TokenSwapInstance,
+  SatiTokenInstance
+} from "../types";
 
 const SatiToken = artifacts.require("SatiToken");
 const SatiERC20TokenSwap = artifacts.require("SatiERC20TokenSwap");
@@ -161,18 +160,25 @@ contract("SatiERC20TokenSwap", (accounts) => {
     const [rateEvent, swapRateEvent, swapTransferEvent] = swapLogs;
 
     expect(rateEvent.event).equal("Rate");
+    //@ts-expect-error
     expect(rateEvent.args.timeStamp.toString()).equal("1");
+    //@ts-expect-error
     expect(rateEvent.args.scaledPrice.toString()).equal(toUnit(18));
 
     expect(swapRateEvent.event).equal("SwapRate");
+    //@ts-expect-error
     expect(swapRateEvent.args.sellingAmount.toString()).equal(toUnit(1));
+    //@ts-expect-error
     expect(swapRateEvent.args.buyingAmount.toString()).equal(toUnit(18));
 
     expect(swapTransferEvent.event).equal("SwapTransfer");
+    //@ts-expect-error
     expect(swapTransferEvent.args.beneficiary.toString()).equal(
       swapSatiBuyerAccount
     );
+    //@ts-expect-error
     expect(swapTransferEvent.args.amountSent.toString()).equal(toUnit(1));
+    //@ts-expect-error
     expect(swapTransferEvent.args.amountReceived.toString()).equal(toUnit(18));
   });
 
