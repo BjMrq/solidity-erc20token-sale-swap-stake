@@ -107,25 +107,18 @@ contract("SatiEthSwap", (accounts) => {
     const [rateEvent, swapRateEvent, swapTransferEvent] = swapLogs;
 
     expect(rateEvent.event).equal("Rate");
-    //@ts-expect-error
     expect(rateEvent.args.timeStamp.toString()).equal("1");
-    //@ts-expect-error
     expect(rateEvent.args.scaledPrice.toString()).equal(toUnit(3650));
 
     expect(swapRateEvent.event).equal("SwapRate");
-    //@ts-expect-error
     expect(swapRateEvent.args.sellingAmount.toString()).equal(toUnit(1));
-    //@ts-expect-error
     expect(swapRateEvent.args.buyingAmount.toString()).equal(toUnit(3650));
 
     expect(swapTransferEvent.event).equal("SwapTransfer");
-    //@ts-expect-error
     expect(swapTransferEvent.args.beneficiary.toString()).equal(
       swapSatiBuyerAccount
     );
-    //@ts-expect-error
     expect(swapTransferEvent.args.amountSent.toString()).equal(toUnit(1));
-    //@ts-expect-error
     expect(swapTransferEvent.args.amountReceived.toString()).equal(
       toUnit(3650)
     );
