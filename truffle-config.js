@@ -25,7 +25,7 @@ module.exports = {
       host: "127.0.0.1",
       port: 8545,
     },
-    ganache_local: {
+    ganache: {
       provider() {
         return new HDWalletProvider(
           process.env.LOCAL_MNEMONIC,
@@ -34,6 +34,16 @@ module.exports = {
         );
       },
       network_id: "1337",
+    },
+    kovan: {
+      provider() {
+        return new HDWalletProvider(
+          process.env.MNEMONIC,
+          process.env.NODE_ENDPOINT,
+          0
+        );
+      },
+      network_id: "42",
     },
   },
 };

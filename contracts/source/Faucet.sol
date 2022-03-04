@@ -9,9 +9,7 @@ contract Faucet {
 
     event Request(address _beneficiary, uint256 _balance);
 
-    function makeItRain(address payable _beneficiary) external payable {
-        emit Request(_beneficiary, _beneficiary.balance);
-
+    function makeItRain() external payable {
         require(
             block.timestamp > lockTime[msg.sender],
             "Lock time has not expired, please try again later"
@@ -25,7 +23,7 @@ contract Faucet {
             "Faucet is dry, consider sending some ether to it"
         );
 
-        _beneficiary.transfer(faucetDistribution);
+        payable(msg.sender).transfer(faucetDistribution);
 
         lockTime[msg.sender] = block.timestamp + 1 days;
     }

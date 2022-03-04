@@ -1,20 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Web3Context } from "../../../contexts/web3/context";
-import { toastContractCall } from "../../../contracts/utils/make-call";
+import { Button } from "../../shared/button";
+import styled from "styled-components";
 
+const FacetDiv = styled.div`
+  width: 100%;
+  text-align: left;
+  align-self: self-end;
+  padding-left: 20px;
+  padding-bottom: 0;
+`
+
+const FaucetCatchP = styled.p`
+  font-size: 20px
+`;
 
 export function Faucet() {
-  const { currentAccount , contracts: {faucetContract}} = useContext(Web3Context);
+  const [showButton, setShowButton] = useState(false)
+  const { toastContractSend , contracts: {faucetContract}} = useContext(Web3Context);
 
   const makeItRain = async () => {
-    await toastContractCall(faucetContract.methods.makeItRain().send({ from: currentAccount }))
-
+    await toastContractSend(faucetContract.methods.makeItRain())
   }
 
   return (
-    <div>
-      <h2>Faucet</h2>
-      <button onClick={makeItRain}>Get 0.01 Eth</button>
-    </div>
+    <FacetDiv onMouseEnter={() => setShowButton(true)}
+      onMouseLeave={() => setShowButton(false)}>
+      <FaucetCatchP >Psss.. no ETH?</FaucetCatchP>
+      {showButton && <Button style={{marginBottom: "20px"}} onClick={makeItRain}>Make it rain</Button>}
+    </FacetDiv>
   );
 }

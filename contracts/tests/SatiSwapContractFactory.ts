@@ -10,7 +10,7 @@ const SatiToken = artifacts.require("SatiToken");
 contract("SatiSwapContractFactory", (accounts: Truffle.Accounts) => {
   const { deployerAccount, maliciousAccount } = nameAccounts(accounts);
 
-  it.only("Only owner can deploy swap contract", async () => {
+  it("Only owner can deploy swap contract", async () => {
     const deployedSatiSwapContractFactory =
       await SatiSwapContractFactory.deployed();
     const deployedSatiToken = await SatiToken.deployed();

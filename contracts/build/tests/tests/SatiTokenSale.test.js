@@ -36,16 +36,16 @@ contract("SatiTokenSale", (accounts) => {
         const buyerBalance = await deployedSatiTokenInstance.balanceOf(saleBuyerAccount);
         chai_1.assert.equal(buyerBalance.toString(), "0");
     });
-    it("Sale can distribute token to buyers after KYC verification", async () => {
+    it.only("Sale can distribute token to buyers after KYC verification", async () => {
         const deployedSatiTokenInstance = await SatiToken.deployed();
         const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
         const kYCValidationInstance = await KYCValidation.deployed();
         await kYCValidationInstance.seKYCCompletedFor(saleBuyerAccount);
         await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
-            value: "100",
+            value: (0, utils_1.toUnit)("1"),
         });
         const buyerBalance = await deployedSatiTokenInstance.balanceOf(saleBuyerAccount);
-        chai_1.assert.equal(buyerBalance.toString(), "10000");
+        chai_1.assert.equal(buyerBalance.toString(), (0, utils_1.toUnit)(10));
     });
 });
 //# sourceMappingURL=SatiTokenSale.test.js.map

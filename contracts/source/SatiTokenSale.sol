@@ -10,7 +10,7 @@ contract SatiTokenSale is Crowdsale {
     KYCValidation kycValidation;
 
     constructor(
-        uint8 _fixedExchangeRate,
+        uint256 _fixedExchangeRate,
         address payable _wallet,
         IERC20 _token,
         KYCValidation _kycValidation
@@ -35,6 +35,8 @@ contract SatiTokenSale is Crowdsale {
     {
         requireHasEnoughEther(_buyer, _weiAmount);
         super._preValidatePurchase(_buyer, _weiAmount);
-        kycValidation.requireKYCCompletion(_buyer);
+
+        // Deactivated for demo
+        // kycValidation.requireKYCCompletion(_buyer);
     }
 }

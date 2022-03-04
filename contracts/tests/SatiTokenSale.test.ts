@@ -63,13 +63,13 @@ contract("SatiTokenSale", (accounts) => {
     await kYCValidationInstance.seKYCCompletedFor(saleBuyerAccount);
 
     await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
-      value: "100",
+      value: toUnit("0.01"),
     });
 
     const buyerBalance = await deployedSatiTokenInstance.balanceOf(
       saleBuyerAccount
     );
 
-    assert.equal(buyerBalance.toString(), "10000");
+    assert.equal(buyerBalance.toString(), toUnit(10));
   });
 });

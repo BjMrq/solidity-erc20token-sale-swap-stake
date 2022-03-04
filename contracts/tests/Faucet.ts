@@ -32,7 +32,7 @@ contract("Faucet", (accounts: Truffle.Accounts) => {
     await fundFaucet(faucetProviderAccount, faucetInstance.address);
 
     try {
-      await faucetInstance.makeItRain(faucetProviderAccount, {
+      await faucetInstance.makeItRain({
         from: faucetProviderAccount,
       });
     } catch (error) {

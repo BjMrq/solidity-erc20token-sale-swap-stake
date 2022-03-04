@@ -6,9 +6,15 @@ import React, {
 } from "react";
 import Web3 from "web3";
 import { Faucet } from "../../contracts/types/Faucet";
+import {SatiTokenSale} from "../../contracts/types/SatiTokenSale";
 import FaucetAbi from "../../contracts/abis/Faucet.json";
+import SatiAbi from "../../contracts/abis/SatiToken.json";
+import SatiSaleAbi from "../../contracts/abis/SatiTokenSale.json";
 import { stringFromHexadecimalNumber } from "../../utils";
-import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFunctions, InitWeb3 } from "./types";
+import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFunctions, VoidCall, ToastContractSend } from "./types";
+import { ToastContentProps, toast } from "react-toastify";
+import { dummyErrorParser } from "../../utils/error-parser";
+import { TransactionReceipt } from "web3-core/types";
 
 
 //State
@@ -17,7 +23,7 @@ const initialWeb3ContextState = {
   currentAccount: "",
   contractsDeployedOnCurrentChain: false,
   web3Instance: new Web3(),
-  contracts : {faucetContract: {} as Faucet}
+  contracts : {faucetContract: {} as Faucet, satiSaleContract: {} as SatiTokenSale}
 };
 
 
@@ -53,9 +59,24 @@ export default function Web3ContextProvider({
   const web3InstanceRef = useRef(ifEthereumAvailableDo(() => new Web3(window.ethereum))());
   const [chainId, setChainId] = useState("");
 
-  const initWeb3: InitWeb3 = ifEthereumAvailableDo(async () => {
+  const initWeb3: VoidCall = ifEthereumAvailableDo(async () => {
     window.ethereum.request({ method: "eth_requestAccounts" });
   })
+
+  const addSatiToWallet: VoidCall = ifEthereumAvailableDo( () => 
+    window.ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          //@ts-expect-error since chainId can not directly access the abi
+          address: SatiAbi.networks[chainId].address,
+          symbol: "STI", 
+          decimals: 18,
+        },
+      },
+    })
+  )
 
   //@ts-expect-error since chainIdToCheck can not directly access the abi but it is what we are testing
   const areContractsDeployedOnChain = (chainIdToCheck: string): chainIdToCheck is DeployedNetwork => Boolean(FaucetAbi.networks[chainIdToCheck])
@@ -68,9 +89,15 @@ export default function Web3ContextProvider({
         FaucetAbi.abi as AbiWithNetworks["abi"],
         FaucetAbi.networks[chainId].address
       ) as unknown as Faucet
+
+      const satiSaleContract = new web3InstanceRef.current.eth.Contract(
+        SatiSaleAbi.abi as AbiWithNetworks["abi"],
+        SatiSaleAbi.networks[chainId].address
+      ) as unknown as SatiTokenSale
   
       setWeb3ContractsState({
-        faucetContract: faucetContract
+        faucetContract: faucetContract,
+        satiSaleContract: satiSaleContract
       })
     }
   }
@@ -106,6 +133,38 @@ export default function Web3ContextProvider({
     }))();
   }, []);
 
+
+  const TransactionSuccessToast = ({ data }: ToastContentProps<TransactionReceipt>) => (
+    <div>
+      <div>Transaction succeeded</div>
+      <a target="_blank" style= {{color: "#23379d", textDecoration: "none", fontSize: "1.2rem"}} href={`https://kovan.etherscan.io/tx/${data?.transactionHash}`}>🔎 view on etherscan</a>
+    </div>
+  ) as ReactElement
+  
+  const toastContractSend: ToastContractSend = async (contractFunctionToSend, transactionOptions) => 
+    toast.promise(
+      async () => contractFunctionToSend.send({ from: mainAccount, ...transactionOptions }),
+      {
+        pending: {
+          render(){
+            return "Transaction pending.."
+          },
+          icon: true,
+        
+        },
+        success: {
+          render({data, closeToast, toastProps}: ToastContentProps<TransactionReceipt>){
+            return TransactionSuccessToast({closeToast, toastProps, data})
+          }
+        },
+        error: {
+          render({data}: {data: Error}){
+            return dummyErrorParser(data)
+          }
+        }
+      }
+    )
+
   return (
     <Web3Context.Provider
       value={{
@@ -114,7 +173,9 @@ export default function Web3ContextProvider({
         contractsDeployedOnCurrentChain: areContractsDeployedOnChain(chainId),
         currentAccount: mainAccount,
         contracts: web3ContractsState,
-        initWeb3
+        initWeb3,
+        addSatiToWallet,
+        toastContractSend
       }}
     >
       {children}

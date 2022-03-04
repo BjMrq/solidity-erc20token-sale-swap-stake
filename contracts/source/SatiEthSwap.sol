@@ -31,7 +31,7 @@ contract SatiEthSwap is Context, Ownable, Swapable {
     ) internal view override {
         require(
             address(_addressToValidate).balance >= _requiredAmount,
-            "not enough ETH"
+            "Not enough ETH"
         );
     }
 

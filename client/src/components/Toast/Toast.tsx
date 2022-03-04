@@ -7,7 +7,7 @@ export function Toast(): ReactElement {
   return (
     <>
       <ToastContainer
-        position="top-right"
+        position="bottom-right"
         autoClose={6000}
         newestOnTop
         closeOnClick

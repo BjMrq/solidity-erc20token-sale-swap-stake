@@ -20,7 +20,7 @@ contract("Faucet", (accounts) => {
         const faucetInstance = await Faucet.new();
         await fundFaucet(faucetProviderAccount, faucetInstance.address);
         try {
-            await faucetInstance.makeItRain(faucetProviderAccount, {
+            await faucetInstance.makeItRain({
                 from: faucetProviderAccount,
             });
         }
