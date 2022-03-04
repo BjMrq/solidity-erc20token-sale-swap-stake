@@ -41,6 +41,12 @@ const BuyingInput = styled.input`
   font: normal 13px/100% Verdana, Tahoma, sans-serif;
   background: #FFFFFF;
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  &:hover {
+    border-color: #C9C9C9;
+  }
+  &:focus {
+    border-color: #C9C9C9;
+  } 
 `
 
 

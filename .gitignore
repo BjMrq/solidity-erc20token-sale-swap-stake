@@ -1,2 +1,5 @@
 node_modules
 .e3nv
+
+/contracts/build/migrations
+/contracts/build/tests

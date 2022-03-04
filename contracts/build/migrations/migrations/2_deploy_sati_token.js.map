@@ -1,1 +1,0 @@
-{"version":3,"file":"2_deploy_sati_token.js","sourceRoot":"","sources":["../../../migrations/2_deploy_sati_token.ts"],"names":[],"mappings":";;AAAA,oDAAuD;AAEvD,MAAM,SAAS,GAAG,SAAS,CAAC,OAAO,CAAC,WAAW,CAAC,CAAC;AAEjD,MAAM,CAAC,OAAO,GAAG,KAAK,WAAW,QAAQ;IACvC,QAAQ;IACR,MAAM,QAAQ,CAAC,MAAM,CAAC,SAAS,EAAE,2BAAe,CAAC,KAAK,CAAC,CAAC;AAC1D,CAAsB,CAAC"}

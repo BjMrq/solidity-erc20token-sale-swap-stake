@@ -1,4 +1,4 @@
-type PossibleNetwork = "development" | "ganache_local" | "kovan";
+type PossibleNetwork = "development" | "ganache" | "kovan";
 type PossibleSwapTokensNames = "LINK" | "BAT";
 
 type SwapTokenAddressInfo = {

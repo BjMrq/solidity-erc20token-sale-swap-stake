@@ -158,7 +158,10 @@ contract("SatiERC20TokenSwap", (accounts) => {
       }
     );
 
-    const [rateEvent, swapRateEvent, swapTransferEvent] = swapLogs;
+    const [rateEvent, swapRateEvent, swapTransferEvent] = swapLogs as {
+      event: string;
+      args: any;
+    }[];
 
     expect(rateEvent.event).equal("Rate");
     expect(rateEvent.args.timeStamp.toString()).equal("1");

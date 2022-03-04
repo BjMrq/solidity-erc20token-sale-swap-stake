@@ -54,7 +54,7 @@ const getAddressesSwapTokenInfo = async (
       },
     ],
   },
-  ganache_local: {
+  ganache: {
     ETH: {
       priceFeedAddress: (await deployPriceFeedMockWithRateOf("365000000000"))
         .address,

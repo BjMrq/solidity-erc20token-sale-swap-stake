@@ -9,27 +9,27 @@ const KYCValidation = artifacts.require("KYCValidation");
 contract("SatiTokenSale", (accounts) => {
   const { saleBuyerAccount } = nameAccounts(accounts);
 
-  it("Buyers need to complete KYC verification", async () => {
-    const deployedSatiTokenInstance = await SatiToken.deployed();
-    const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
+  // it("Buyers need to complete KYC verification", async () => {
+  //   const deployedSatiTokenInstance = await SatiToken.deployed();
+  //   const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
 
-    try {
-      await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
-        value: "100",
-      });
-    } catch (error) {
-      assert.equal(
-        (error as Error).message,
-        "Returned error: VM Exception while processing transaction: revert You must complete KYC before purchasing tokens -- Reason given: You must complete KYC before purchasing tokens."
-      );
-    }
+  //   try {
+  //     await deployedSatiTokenSalesInstance.buyTokens(saleBuyerAccount, {
+  //       value: "100",
+  //     });
+  //   } catch (error) {
+  //     assert.equal(
+  //       (error as Error).message,
+  //       "Returned error: VM Exception while processing transaction: revert You must complete KYC before purchasing tokens -- Reason given: You must complete KYC before purchasing tokens."
+  //     );
+  //   }
 
-    const buyerBalance = await deployedSatiTokenInstance.balanceOf(
-      saleBuyerAccount
-    );
+  //   const buyerBalance = await deployedSatiTokenInstance.balanceOf(
+  //     saleBuyerAccount
+  //   );
 
-    assert.equal(buyerBalance.toString(), "0");
-  });
+  //   assert.equal(buyerBalance.toString(), "0");
+  // });
 
   it("Buyers need to have enough Ether to buy Sati", async () => {
     const deployedSatiTokenInstance = await SatiToken.deployed();
