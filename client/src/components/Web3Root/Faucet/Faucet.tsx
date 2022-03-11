@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Web3Context } from "../../../contexts/web3/context";
-import { Button } from "../../shared/button";
+import { Button } from "../../../style/tags/button";
 import styled from "styled-components";
 
 const FacetDiv = styled.div`

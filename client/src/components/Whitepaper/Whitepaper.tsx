@@ -27,6 +27,7 @@ experienced team. This is not financial advise but do not miss this opportunity!
       </WhitePaperText>
       <WhitePaperText>2022 Q1: Sati sale</WhitePaperText>
       <WhitePaperText>2022 Q2: Sati swap</WhitePaperText>
+      <WhitePaperText>2022 Q3: Sati stake</WhitePaperText>
     </Fragment>
   );
 }

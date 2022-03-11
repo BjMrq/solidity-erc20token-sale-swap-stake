@@ -2,36 +2,45 @@ import React from 'react';
 import { Toast } from "./components/Toast/Toast";
 import { Web3Root } from "./components/Web3Root/Web3Root";
 import Web3ContextProvider from "./contexts/web3/context";
-import styled from "styled-components";
 import { Whitepaper } from "./components/Whitepaper/Whitepaper";
+import styled from "styled-components";
+import { GlobalStyle } from "./style/general";
+"styled-components";
+
 
 const AppBody = styled.div`
   text-align: center;
-  background-color: #282c34;
   display: flex;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100%;
+  width: 96%;
+  padding: 0 2%;
   color: white;
-  padding: 20px
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
+  align-content: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 `
 
 const Panel = styled.div`
-  min-width: 50vw;
-  min-height: 100vh;
+  width: 50%;
+  margin-top: 0;
+ @media screen and (max-width: 1200px) { 
+    width: 100%;
+ }
 `
 
 function App() { 
 
   return ( 
-    <Web3ContextProvider><AppBody>
-      <Panel><Web3Root/></Panel>
-      <Panel><Whitepaper/></Panel>
-      <Toast />
-    </AppBody></Web3ContextProvider>
+    <Web3ContextProvider>
+      <GlobalStyle/>
+      <AppBody>
+        <Panel><Web3Root/></Panel>
+        <Panel><Whitepaper/></Panel>
+        <Toast />
+      </AppBody>
+    </Web3ContextProvider>
   );
 }
 

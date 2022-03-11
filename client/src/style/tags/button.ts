@@ -1,18 +1,19 @@
 import styled from "styled-components";
+import { bordered } from "../input-like";
  
 
 export const Button = styled.button`
+  height: 60px;
   appearance: none;
   background-color: #FAFBFC;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
+  ${bordered}
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: #24292E;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 20px;
   list-style: none;

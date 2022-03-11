@@ -8,7 +8,6 @@ import { SatiSale } from "./SatiSale/SatiSale";
 import { AddWallet } from "./AddWallet/AddWallet";
 
 const FlexDiv = styled.div`
-  min-width: 50vw;
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
@@ -16,10 +15,6 @@ const FlexDiv = styled.div`
   flex-wrap: wrap;
 `;
 
-const SaleTitle = styled.h2`
-  min-width: 50vw;
-  min-height: 10vh;
-`
 
 const BottomDiv = styled.div`
  display: flex;
@@ -27,17 +22,27 @@ const BottomDiv = styled.div`
  flex: auto;
 `
 
+
+const TopDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+
 export function Web3Root() {
   const { connected, contractsDeployedOnCurrentChain} = useContext(Web3Context);
 
   return (
     <FlexDiv>
-      <SaleTitle>Sati token sale</SaleTitle>
+      <TopDiv>
+        <h2>Sati token sale</h2>
+      </TopDiv>
       {connected 
         ? 
         contractsDeployedOnCurrentChain
           ? 
           <Fragment>
+            
             <SatiSale/>
             <BottomDiv>
               <Faucet/>

@@ -15,6 +15,7 @@ import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFu
 import { ToastContentProps, toast } from "react-toastify";
 import { dummyErrorParser } from "../../utils/error-parser";
 import { TransactionReceipt } from "web3-core/types";
+import { errorColor, successColor } from "../../style/colors";
 
 
 //State
@@ -155,12 +156,14 @@ export default function Web3ContextProvider({
         success: {
           render({data, closeToast, toastProps}: ToastContentProps<TransactionReceipt>){
             return TransactionSuccessToast({closeToast, toastProps, data})
-          }
+          },
+          style: {backgroundColor: successColor},
         },
         error: {
           render({data}: {data: Error}){
             return dummyErrorParser(data)
-          }
+          },
+          style: {backgroundColor: errorColor},
         }
       }
     )

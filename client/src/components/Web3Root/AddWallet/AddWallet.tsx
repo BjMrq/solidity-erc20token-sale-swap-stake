@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import styled from "styled-components";
 import { Web3Context } from "../../../contexts/web3/context";
-import { Button } from "../../shared/button";
+import { Button } from "../../../style/tags/button";
 import { ReactComponent as MetamaskLogo } from './metamask.svg';
 
 
@@ -23,7 +23,7 @@ export function AddWallet() {
   
   return (
     <AddWalletDiv>
-      <Button style={{display: "flex", padding: "6px", height: "35px", alignSelf: "flex-end"}}
+      <Button style={{display: "flex", padding: "6px", height: "35px", fontSize: "14px", alignSelf: "flex-end"}}
         onClick={addSatiToWallet}><MetamaskLogoDiv><MetamaskLogo/></MetamaskLogoDiv>Add Sati</Button>
     </AddWalletDiv>
   );
