@@ -20,6 +20,9 @@ const SaleTypesDiv = styled.div`
 
 const CardDiv = styled.div`
   width: 80%;
+  @media screen and (max-width: 600px) { 
+    width: 98%;
+ }
 `
 
 const SaleTypeDiv = styled.div<{active: boolean}>`

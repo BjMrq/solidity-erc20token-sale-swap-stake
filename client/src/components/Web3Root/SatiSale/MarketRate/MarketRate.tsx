@@ -51,6 +51,9 @@ const TokenToPayDiv = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 600px) { 
+    width: 96%;
+ }
 `
 
 const TokenPseudoInputDiv = styled.div`

@@ -21,6 +21,6 @@ export const inputLike = css`
   }
   &:focus {
      background-color: #f5f5f5;
-  } 
+  }
 `;
 
