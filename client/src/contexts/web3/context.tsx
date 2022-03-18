@@ -19,6 +19,7 @@ import { dummyErrorParser } from "../../utils/error-parser";
 import { TransactionReceipt } from "web3-core/types";
 import { errorColor, successColor } from "../../style/colors";
 import { SwapContractFactory } from "../../contracts/types/SwapContractFactory";
+import { ERC20 } from "../../contracts/types/ERC20";
 
 
 //State
@@ -72,17 +73,24 @@ export default function Web3ContextProvider({
     window.ethereum.request({ method: "eth_requestAccounts" });
   })
 
-  const addTokenToWallet: AddTokenToWallet = ifEthereumAvailableDo( (tokenInfo) => 
+  const addTokenToWallet: AddTokenToWallet = ifEthereumAvailableDo( async (erc20Token: ERC20) => 
+  {
+    const tokenSymbol = await erc20Token.methods.symbol().call();
+
     window.ethereum.request({
       method: 'wallet_watchAsset',
       params: {
         type: 'ERC20',
         options: {
-          ...tokenInfo,
-          image: `https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/${tokenInfo.symbol}.svg`
+          address: erc20Token.options.address,
+          decimals: await erc20Token.methods.decimals().call(),
+          symbol: tokenSymbol,
+          image: `https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/${tokenSymbol}.svg`
         }
+  
       },
     })
+  }
   )
 
   //@ts-expect-error since chainIdToCheck can not directly access the abi but it is what we are testing

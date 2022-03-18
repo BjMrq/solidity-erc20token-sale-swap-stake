@@ -209,7 +209,7 @@ export function MarketRate() {
     <MarketSaleContentDiv>
       <SwapTitle>Swap tokens for STI at market price using oracles</SwapTitle>
       <TokenToPayDiv>
-        <PayP>Pay:</PayP>
+        <PayP>Sell:</PayP>
         <TokenPseudoInputDiv>
           <TokenSelect onClick={() => setTokenSelectionModalOpen(true)}>
             {tokenSelectedStyle[selectedBaseToken].logo}<TokenNameDiv>{tokenSelectedStyle[selectedBaseToken].name}</TokenNameDiv><DownArrowDiv>
@@ -219,7 +219,7 @@ export function MarketRate() {
           <PayAmountInput type="text" placeholder="0.0" value={sellingAmount} onChange={({target: {value}}) => setSellingAmount(value.replace(/[^0-9.]/g, ''))}/>
         </TokenPseudoInputDiv>
       </TokenToPayDiv>
-        Receive:
+        For:
       <div style={{width: "100%"}}>
         <Button style={{ height: "35px"}} onClick={swapTokens}>Swap</Button>
       </div>

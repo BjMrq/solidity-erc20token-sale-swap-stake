@@ -22,11 +22,7 @@ const MetamaskLogoDiv = styled.div`
 export function AddMetamask({tokenContract, displayText}: {tokenContract: ERC20, displayText: string}) {
   const { addTokenToWallet } = useContext(Web3Context);
 
-  const addTokenToMetamask = async () => addTokenToWallet({
-    address: tokenContract.options.address,
-    decimals: await tokenContract.methods.decimals().call(),
-    symbol: await tokenContract.methods.symbol().call(),
-  })
+  const addTokenToMetamask = async () => addTokenToWallet(tokenContract)
   
   return (
     <AddWalletDiv>
