@@ -23,11 +23,14 @@ const BottomDiv = styled.div`
 `
 
 
-const TopDiv = styled.div`
+const TopDivSale = styled.div`
+  height: 12vh;
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 `
 
 
@@ -36,9 +39,9 @@ export function Web3Root() {
 
   return (
     <FlexDiv>
-      <TopDiv>
-        <h2>Sati token sale</h2>
-      </TopDiv>
+      <TopDivSale>
+        <img style={{height: "70px", marginRight: "20px"}} src="https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/STI.svg"/><h2>Sati token sale</h2>
+      </TopDivSale>
       {connected 
         ? 
         contractsDeployedOnCurrentChain

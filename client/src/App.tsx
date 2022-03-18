@@ -25,7 +25,6 @@ const AppBody = styled.div`
   padding: 0 2%;
   color: white;
   flex-wrap: wrap;
-  align-items: baseline;
   align-content: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);

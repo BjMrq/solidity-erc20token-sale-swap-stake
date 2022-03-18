@@ -79,7 +79,7 @@ export default function Web3ContextProvider({
         type: 'ERC20',
         options: {
           ...tokenInfo,
-          image: "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/eth.svg"
+          image: `https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/${tokenInfo.symbol}.svg`
         }
       },
     })

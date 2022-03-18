@@ -28,7 +28,6 @@ export function AddMetamask({tokenContract, displayText}: {tokenContract: ERC20,
     symbol: await tokenContract.methods.symbol().call(),
   })
   
-  
   return (
     <AddWalletDiv>
       <Button style={{display: "flex", padding: "6px", height: "35px", fontSize: "14px", alignSelf: "flex-end"}}
