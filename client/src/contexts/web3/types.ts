@@ -1,6 +1,6 @@
 import { PromiEvent, TransactionReceipt } from "web3-core/types";
 import { AbiItem } from "web3-utils";
-import { PayableTx } from "../../types/types";
+import { PayableTx } from "../../contracts/types/types";
 
 export type EthereumAvailableGuard = <TCallback extends (...args: any) => any>(web3Callback: TCallback) => (...callbackArgs: any[]) => ReturnType<TCallback>
 
@@ -13,9 +13,14 @@ export type ToastContractSend = (contractFunctionToSend: {
   send: (transactionOptions: PayableTx) => PromiEvent<TransactionReceipt>;
 }, transactionOptions?: PayableTx | undefined) => Promise<TransactionReceipt>
 
+export type AddTokenToWallet = (tokenInfo: {
+  address: string,
+  symbol: string,
+  decimals: string
+}) => void 
 
 export type Web3ContextFunctions = {
   initWeb3: VoidCall
-  addSatiToWallet: VoidCall
+  addTokenToWallet: AddTokenToWallet
   toastContractSend: ToastContractSend
 }

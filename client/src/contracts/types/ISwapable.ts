@@ -21,14 +21,16 @@ export interface EventOptions {
   topics?: string[];
 }
 
-export interface ISatiSwapable extends BaseContract {
+export interface ISwapable extends BaseContract {
   constructor(
     jsonInterface: any[],
     address?: string,
     options?: ContractOptions
-  ): ISatiSwapable;
-  clone(): ISatiSwapable;
+  ): ISwapable;
+  clone(): ISwapable;
   methods: {
+    pairName(): NonPayableTransactionObject<string>;
+
     getAskPrice(
       _ERC20TokenAmount: number | string | BN
     ): NonPayableTransactionObject<string>;

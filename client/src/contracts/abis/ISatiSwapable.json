@@ -1,5 +1,5 @@
 {
-  "contractName": "ISatiSwapable",
+  "contractName": "ISwapable",
   "abi": [
     {
       "inputs": [
@@ -9,7 +9,7 @@
           "type": "uint256"
         }
       ],
-      "name": "getAmountOfSatiFromPairedToken",
+      "name": "getAskPrice",
       "outputs": [
         {
           "internalType": "uint256",
@@ -28,7 +28,7 @@
           "type": "uint256"
         }
       ],
-      "name": "swapPairedTokenForSati",
+      "name": "swapBaseForQuoteToken",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
@@ -41,7 +41,7 @@
           "type": "uint256"
         }
       ],
-      "name": "getNumberOfPairedTokenFromSati",
+      "name": "getBidPrice",
       "outputs": [
         {
           "internalType": "uint256",
@@ -60,13 +60,13 @@
           "type": "uint256"
         }
       ],
-      "name": "swapSatiForPairedToken",
+      "name": "swapQuoteForBaseToken",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"getAmountOfSatiFromPairedToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"getNumberOfPairedTokenFromSati\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"swapPairedTokenForSati\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"swapSatiForPairedToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/ISatiSwapable.sol\":\"ISatiSwapable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0xf2b6c9adb3552254df1445b73563cf014434ff5e78663e9b961b6c059506ceb5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c1f59e0c7334c22fb54288728fc32546bdc9c8133d6db0d60223e3c28f52120\",\"dweb:/ipfs/QmeuxawUVBhMWQJXaEhhnubCTc4Jwn5wYK8gbhq6NjrpfG\"]},\"project:/contracts/source/ISatiSwapable.sol\":{\"keccak256\":\"0x95173fbae3c1bdff41474dd099d9749968f12d69d333dba8fc78593fea3e0f71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5fa044d4aa8728003337b1959413e7d965c1f0bce744bd1e659121bc628df63e\",\"dweb:/ipfs/Qme4aueEYAZvUWDAsDiCMHXrD35ya3waeKw3MQNDTTudmC\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"getAskPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"getBidPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ERC20TokenAmount\",\"type\":\"uint256\"}],\"name\":\"swapBaseForQuoteToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_satiAmount\",\"type\":\"uint256\"}],\"name\":\"swapQuoteForBaseToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/ISwapable.sol\":\"ISwapable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0xf2b6c9adb3552254df1445b73563cf014434ff5e78663e9b961b6c059506ceb5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c1f59e0c7334c22fb54288728fc32546bdc9c8133d6db0d60223e3c28f52120\",\"dweb:/ipfs/QmeuxawUVBhMWQJXaEhhnubCTc4Jwn5wYK8gbhq6NjrpfG\"]},\"project:/contracts/source/ISwapable.sol\":{\"keccak256\":\"0x95173fbae3c1bdff41474dd099d9749968f12d69d333dba8fc78593fea3e0f71\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5fa044d4aa8728003337b1959413e7d965c1f0bce744bd1e659121bc628df63e\",\"dweb:/ipfs/Qme4aueEYAZvUWDAsDiCMHXrD35ya3waeKw3MQNDTTudmC\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -74,15 +74,15 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\nabstract contract ISatiSwapable {\n    function requireHasEnoughSati(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function requireHasEnoughPairedToken(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function getAmountOfSatiFromPairedToken(uint256 _ERC20TokenAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapPairedTokenForSati(uint256 _ERC20TokenAmount)\n        external\n        payable\n        virtual;\n\n    function getNumberOfPairedTokenFromSati(uint256 _satiAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapSatiForPairedToken(uint256 _satiAmount)\n        external\n        payable\n        virtual;\n}\n",
-  "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/ISatiSwapable.sol",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\nabstract contract ISwapable {\n    function requireHasEnoughBaseToken(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function requireHasEnoughQuoteToken(\n        address _addressToValidate,\n        uint256 _requiredAmount\n    ) internal view virtual;\n\n    function getAskPrice(uint256 _ERC20TokenAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapBaseForQuoteToken(uint256 _ERC20TokenAmount)\n        external\n        payable\n        virtual;\n\n    function getBidPrice(uint256 _satiAmount)\n        public\n        virtual\n        returns (uint256);\n\n    function swapQuoteForBaseToken(uint256 _satiAmount)\n        external\n        payable\n        virtual;\n}\n",
+  "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/ISwapable.sol",
   "ast": {
-    "absolutePath": "project:/contracts/source/ISatiSwapable.sol",
+    "absolutePath": "project:/contracts/source/ISwapable.sol",
     "exportedSymbols": {
       "AggregatorV3Interface": [
         45
       ],
-      "ISatiSwapable": [
+      "ISwapable": [
         2220
       ]
     },
@@ -116,7 +116,7 @@
       {
         "abstract": true,
         "baseContracts": [],
-        "canonicalName": "ISatiSwapable",
+        "canonicalName": "ISwapable",
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
@@ -124,7 +124,7 @@
         "linearizedBaseContracts": [
           2220
         ],
-        "name": "ISatiSwapable",
+        "name": "ISwapable",
         "nameLocation": "155:13:14",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -133,7 +133,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughSati",
+            "name": "requireHasEnoughBaseToken",
             "nameLocation": "184:20:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -215,7 +215,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughPairedToken",
+            "name": "requireHasEnoughQuoteToken",
             "nameLocation": "317:27:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -298,7 +298,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getAmountOfSatiFromPairedToken",
+            "name": "getAskPrice",
             "nameLocation": "457:30:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -381,7 +381,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapPairedTokenForSati",
+            "name": "swapBaseForQuoteToken",
             "nameLocation": "587:22:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -436,7 +436,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getNumberOfPairedTokenFromSati",
+            "name": "getBidPrice",
             "nameLocation": "701:30:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -519,7 +519,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSatiForPairedToken",
+            "name": "swapQuoteForBaseToken",
             "nameLocation": "825:22:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -577,12 +577,12 @@
     "src": "33:888:14"
   },
   "legacyAST": {
-    "absolutePath": "project:/contracts/source/ISatiSwapable.sol",
+    "absolutePath": "project:/contracts/source/ISwapable.sol",
     "exportedSymbols": {
       "AggregatorV3Interface": [
         45
       ],
-      "ISatiSwapable": [
+      "ISwapable": [
         2220
       ]
     },
@@ -616,7 +616,7 @@
       {
         "abstract": true,
         "baseContracts": [],
-        "canonicalName": "ISatiSwapable",
+        "canonicalName": "ISwapable",
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
@@ -624,7 +624,7 @@
         "linearizedBaseContracts": [
           2220
         ],
-        "name": "ISatiSwapable",
+        "name": "ISwapable",
         "nameLocation": "155:13:14",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -633,7 +633,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughSati",
+            "name": "requireHasEnoughBaseToken",
             "nameLocation": "184:20:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -715,7 +715,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "requireHasEnoughPairedToken",
+            "name": "requireHasEnoughQuoteToken",
             "nameLocation": "317:27:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -798,7 +798,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getAmountOfSatiFromPairedToken",
+            "name": "getAskPrice",
             "nameLocation": "457:30:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -881,7 +881,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapPairedTokenForSati",
+            "name": "swapBaseForQuoteToken",
             "nameLocation": "587:22:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -936,7 +936,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getNumberOfPairedTokenFromSati",
+            "name": "getBidPrice",
             "nameLocation": "701:30:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
@@ -1019,7 +1019,7 @@
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "swapSatiForPairedToken",
+            "name": "swapQuoteForBaseToken",
             "nameLocation": "825:22:14",
             "nodeType": "FunctionDefinition",
             "parameters": {

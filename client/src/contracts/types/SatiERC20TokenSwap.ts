@@ -27,7 +27,7 @@ export type Rate = ContractEventLog<{
   0: string;
   1: string;
 }>;
-export type SwapRate = ContractEventLog<{
+export type SwapRateInfo = ContractEventLog<{
   exchangeType: string;
   sellingAmount: string;
   buyingAmount: string;
@@ -35,7 +35,7 @@ export type SwapRate = ContractEventLog<{
   1: string;
   2: string;
 }>;
-export type SwapTransfer = ContractEventLog<{
+export type SwapTransferInfo = ContractEventLog<{
   beneficiary: string;
   amountSent: string;
   amountReceived: string;
@@ -60,23 +60,23 @@ export interface SatiERC20TokenSwap extends BaseContract {
 
     satiToken(): NonPayableTransactionObject<string>;
 
-    getAvailableERC20TokenAmount(): NonPayableTransactionObject<string>;
+    getAvailableBaseTokenLiquidity(): NonPayableTransactionObject<string>;
 
-    getAvailableSatiTokenAmount(): NonPayableTransactionObject<string>;
+    getAvailableQuoteTokenLiquidity(): NonPayableTransactionObject<string>;
 
-    getAmountOfSatiFromPairedToken(
+    getAskPrice(
       _ERC20TokenAmount: number | string | BN
     ): NonPayableTransactionObject<string>;
 
-    swapPairedTokenForSati(
+    swapBaseForQuoteToken(
       _ERC20TokenAmount: number | string | BN
     ): PayableTransactionObject<void>;
 
-    getNumberOfPairedTokenFromSati(
+    getBidPrice(
       _satiAmount: number | string | BN
     ): NonPayableTransactionObject<string>;
 
-    swapSatiForPairedToken(
+    swapQuoteForBaseToken(
       _satiAmount: number | string | BN
     ): PayableTransactionObject<void>;
   };
@@ -84,13 +84,16 @@ export interface SatiERC20TokenSwap extends BaseContract {
     Rate(cb?: Callback<Rate>): EventEmitter;
     Rate(options?: EventOptions, cb?: Callback<Rate>): EventEmitter;
 
-    SwapRate(cb?: Callback<SwapRate>): EventEmitter;
-    SwapRate(options?: EventOptions, cb?: Callback<SwapRate>): EventEmitter;
-
-    SwapTransfer(cb?: Callback<SwapTransfer>): EventEmitter;
-    SwapTransfer(
+    SwapRateInfo(cb?: Callback<SwapRateInfo>): EventEmitter;
+    SwapRateInfo(
       options?: EventOptions,
-      cb?: Callback<SwapTransfer>
+      cb?: Callback<SwapRateInfo>
+    ): EventEmitter;
+
+    SwapTransferInfo(cb?: Callback<SwapTransferInfo>): EventEmitter;
+    SwapTransferInfo(
+      options?: EventOptions,
+      cb?: Callback<SwapTransferInfo>
     ): EventEmitter;
 
     allEvents(options?: EventOptions, cb?: Callback<EventLog>): EventEmitter;
@@ -99,13 +102,17 @@ export interface SatiERC20TokenSwap extends BaseContract {
   once(event: "Rate", cb: Callback<Rate>): void;
   once(event: "Rate", options: EventOptions, cb: Callback<Rate>): void;
 
-  once(event: "SwapRate", cb: Callback<SwapRate>): void;
-  once(event: "SwapRate", options: EventOptions, cb: Callback<SwapRate>): void;
-
-  once(event: "SwapTransfer", cb: Callback<SwapTransfer>): void;
+  once(event: "SwapRateInfo", cb: Callback<SwapRateInfo>): void;
   once(
-    event: "SwapTransfer",
+    event: "SwapRateInfo",
     options: EventOptions,
-    cb: Callback<SwapTransfer>
+    cb: Callback<SwapRateInfo>
+  ): void;
+
+  once(event: "SwapTransferInfo", cb: Callback<SwapTransferInfo>): void;
+  once(
+    event: "SwapTransferInfo",
+    options: EventOptions,
+    cb: Callback<SwapTransferInfo>
   ): void;
 }

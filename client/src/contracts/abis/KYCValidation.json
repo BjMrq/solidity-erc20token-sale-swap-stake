@@ -1375,23 +1375,23 @@
       "name": "#utility.yul"
     }
   ],
-  "sourceMap": "59:698:15:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "59:698:15:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;560:195;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;88:52;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;269:115;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;147:116;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;560:195;651:25;669:6;651:17;:25::i;:::-;630:118;;;;;;;;;;;;:::i;:::-;;;;;;;;;560:195;:::o;88:52::-;;;;;;;;;;;;;;;;;;;;;;:::o;269:115::-;372:5;335:20;:34;356:12;335:34;;;;;;;;;;;;;;;;:42;;;;;;;;;;;;;;;;;;269:115;:::o;147:116::-;252:4;215:20;:34;236:12;215:34;;;;;;;;;;;;;;;;:41;;;;;;;;;;;;;;;;;;147:116;:::o;390:164::-;486:4;513:20;:34;534:12;513:34;;;;;;;;;;;;;;;;;;;;;;;;;506:41;;390:164;;;:::o;88:117:27:-;197:1;194;187:12;334:126;371:7;411:42;404:5;400:54;389:65;;334:126;;;:::o;466:96::-;503:7;532:24;550:5;532:24;:::i;:::-;521:35;;466:96;;;:::o;568:122::-;641:24;659:5;641:24;:::i;:::-;634:5;631:35;621:63;;680:1;677;670:12;621:63;568:122;:::o;696:139::-;742:5;780:6;767:20;758:29;;796:33;823:5;796:33;:::i;:::-;696:139;;;;:::o;841:329::-;900:6;949:2;937:9;928:7;924:23;920:32;917:119;;;955:79;;:::i;:::-;917:119;1075:1;1100:53;1145:7;1136:6;1125:9;1121:22;1100:53;:::i;:::-;1090:63;;1046:117;841:329;;;;:::o;1176:90::-;1210:7;1253:5;1246:13;1239:21;1228:32;;1176:90;;;:::o;1272:109::-;1353:21;1368:5;1353:21;:::i;:::-;1348:3;1341:34;1272:109;;:::o;1387:210::-;1474:4;1512:2;1501:9;1497:18;1489:26;;1525:65;1587:1;1576:9;1572:17;1563:6;1525:65;:::i;:::-;1387:210;;;;:::o;1603:169::-;1687:11;1721:6;1716:3;1709:19;1761:4;1756:3;1752:14;1737:29;;1603:169;;;;:::o;1778:233::-;1918:34;1914:1;1906:6;1902:14;1895:58;1987:16;1982:2;1974:6;1970:15;1963:41;1778:233;:::o;2017:366::-;2159:3;2180:67;2244:2;2239:3;2180:67;:::i;:::-;2173:74;;2256:93;2345:3;2256:93;:::i;:::-;2374:2;2369:3;2365:12;2358:19;;2017:366;;;:::o;2389:419::-;2555:4;2593:2;2582:9;2578:18;2570:26;;2642:9;2636:4;2632:20;2628:1;2617:9;2613:17;2606:47;2670:131;2796:4;2670:131;:::i;:::-;2662:139;;2389:419;;;:::o",
+  "sourceMap": "59:698:17:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "59:698:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;560:195;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;88:52;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;269:115;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;147:116;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;560:195;651:25;669:6;651:17;:25::i;:::-;630:118;;;;;;;;;;;;:::i;:::-;;;;;;;;;560:195;:::o;88:52::-;;;;;;;;;;;;;;;;;;;;;;:::o;269:115::-;372:5;335:20;:34;356:12;335:34;;;;;;;;;;;;;;;;:42;;;;;;;;;;;;;;;;;;269:115;:::o;147:116::-;252:4;215:20;:34;236:12;215:34;;;;;;;;;;;;;;;;:41;;;;;;;;;;;;;;;;;;147:116;:::o;390:164::-;486:4;513:20;:34;534:12;513:34;;;;;;;;;;;;;;;;;;;;;;;;;506:41;;390:164;;;:::o;88:117:27:-;197:1;194;187:12;334:126;371:7;411:42;404:5;400:54;389:65;;334:126;;;:::o;466:96::-;503:7;532:24;550:5;532:24;:::i;:::-;521:35;;466:96;;;:::o;568:122::-;641:24;659:5;641:24;:::i;:::-;634:5;631:35;621:63;;680:1;677;670:12;621:63;568:122;:::o;696:139::-;742:5;780:6;767:20;758:29;;796:33;823:5;796:33;:::i;:::-;696:139;;;;:::o;841:329::-;900:6;949:2;937:9;928:7;924:23;920:32;917:119;;;955:79;;:::i;:::-;917:119;1075:1;1100:53;1145:7;1136:6;1125:9;1121:22;1100:53;:::i;:::-;1090:63;;1046:117;841:329;;;;:::o;1176:90::-;1210:7;1253:5;1246:13;1239:21;1228:32;;1176:90;;;:::o;1272:109::-;1353:21;1368:5;1353:21;:::i;:::-;1348:3;1341:34;1272:109;;:::o;1387:210::-;1474:4;1512:2;1501:9;1497:18;1489:26;;1525:65;1587:1;1576:9;1572:17;1563:6;1525:65;:::i;:::-;1387:210;;;;:::o;1603:169::-;1687:11;1721:6;1716:3;1709:19;1761:4;1756:3;1752:14;1737:29;;1603:169;;;;:::o;1778:233::-;1918:34;1914:1;1906:6;1902:14;1895:58;1987:16;1982:2;1974:6;1970:15;1963:41;1778:233;:::o;2017:366::-;2159:3;2180:67;2244:2;2239:3;2180:67;:::i;:::-;2173:74;;2256:93;2345:3;2256:93;:::i;:::-;2374:2;2369:3;2365:12;2358:19;;2017:366;;;:::o;2389:419::-;2555:4;2593:2;2582:9;2578:18;2570:26;;2642:9;2636:4;2632:20;2628:1;2617:9;2613:17;2606:47;2670:131;2796:4;2670:131;:::i;:::-;2662:139;;2389:419;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\ncontract KYCValidation {\n    mapping(address => bool) public KYCCompletedRegistry;\n\n    function seKYCCompletedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = true;\n    }\n\n    function seKYCRevokedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = false;\n    }\n\n    function isKYCCompletedFor(address _userAddress)\n        internal\n        view\n        returns (bool)\n    {\n        return KYCCompletedRegistry[_userAddress];\n    }\n\n    function requireKYCCompletion(address _buyer) external view {\n        require(\n            isKYCCompletedFor(_buyer),\n            \"You must complete KYC before purchasing tokens\"\n        );\n    }\n}\n",
   "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/KYCValidation.sol",
   "ast": {
     "absolutePath": "project:/contracts/source/KYCValidation.sol",
     "exportedSymbols": {
       "KYCValidation": [
-        2276
+        2762
       ]
     },
-    "id": 2277,
+    "id": 2763,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2222,
+        "id": 2708,
         "literals": [
           "solidity",
           "^",
@@ -1399,7 +1399,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:15"
+        "src": "33:24:17"
       },
       {
         "abstract": false,
@@ -1408,24 +1408,24 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2276,
+        "id": 2762,
         "linearizedBaseContracts": [
-          2276
+          2762
         ],
         "name": "KYCValidation",
-        "nameLocation": "68:13:15",
+        "nameLocation": "68:13:17",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
             "functionSelector": "37d6c882",
-            "id": 2226,
+            "id": 2712,
             "mutability": "mutable",
             "name": "KYCCompletedRegistry",
-            "nameLocation": "120:20:15",
+            "nameLocation": "120:20:17",
             "nodeType": "VariableDeclaration",
-            "scope": 2276,
-            "src": "88:52:15",
+            "scope": 2762,
+            "src": "88:52:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1433,28 +1433,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 2225,
+              "id": 2711,
               "keyType": {
-                "id": 2223,
+                "id": 2709,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "96:7:15",
+                "src": "96:7:17",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "88:24:15",
+              "src": "88:24:17",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 2224,
+                "id": 2710,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "107:4:15",
+                "src": "107:4:17",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -1465,38 +1465,38 @@
           },
           {
             "body": {
-              "id": 2237,
+              "id": 2723,
               "nodeType": "Block",
-              "src": "205:58:15",
+              "src": "205:58:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2235,
+                    "id": 2721,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2231,
+                        "id": 2717,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2226,
-                        "src": "215:20:15",
+                        "referencedDeclaration": 2712,
+                        "src": "215:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2233,
+                      "id": 2719,
                       "indexExpression": {
-                        "id": 2232,
+                        "id": 2718,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2228,
-                        "src": "236:12:15",
+                        "referencedDeclaration": 2714,
+                        "src": "236:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1507,7 +1507,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "215:34:15",
+                      "src": "215:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -1517,53 +1517,53 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 2234,
+                      "id": 2720,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "252:4:15",
+                      "src": "252:4:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "true"
                     },
-                    "src": "215:41:15",
+                    "src": "215:41:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 2236,
+                  "id": 2722,
                   "nodeType": "ExpressionStatement",
-                  "src": "215:41:15"
+                  "src": "215:41:17"
                 }
               ]
             },
             "functionSelector": "b33d5a1f",
-            "id": 2238,
+            "id": 2724,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "seKYCCompletedFor",
-            "nameLocation": "156:17:15",
+            "nameLocation": "156:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2229,
+              "id": 2715,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2228,
+                  "id": 2714,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "182:12:15",
+                  "nameLocation": "182:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2238,
-                  "src": "174:20:15",
+                  "scope": 2724,
+                  "src": "174:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1571,10 +1571,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2227,
+                    "id": 2713,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "174:7:15",
+                    "src": "174:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1584,54 +1584,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "173:22:15"
+              "src": "173:22:17"
             },
             "returnParameters": {
-              "id": 2230,
+              "id": 2716,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "205:0:15"
+              "src": "205:0:17"
             },
-            "scope": 2276,
-            "src": "147:116:15",
+            "scope": 2762,
+            "src": "147:116:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 2249,
+              "id": 2735,
               "nodeType": "Block",
-              "src": "325:59:15",
+              "src": "325:59:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2247,
+                    "id": 2733,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2243,
+                        "id": 2729,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2226,
-                        "src": "335:20:15",
+                        "referencedDeclaration": 2712,
+                        "src": "335:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2245,
+                      "id": 2731,
                       "indexExpression": {
-                        "id": 2244,
+                        "id": 2730,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2240,
-                        "src": "356:12:15",
+                        "referencedDeclaration": 2726,
+                        "src": "356:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1642,7 +1642,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "335:34:15",
+                      "src": "335:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -1652,53 +1652,53 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "66616c7365",
-                      "id": 2246,
+                      "id": 2732,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "372:5:15",
+                      "src": "372:5:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "false"
                     },
-                    "src": "335:42:15",
+                    "src": "335:42:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 2248,
+                  "id": 2734,
                   "nodeType": "ExpressionStatement",
-                  "src": "335:42:15"
+                  "src": "335:42:17"
                 }
               ]
             },
             "functionSelector": "87c1172f",
-            "id": 2250,
+            "id": 2736,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "seKYCRevokedFor",
-            "nameLocation": "278:15:15",
+            "nameLocation": "278:15:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2241,
+              "id": 2727,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2240,
+                  "id": 2726,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "302:12:15",
+                  "nameLocation": "302:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2250,
-                  "src": "294:20:15",
+                  "scope": 2736,
+                  "src": "294:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1706,10 +1706,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2239,
+                    "id": 2725,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "294:7:15",
+                    "src": "294:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1719,48 +1719,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "293:22:15"
+              "src": "293:22:17"
             },
             "returnParameters": {
-              "id": 2242,
+              "id": 2728,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "325:0:15"
+              "src": "325:0:17"
             },
-            "scope": 2276,
-            "src": "269:115:15",
+            "scope": 2762,
+            "src": "269:115:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 2261,
+              "id": 2747,
               "nodeType": "Block",
-              "src": "496:58:15",
+              "src": "496:58:17",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 2257,
+                      "id": 2743,
                       "name": "KYCCompletedRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2226,
-                      "src": "513:20:15",
+                      "referencedDeclaration": 2712,
+                      "src": "513:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 2259,
+                    "id": 2745,
                     "indexExpression": {
-                      "id": 2258,
+                      "id": 2744,
                       "name": "_userAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2252,
-                      "src": "534:12:15",
+                      "referencedDeclaration": 2738,
+                      "src": "534:12:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1771,39 +1771,39 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "513:34:15",
+                    "src": "513:34:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 2256,
-                  "id": 2260,
+                  "functionReturnParameters": 2742,
+                  "id": 2746,
                   "nodeType": "Return",
-                  "src": "506:41:15"
+                  "src": "506:41:17"
                 }
               ]
             },
-            "id": 2262,
+            "id": 2748,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isKYCCompletedFor",
-            "nameLocation": "399:17:15",
+            "nameLocation": "399:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2253,
+              "id": 2739,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2252,
+                  "id": 2738,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "425:12:15",
+                  "nameLocation": "425:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2262,
-                  "src": "417:20:15",
+                  "scope": 2748,
+                  "src": "417:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1811,10 +1811,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2251,
+                    "id": 2737,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "417:7:15",
+                    "src": "417:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1824,21 +1824,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "416:22:15"
+              "src": "416:22:17"
             },
             "returnParameters": {
-              "id": 2256,
+              "id": 2742,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2255,
+                  "id": 2741,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2262,
-                  "src": "486:4:15",
+                  "scope": 2748,
+                  "src": "486:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1846,10 +1846,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2254,
+                    "id": 2740,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:4:15",
+                    "src": "486:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1858,19 +1858,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "485:6:15"
+              "src": "485:6:17"
             },
-            "scope": 2276,
-            "src": "390:164:15",
+            "scope": 2762,
+            "src": "390:164:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 2274,
+              "id": 2760,
               "nodeType": "Block",
-              "src": "620:135:15",
+              "src": "620:135:17",
               "statements": [
                 {
                   "expression": {
@@ -1878,12 +1878,12 @@
                       {
                         "arguments": [
                           {
-                            "id": 2269,
+                            "id": 2755,
                             "name": "_buyer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2264,
-                            "src": "669:6:15",
+                            "referencedDeclaration": 2750,
+                            "src": "669:6:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1897,18 +1897,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2268,
+                          "id": 2754,
                           "name": "isKYCCompletedFor",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2262,
-                          "src": "651:17:15",
+                          "referencedDeclaration": 2748,
+                          "src": "651:17:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 2270,
+                        "id": 2756,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1916,7 +1916,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "651:25:15",
+                        "src": "651:25:17",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -1925,14 +1925,14 @@
                       },
                       {
                         "hexValue": "596f75206d75737420636f6d706c657465204b5943206265666f72652070757263686173696e6720746f6b656e73",
-                        "id": 2271,
+                        "id": 2757,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "690:48:15",
+                        "src": "690:48:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_4bb1438367fe3000bed0c87b313bac67532e43c3ce678b063e2b41ce930d1f02",
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
@@ -1951,7 +1951,7 @@
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
                         }
                       ],
-                      "id": 2267,
+                      "id": 2753,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1959,13 +1959,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "630:7:15",
+                      "src": "630:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2272,
+                    "id": 2758,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1973,40 +1973,40 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "630:118:15",
+                    "src": "630:118:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2273,
+                  "id": 2759,
                   "nodeType": "ExpressionStatement",
-                  "src": "630:118:15"
+                  "src": "630:118:17"
                 }
               ]
             },
             "functionSelector": "11e1464b",
-            "id": 2275,
+            "id": 2761,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "requireKYCCompletion",
-            "nameLocation": "569:20:15",
+            "nameLocation": "569:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2265,
+              "id": 2751,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2264,
+                  "id": 2750,
                   "mutability": "mutable",
                   "name": "_buyer",
-                  "nameLocation": "598:6:15",
+                  "nameLocation": "598:6:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2275,
-                  "src": "590:14:15",
+                  "scope": 2761,
+                  "src": "590:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2014,10 +2014,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2263,
+                    "id": 2749,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "590:7:15",
+                    "src": "590:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2027,41 +2027,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "589:16:15"
+              "src": "589:16:17"
             },
             "returnParameters": {
-              "id": 2266,
+              "id": 2752,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "620:0:15"
+              "src": "620:0:17"
             },
-            "scope": 2276,
-            "src": "560:195:15",
+            "scope": 2762,
+            "src": "560:195:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2277,
-        "src": "59:698:15",
+        "scope": 2763,
+        "src": "59:698:17",
         "usedErrors": []
       }
     ],
-    "src": "33:725:15"
+    "src": "33:725:17"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/source/KYCValidation.sol",
     "exportedSymbols": {
       "KYCValidation": [
-        2276
+        2762
       ]
     },
-    "id": 2277,
+    "id": 2763,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2222,
+        "id": 2708,
         "literals": [
           "solidity",
           "^",
@@ -2069,7 +2069,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:15"
+        "src": "33:24:17"
       },
       {
         "abstract": false,
@@ -2078,24 +2078,24 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2276,
+        "id": 2762,
         "linearizedBaseContracts": [
-          2276
+          2762
         ],
         "name": "KYCValidation",
-        "nameLocation": "68:13:15",
+        "nameLocation": "68:13:17",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
             "functionSelector": "37d6c882",
-            "id": 2226,
+            "id": 2712,
             "mutability": "mutable",
             "name": "KYCCompletedRegistry",
-            "nameLocation": "120:20:15",
+            "nameLocation": "120:20:17",
             "nodeType": "VariableDeclaration",
-            "scope": 2276,
-            "src": "88:52:15",
+            "scope": 2762,
+            "src": "88:52:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2103,28 +2103,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 2225,
+              "id": 2711,
               "keyType": {
-                "id": 2223,
+                "id": 2709,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "96:7:15",
+                "src": "96:7:17",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "88:24:15",
+              "src": "88:24:17",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 2224,
+                "id": 2710,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "107:4:15",
+                "src": "107:4:17",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -2135,38 +2135,38 @@
           },
           {
             "body": {
-              "id": 2237,
+              "id": 2723,
               "nodeType": "Block",
-              "src": "205:58:15",
+              "src": "205:58:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2235,
+                    "id": 2721,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2231,
+                        "id": 2717,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2226,
-                        "src": "215:20:15",
+                        "referencedDeclaration": 2712,
+                        "src": "215:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2233,
+                      "id": 2719,
                       "indexExpression": {
-                        "id": 2232,
+                        "id": 2718,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2228,
-                        "src": "236:12:15",
+                        "referencedDeclaration": 2714,
+                        "src": "236:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2177,7 +2177,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "215:34:15",
+                      "src": "215:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -2187,53 +2187,53 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 2234,
+                      "id": 2720,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "252:4:15",
+                      "src": "252:4:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "true"
                     },
-                    "src": "215:41:15",
+                    "src": "215:41:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 2236,
+                  "id": 2722,
                   "nodeType": "ExpressionStatement",
-                  "src": "215:41:15"
+                  "src": "215:41:17"
                 }
               ]
             },
             "functionSelector": "b33d5a1f",
-            "id": 2238,
+            "id": 2724,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "seKYCCompletedFor",
-            "nameLocation": "156:17:15",
+            "nameLocation": "156:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2229,
+              "id": 2715,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2228,
+                  "id": 2714,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "182:12:15",
+                  "nameLocation": "182:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2238,
-                  "src": "174:20:15",
+                  "scope": 2724,
+                  "src": "174:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2241,10 +2241,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2227,
+                    "id": 2713,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "174:7:15",
+                    "src": "174:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2254,54 +2254,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "173:22:15"
+              "src": "173:22:17"
             },
             "returnParameters": {
-              "id": 2230,
+              "id": 2716,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "205:0:15"
+              "src": "205:0:17"
             },
-            "scope": 2276,
-            "src": "147:116:15",
+            "scope": 2762,
+            "src": "147:116:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 2249,
+              "id": 2735,
               "nodeType": "Block",
-              "src": "325:59:15",
+              "src": "325:59:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2247,
+                    "id": 2733,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2243,
+                        "id": 2729,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2226,
-                        "src": "335:20:15",
+                        "referencedDeclaration": 2712,
+                        "src": "335:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2245,
+                      "id": 2731,
                       "indexExpression": {
-                        "id": 2244,
+                        "id": 2730,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2240,
-                        "src": "356:12:15",
+                        "referencedDeclaration": 2726,
+                        "src": "356:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2312,7 +2312,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "335:34:15",
+                      "src": "335:34:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -2322,53 +2322,53 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "66616c7365",
-                      "id": 2246,
+                      "id": 2732,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "372:5:15",
+                      "src": "372:5:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "false"
                     },
-                    "src": "335:42:15",
+                    "src": "335:42:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 2248,
+                  "id": 2734,
                   "nodeType": "ExpressionStatement",
-                  "src": "335:42:15"
+                  "src": "335:42:17"
                 }
               ]
             },
             "functionSelector": "87c1172f",
-            "id": 2250,
+            "id": 2736,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "seKYCRevokedFor",
-            "nameLocation": "278:15:15",
+            "nameLocation": "278:15:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2241,
+              "id": 2727,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2240,
+                  "id": 2726,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "302:12:15",
+                  "nameLocation": "302:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2250,
-                  "src": "294:20:15",
+                  "scope": 2736,
+                  "src": "294:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2376,10 +2376,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2239,
+                    "id": 2725,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "294:7:15",
+                    "src": "294:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2389,48 +2389,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "293:22:15"
+              "src": "293:22:17"
             },
             "returnParameters": {
-              "id": 2242,
+              "id": 2728,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "325:0:15"
+              "src": "325:0:17"
             },
-            "scope": 2276,
-            "src": "269:115:15",
+            "scope": 2762,
+            "src": "269:115:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 2261,
+              "id": 2747,
               "nodeType": "Block",
-              "src": "496:58:15",
+              "src": "496:58:17",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 2257,
+                      "id": 2743,
                       "name": "KYCCompletedRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2226,
-                      "src": "513:20:15",
+                      "referencedDeclaration": 2712,
+                      "src": "513:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 2259,
+                    "id": 2745,
                     "indexExpression": {
-                      "id": 2258,
+                      "id": 2744,
                       "name": "_userAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2252,
-                      "src": "534:12:15",
+                      "referencedDeclaration": 2738,
+                      "src": "534:12:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -2441,39 +2441,39 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "513:34:15",
+                    "src": "513:34:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 2256,
-                  "id": 2260,
+                  "functionReturnParameters": 2742,
+                  "id": 2746,
                   "nodeType": "Return",
-                  "src": "506:41:15"
+                  "src": "506:41:17"
                 }
               ]
             },
-            "id": 2262,
+            "id": 2748,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isKYCCompletedFor",
-            "nameLocation": "399:17:15",
+            "nameLocation": "399:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2253,
+              "id": 2739,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2252,
+                  "id": 2738,
                   "mutability": "mutable",
                   "name": "_userAddress",
-                  "nameLocation": "425:12:15",
+                  "nameLocation": "425:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2262,
-                  "src": "417:20:15",
+                  "scope": 2748,
+                  "src": "417:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2481,10 +2481,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2251,
+                    "id": 2737,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "417:7:15",
+                    "src": "417:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2494,21 +2494,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "416:22:15"
+              "src": "416:22:17"
             },
             "returnParameters": {
-              "id": 2256,
+              "id": 2742,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2255,
+                  "id": 2741,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2262,
-                  "src": "486:4:15",
+                  "scope": 2748,
+                  "src": "486:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2516,10 +2516,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2254,
+                    "id": 2740,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:4:15",
+                    "src": "486:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2528,19 +2528,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "485:6:15"
+              "src": "485:6:17"
             },
-            "scope": 2276,
-            "src": "390:164:15",
+            "scope": 2762,
+            "src": "390:164:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 2274,
+              "id": 2760,
               "nodeType": "Block",
-              "src": "620:135:15",
+              "src": "620:135:17",
               "statements": [
                 {
                   "expression": {
@@ -2548,12 +2548,12 @@
                       {
                         "arguments": [
                           {
-                            "id": 2269,
+                            "id": 2755,
                             "name": "_buyer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2264,
-                            "src": "669:6:15",
+                            "referencedDeclaration": 2750,
+                            "src": "669:6:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -2567,18 +2567,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2268,
+                          "id": 2754,
                           "name": "isKYCCompletedFor",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2262,
-                          "src": "651:17:15",
+                          "referencedDeclaration": 2748,
+                          "src": "651:17:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 2270,
+                        "id": 2756,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2586,7 +2586,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "651:25:15",
+                        "src": "651:25:17",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -2595,14 +2595,14 @@
                       },
                       {
                         "hexValue": "596f75206d75737420636f6d706c657465204b5943206265666f72652070757263686173696e6720746f6b656e73",
-                        "id": 2271,
+                        "id": 2757,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "690:48:15",
+                        "src": "690:48:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_4bb1438367fe3000bed0c87b313bac67532e43c3ce678b063e2b41ce930d1f02",
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
@@ -2621,7 +2621,7 @@
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
                         }
                       ],
-                      "id": 2267,
+                      "id": 2753,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2629,13 +2629,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "630:7:15",
+                      "src": "630:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2272,
+                    "id": 2758,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2643,40 +2643,40 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "630:118:15",
+                    "src": "630:118:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2273,
+                  "id": 2759,
                   "nodeType": "ExpressionStatement",
-                  "src": "630:118:15"
+                  "src": "630:118:17"
                 }
               ]
             },
             "functionSelector": "11e1464b",
-            "id": 2275,
+            "id": 2761,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "requireKYCCompletion",
-            "nameLocation": "569:20:15",
+            "nameLocation": "569:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2265,
+              "id": 2751,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2264,
+                  "id": 2750,
                   "mutability": "mutable",
                   "name": "_buyer",
-                  "nameLocation": "598:6:15",
+                  "nameLocation": "598:6:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2275,
-                  "src": "590:14:15",
+                  "scope": 2761,
+                  "src": "590:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2684,10 +2684,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2263,
+                    "id": 2749,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "590:7:15",
+                    "src": "590:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2697,54 +2697,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "589:16:15"
+              "src": "589:16:17"
             },
             "returnParameters": {
-              "id": 2266,
+              "id": 2752,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "620:0:15"
+              "src": "620:0:17"
             },
-            "scope": 2276,
-            "src": "560:195:15",
+            "scope": 2762,
+            "src": "560:195:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2277,
-        "src": "59:698:15",
+        "scope": 2763,
+        "src": "59:698:17",
         "usedErrors": []
       }
     ],
-    "src": "33:725:15"
+    "src": "33:725:17"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.11+commit.d7f03943.Emscripten.clang"
   },
   "networks": {
-    "42": {
-      "events": {},
-      "links": {},
-      "address": "0xDcbe12EfbBA416dDF20C21CA551C26D845998731",
-      "transactionHash": "0xf32fb9816dc9be76ada343c9d74e9ea6373337f99d270fd8ee559a7ee0446c10"
-    },
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x7BfdA19944D2e57b79d626DC49c006f72468d890",
-      "transactionHash": "0x3f4ec9b73f7f73ba699b62d74689695d4cfe785f49196f3d72ee083c1b208b69"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x7b2f1c69EdC6C403379db593D889A309aa6506f7",
-      "transactionHash": "0x26f5dc70b1d5b107d577c2a487d2c764a9a4c12726aa4a7471fe6fd5b1e56fc2"
+      "address": "0x1e67BF6Ac4F7021a081F4E83d3aDF303A3C7887B",
+      "transactionHash": "0x97bb14106fa143c54e02afcb952ce36bb7195d4fd55d7ef8fa41a0935b9657b1"
     }
   },
-  "schemaVersion": "3.4.5",
-  "updatedAt": "2022-03-04T23:14:16.914Z",
+  "schemaVersion": "3.4.6",
+  "updatedAt": "2022-03-17T22:40:20.279Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

@@ -5,7 +5,7 @@ import { Faucet } from "./Faucet/Faucet";
 import { NotDeployed } from "./NotDeployed/NotDeployed";
 import styled from "styled-components";
 import { SatiSale } from "./SatiSale/SatiSale";
-import { AddWallet } from "./AddWallet/AddWallet";
+import { AddSatiMetamask } from "./AddSatiMetamask/AddSatiMetamask";
 
 const FlexDiv = styled.div`
   min-height: 100vh;
@@ -26,6 +26,8 @@ const BottomDiv = styled.div`
 const TopDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
 `
 
 
@@ -46,7 +48,7 @@ export function Web3Root() {
             <SatiSale/>
             <BottomDiv>
               <Faucet/>
-              <AddWallet/>
+              <AddSatiMetamask/>
             </BottomDiv>
           </Fragment> 
           :        

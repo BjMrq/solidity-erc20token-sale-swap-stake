@@ -50,13 +50,13 @@ export type SwapTransferInfo = ContractEventLog<{
   2: string;
 }>;
 
-export interface SatiEthSwap extends BaseContract {
+export interface EthQuoteSwap extends BaseContract {
   constructor(
     jsonInterface: any[],
     address?: string,
     options?: ContractOptions
-  ): SatiEthSwap;
-  clone(): SatiEthSwap;
+  ): EthQuoteSwap;
+  clone(): EthQuoteSwap;
   methods: {
     getScaledRate(
       _scalingDecimal: number | string | BN
@@ -67,12 +67,14 @@ export interface SatiEthSwap extends BaseContract {
      */
     owner(): NonPayableTransactionObject<string>;
 
+    pairName(): NonPayableTransactionObject<string>;
+
+    quoteToken(): NonPayableTransactionObject<string>;
+
     /**
      * Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
      */
     renounceOwnership(): NonPayableTransactionObject<void>;
-
-    satiToken(): NonPayableTransactionObject<string>;
 
     /**
      * Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.
@@ -80,19 +82,19 @@ export interface SatiEthSwap extends BaseContract {
     transferOwnership(newOwner: string): NonPayableTransactionObject<void>;
 
     getAskPrice(
-      _weiAmount: number | string | BN
+      _baseTokenAmount: number | string | BN
     ): NonPayableTransactionObject<string>;
 
     swapBaseForQuoteToken(
-      _ERC20TokenAmount: number | string | BN
+      _baseTokenAmount: number | string | BN
     ): PayableTransactionObject<void>;
 
     getBidPrice(
-      _satiAmount: number | string | BN
+      _quoteToken: number | string | BN
     ): NonPayableTransactionObject<string>;
 
     swapQuoteForBaseToken(
-      _satiTokenAmount: number | string | BN
+      _quoteTokenAmount: number | string | BN
     ): PayableTransactionObject<void>;
   };
   events: {

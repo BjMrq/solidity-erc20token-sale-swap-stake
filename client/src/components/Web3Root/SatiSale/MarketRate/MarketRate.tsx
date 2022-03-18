@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import styled from "styled-components";
 import { bordered } from "../../../../style/input-like";
 import { Button } from "../../../../style/tags/button";
-import { ReactComponent as ETHLogo } from './crypto-logos/eth.svg';
-import { ReactComponent as WBTCLogo } from './crypto-logos/wbtc.svg';
+import { ReactComponent as BATLogo } from './crypto-logos/BAT.svg';
+import { ReactComponent as BNBLogo } from './crypto-logos/BNB.svg';
+import { ReactComponent as DAILogo } from './crypto-logos/DAI.svg';
+import { ReactComponent as LINKLogo } from './crypto-logos/LINK.svg';
+import { ReactComponent as MATICLogo } from './crypto-logos/MATIC.svg';
+import { ReactComponent as STILogo } from './crypto-logos/STI.svg';
+import { ReactComponent as TRXLogo } from './crypto-logos/TRX.svg';
+import { ReactComponent as USDCLogo } from './crypto-logos/USDC.svg';
+import { ReactComponent as WBTCLogo } from './crypto-logos/WBTC.svg';
+import { ReactComponent as WLTCLogo } from './crypto-logos/WLTC.svg';
 import Modal from 'react-modal';
-import {  lightColor, mainColor } from "../../../../style/colors";
-import {  border, borderRadius } from "../../../../style/characteristics";
+import { lightColor, mainColor } from "../../../../style/colors";
+import { border, borderRadius } from "../../../../style/characteristics";
+import { Web3Context } from "../../../../contexts/web3/context";
+import { useQuery } from 'react-query'
+// import { AddMetamask } from "../../../shared/AddMetamask/AddMetamask";
+
 // import { WebsocketClient, DefaultLogger } from "binance";
 // import socket from "socket.io-client";
 
@@ -26,6 +38,7 @@ const modalStyle = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    maxHeight: "80vh",
     width: '400px',
     backgroundColor: mainColor,
     borderRadius: borderRadius,
@@ -56,6 +69,10 @@ const TokenToPayDiv = styled.div`
  }
 `
 
+const SwapTitle= styled.div`
+  width: 70%;
+`
+
 const TokenPseudoInputDiv = styled.div`
   display: flex;
   margin: 20px auto;
@@ -71,20 +88,6 @@ const PayP = styled.div`
   width: 100%;
   font-size: 1.5rem;
   text-align: left
-`
-
-const TokenSelect = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 30%;
-  background-color: transparent;
-  margin: 0;
-  padding: 5px;
-  font-size: 1.5rem;
-  font-style: oblique;
-  ${bordered}
-  cursor: pointer
 `
 
 const PayAmountInput = styled.input`
@@ -109,9 +112,34 @@ const PayAmountInput = styled.input`
   } 
 `
 
-const SwapTitle= styled.div`
-  width: 70%;
+const TokenSelect = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  background-color: transparent;
+  margin: 0;
+  padding: 4px;
+  font-size: 75%;
+  font-style: oblique;
+  font-weight: 600;
+  ${bordered}
+  cursor: pointer
 `
+
+
+const DownArrowDiv = styled.div`
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`
+
+const TokenNameDiv = styled.div`
+  width: 55%;
+`
+
 const DownArrow = styled.i`
   border: solid black;
   border-width: 0 2px 2px 0;
@@ -123,32 +151,59 @@ const DownArrow = styled.i`
 `
 
 const TokenToSellListElement = styled.div`
- width: 100%;
- justify-content: left;
- font-size: 24px;
- margin: 6px
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  font-size: 24px;
+  margin: 6px
+  height: 40px;
+  justify-content: space-between;
+`
+
+const QuoteTokenLogo = styled.div`
+  width: 10%;
+  margin-right: 20px;
+  /* height: 80vh; */
+  /* overflow-y: scroll; */
 `
 
 const tokenSelectedStyle ={
-  ETH: {logo: <ETHLogo style={{height: "20px", width: "25%", margin: "auto"}}/>, name: "ETH"},
-  wBTC: {logo: <WBTCLogo style={{height: "20px", width: "25%", margin: "auto"}}/>, name: "wBTC"},
+  BAT: {logo: <BATLogo style={{maxHeight: "90%"}}/>, name: "BAT"},
+  BNB: {logo: <BNBLogo style={{maxHeight: "90%"}}/>, name: "BNB"},
+  DAI: {logo: <DAILogo style={{maxHeight: "90%"}}/>, name: "DAI"},
+  LINK: {logo: <LINKLogo style={{maxHeight: "90%"}}/>, name: "LINK"},
+  MATIC: {logo: <MATICLogo style={{maxHeight: "90%"}}/>, name: "MATIC"},
+  STI: {logo: <STILogo style={{maxHeight: "90%"}}/>, name: "STI"},
+  TRX: {logo: <TRXLogo style={{maxHeight: "90%"}}/>, name: "TRX"},
+  USDC: {logo: <USDCLogo style={{maxHeight: "90%"}}/>, name: "USDC"},
+  WBTC: {logo: <WBTCLogo style={{maxHeight: "90%"}}/>, name: "WBTC"},
+  WLTC: {logo: <WLTCLogo style={{maxHeight: "90%"}}/>, name: "WLTC"},
 } as const
 
-type PossibleSellToken = keyof typeof tokenSelectedStyle
+type PossibleBaseToken = keyof typeof tokenSelectedStyle
 
-export function MarketRate() {  
+export function MarketRate() { 
+  const { contracts: {factorySwapContract}} = useContext(Web3Context);
+  
+  const { data: possibleSwapPairs } = useQuery<string[]>('swapPairs', () => factorySwapContract.methods.getAllSwapPairs().call()
+  )
+
+  
   const [sellingAmount, setSellingAmount] = useState("")
-  const [selectedSellToken, setSelectedSellToken] = useState<PossibleSellToken>(tokenSelectedStyle.ETH.name)
   const [tokenSelectionModalOpen, setTokenSelectionModalOpen] = useState(false)
+  const [selectedBaseToken, setSelectedBaseToken] = useState<PossibleBaseToken>(tokenSelectedStyle.WLTC.name)
 
-  const selectNewTokenToSell = (tokenName: PossibleSellToken) => {
-    setSelectedSellToken(tokenName)
+  const getPossibleBaseTokenFromPairs = (possiblePairs: string[] | undefined): PossibleBaseToken[] => Array.from(new Set((possiblePairs || []).reduce((allSwapPairs, currentSwapPair) => [...allSwapPairs, ...currentSwapPair.split("/")],[] as string[]))) as PossibleBaseToken[] 
+
+  const selectNewTokenToSell = (tokenName: PossibleBaseToken) => {
+    setSelectedBaseToken(tokenName)
     setTokenSelectionModalOpen(false)
   }
 
   const swapTokens= ()=>{
     console.log("Swaping", sellingAmount);
   }
+
 
   return (
     <MarketSaleContentDiv>
@@ -157,7 +212,8 @@ export function MarketRate() {
         <PayP>Pay:</PayP>
         <TokenPseudoInputDiv>
           <TokenSelect onClick={() => setTokenSelectionModalOpen(true)}>
-            {tokenSelectedStyle[selectedSellToken].logo}{tokenSelectedStyle[selectedSellToken].name}<DownArrow/>
+            {tokenSelectedStyle[selectedBaseToken].logo}<TokenNameDiv>{tokenSelectedStyle[selectedBaseToken].name}</TokenNameDiv><DownArrowDiv>
+              <DownArrow/></DownArrowDiv>
           </TokenSelect>
 
           <PayAmountInput type="text" placeholder="0.0" value={sellingAmount} onChange={({target: {value}}) => setSellingAmount(value.replace(/[^0-9.]/g, ''))}/>
@@ -176,9 +232,13 @@ export function MarketRate() {
         contentLabel="Example Modal"
       >
         <h2>Select token to sell</h2>
-        {Object.values(tokenSelectedStyle).map((token) => {
-          return <TokenToSellListElement onClick={() => selectNewTokenToSell(token.name)} key={token.name}>{token.logo}{token.name}</TokenToSellListElement>
-        })}
+        {getPossibleBaseTokenFromPairs(possibleSwapPairs).map((token) => 
+          <TokenToSellListElement onClick={() => selectNewTokenToSell(token)} key={token}>
+            <QuoteTokenLogo>{tokenSelectedStyle[token].logo}</QuoteTokenLogo>
+            {token}
+            {/* <AddWallet/> */}
+          </TokenToSellListElement>
+        )}
       </Modal>
     </MarketSaleContentDiv>
   );

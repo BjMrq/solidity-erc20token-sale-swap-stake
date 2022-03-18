@@ -6,16 +6,19 @@ import React, {
 } from "react";
 import Web3 from "web3";
 import { Faucet } from "../../contracts/types/Faucet";
-import {SatiTokenSale} from "../../contracts/types/SatiTokenSale";
+import { SatiTokenSale } from "../../contracts/types/SatiTokenSale";
+import { SatiToken } from "../../contracts/types/SatiToken";
 import FaucetAbi from "../../contracts/abis/Faucet.json";
 import SatiAbi from "../../contracts/abis/SatiToken.json";
 import SatiSaleAbi from "../../contracts/abis/SatiTokenSale.json";
+import SwapContractFactoryAbi from "../../contracts/abis/SwapContractFactory.json";
 import { stringFromHexadecimalNumber } from "../../utils";
-import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFunctions, VoidCall, ToastContractSend } from "./types";
+import { EthereumAvailableGuard, AbiWithNetworks, DeployedNetwork, Web3ContextFunctions, VoidCall, ToastContractSend, AddTokenToWallet } from "./types";
 import { ToastContentProps, toast } from "react-toastify";
 import { dummyErrorParser } from "../../utils/error-parser";
 import { TransactionReceipt } from "web3-core/types";
 import { errorColor, successColor } from "../../style/colors";
+import { SwapContractFactory } from "../../contracts/types/SwapContractFactory";
 
 
 //State
@@ -24,7 +27,12 @@ const initialWeb3ContextState = {
   currentAccount: "",
   contractsDeployedOnCurrentChain: false,
   web3Instance: new Web3(),
-  contracts : {faucetContract: {} as Faucet, satiSaleContract: {} as SatiTokenSale}
+  contracts : {
+    faucetContract: {} as Faucet, 
+    satiSaleContract: {} as SatiTokenSale, 
+    factorySwapContract: {} as SwapContractFactory,
+    satiTokenContract: {} as SatiToken
+  },
 };
 
 
@@ -64,17 +72,15 @@ export default function Web3ContextProvider({
     window.ethereum.request({ method: "eth_requestAccounts" });
   })
 
-  const addSatiToWallet: VoidCall = ifEthereumAvailableDo( () => 
+  const addTokenToWallet: AddTokenToWallet = ifEthereumAvailableDo( (tokenInfo) => 
     window.ethereum.request({
       method: 'wallet_watchAsset',
       params: {
         type: 'ERC20',
         options: {
-          //@ts-expect-error since chainId can not directly access the abi
-          address: SatiAbi.networks[chainId].address,
-          symbol: "STI", 
-          decimals: 18,
-        },
+          ...tokenInfo,
+          image: "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/eth.svg"
+        }
       },
     })
   )
@@ -83,22 +89,42 @@ export default function Web3ContextProvider({
   const areContractsDeployedOnChain = (chainIdToCheck: string): chainIdToCheck is DeployedNetwork => Boolean(FaucetAbi.networks[chainIdToCheck])
 
 
-  const loadContractsIfDeployedOnChain = (): void => {
+  const loadContractsIfDeployedOnChain = async (): Promise<void> => {
  
     if(areContractsDeployedOnChain(chainId)){
-      const faucetContract = new web3InstanceRef.current.eth.Contract(
-        FaucetAbi.abi as AbiWithNetworks["abi"],
-        FaucetAbi.networks[chainId].address
+      // const faucetContract = new web3InstanceRef.current.eth.Contract(
+      //   FaucetAbi.abi as AbiWithNetworks["abi"],
+      //   FaucetAbi.networks[chainId].address
+      // ) as unknown as Faucet
+      const contractName = "Faucet"
+
+      const contractAbi = await import(`../../contracts/abis/${contractName}.json`)
+
+      const faucetContract =  new web3InstanceRef.current.eth.Contract(
+        contractAbi.abi as AbiWithNetworks["abi"],
+        contractAbi.networks[chainId].address
       ) as unknown as Faucet
+
+      const satiTokenContract = new web3InstanceRef.current.eth.Contract(
+        SatiAbi.abi as AbiWithNetworks["abi"],
+        SatiAbi.networks[chainId].address
+      ) as unknown as SatiToken
 
       const satiSaleContract = new web3InstanceRef.current.eth.Contract(
         SatiSaleAbi.abi as AbiWithNetworks["abi"],
         SatiSaleAbi.networks[chainId].address
       ) as unknown as SatiTokenSale
+
+      const factorySwapContract = new web3InstanceRef.current.eth.Contract(
+        SwapContractFactoryAbi.abi as AbiWithNetworks["abi"],
+        SwapContractFactoryAbi.networks[chainId].address
+      ) as unknown as SwapContractFactory
   
       setWeb3ContractsState({
-        faucetContract: faucetContract,
-        satiSaleContract: satiSaleContract
+        satiTokenContract,
+        faucetContract,
+        satiSaleContract,
+        factorySwapContract,
       })
     }
   }
@@ -177,7 +203,7 @@ export default function Web3ContextProvider({
         currentAccount: mainAccount,
         contracts: web3ContractsState,
         initWeb3,
-        addSatiToWallet,
+        addTokenToWallet,
         toastContractSend
       }}
     >

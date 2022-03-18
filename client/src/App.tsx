@@ -6,6 +6,15 @@ import { Whitepaper } from "./components/Whitepaper/Whitepaper";
 import styled from "styled-components";
 import { GlobalStyle } from "./style/general";
 "styled-components";
+import { QueryClient, QueryClientProvider } from 'react-query'
+ 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 
 const AppBody = styled.div`
@@ -35,11 +44,13 @@ function App() {
   return ( 
     <Web3ContextProvider>
       <GlobalStyle/>
-      <AppBody>
-        <Panel><Web3Root/></Panel>
-        <Panel><Whitepaper/></Panel>
-        <Toast />
-      </AppBody>
+      <QueryClientProvider client={queryClient}>
+        <AppBody>
+          <Panel><Web3Root/></Panel>
+          <Panel><Whitepaper/></Panel>
+          <Toast />
+        </AppBody>
+      </QueryClientProvider>
     </Web3ContextProvider>
   );
 }

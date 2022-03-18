@@ -21,12 +21,6 @@ export interface EventOptions {
   topics?: string[];
 }
 
-export type OwnershipTransferred = ContractEventLog<{
-  previousOwner: string;
-  newOwner: string;
-  0: string;
-  1: string;
-}>;
 export type Rate = ContractEventLog<{
   scaledPrice: string;
   timeStamp: string;
@@ -50,58 +44,45 @@ export type SwapTransferInfo = ContractEventLog<{
   2: string;
 }>;
 
-export interface SatiEthSwap extends BaseContract {
+export interface ERC20TokensSwap extends BaseContract {
   constructor(
     jsonInterface: any[],
     address?: string,
     options?: ContractOptions
-  ): SatiEthSwap;
-  clone(): SatiEthSwap;
+  ): ERC20TokensSwap;
+  clone(): ERC20TokensSwap;
   methods: {
+    baseToken(): NonPayableTransactionObject<string>;
+
     getScaledRate(
       _scalingDecimal: number | string | BN
     ): NonPayableTransactionObject<string>;
 
-    /**
-     * Returns the address of the current owner.
-     */
-    owner(): NonPayableTransactionObject<string>;
+    pairName(): NonPayableTransactionObject<string>;
 
-    /**
-     * Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
-     */
-    renounceOwnership(): NonPayableTransactionObject<void>;
+    quoteToken(): NonPayableTransactionObject<string>;
 
-    satiToken(): NonPayableTransactionObject<string>;
+    getAvailableBaseTokenLiquidity(): NonPayableTransactionObject<string>;
 
-    /**
-     * Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.
-     */
-    transferOwnership(newOwner: string): NonPayableTransactionObject<void>;
-
-    getAskPrice(
-      _weiAmount: number | string | BN
-    ): NonPayableTransactionObject<string>;
-
-    swapBaseForQuoteToken(
-      _ERC20TokenAmount: number | string | BN
-    ): PayableTransactionObject<void>;
+    getAvailableQuoteTokenLiquidity(): NonPayableTransactionObject<string>;
 
     getBidPrice(
-      _satiAmount: number | string | BN
+      _quoteTokenAmount: number | string | BN
     ): NonPayableTransactionObject<string>;
 
     swapQuoteForBaseToken(
-      _satiTokenAmount: number | string | BN
+      _quoteTokenAmount: number | string | BN
+    ): PayableTransactionObject<void>;
+
+    getAskPrice(
+      _baseTokenAmount: number | string | BN
+    ): NonPayableTransactionObject<string>;
+
+    swapBaseForQuoteToken(
+      _baseTokenAmount: number | string | BN
     ): PayableTransactionObject<void>;
   };
   events: {
-    OwnershipTransferred(cb?: Callback<OwnershipTransferred>): EventEmitter;
-    OwnershipTransferred(
-      options?: EventOptions,
-      cb?: Callback<OwnershipTransferred>
-    ): EventEmitter;
-
     Rate(cb?: Callback<Rate>): EventEmitter;
     Rate(options?: EventOptions, cb?: Callback<Rate>): EventEmitter;
 
@@ -119,13 +100,6 @@ export interface SatiEthSwap extends BaseContract {
 
     allEvents(options?: EventOptions, cb?: Callback<EventLog>): EventEmitter;
   };
-
-  once(event: "OwnershipTransferred", cb: Callback<OwnershipTransferred>): void;
-  once(
-    event: "OwnershipTransferred",
-    options: EventOptions,
-    cb: Callback<OwnershipTransferred>
-  ): void;
 
   once(event: "Rate", cb: Callback<Rate>): void;
   once(event: "Rate", options: EventOptions, cb: Callback<Rate>): void;
