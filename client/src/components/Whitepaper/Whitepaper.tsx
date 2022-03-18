@@ -42,7 +42,7 @@ export function Whitepaper() {
         <WhitePaperTitle>Whitepaper</WhitePaperTitle>
       </TopDiv>
       <WhitePaperText>
-        Sati is a token on the Ethereum blockchain that offers auto static rewards on every
+        Sati is a token on the Ethereum  blockchain that offers auto static rewards on every
 transaction du to an innovative protocol. Hold $STI before it launch and you'll receive
 ETH automatically in your wallet as a reward when
 Sati token is released! The reward is calculated with the amount of $STI you hold and the time you have hold on to it.
