@@ -1,33 +1,33 @@
 {
   "contractName": "Utils",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/Utils.sol\":\"Utils\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/source/Utils.sol\":{\"keccak256\":\"0xaf2f6562e956702d12eec8a48f3400bf5b24848550bfb21956543104a10b1f4f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5110bf703acb566def71be1e4b572faebf6a737cc5c56035f1d82444cab1d534\",\"dweb:/ipfs/Qmc6VPYHtuuL257p23mdNX1rfjV66dhZC2kR9GNMbSJP5Y\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220b8553c01a2e87021822cb14afe53d27f582e98276f729f3418db37b9d65b1a9c64736f6c634300080b0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220b8553c01a2e87021822cb14afe53d27f582e98276f729f3418db37b9d65b1a9c64736f6c634300080b0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.12+commit.f00d7308\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/Utils.sol\":\"Utils\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/source/Utils.sol\":{\"keccak256\":\"0xb6139fcef82006148d923d07172ef43b474245d9e06db9c148c66f24aa557cfd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://42a00d421c52124f804a88f19f61cb68cd89e4bf321726fb76b2f16e0909cc70\",\"dweb:/ipfs/QmeCL3cNXE7ZRvnbA32dXKfnvXiQ93LiG6J1qd52Kqvtkz\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220ffe12f3013bb8ebf83cfcac6b0df80f31903043fb6e563642c552145906f132364736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220ffe12f3013bb8ebf83cfcac6b0df80f31903043fb6e563642c552145906f132364736f6c634300080c0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
   "sourceMap": "58:479:24:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "58:479:24:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity 0.8.11;\n\ncontract Utils {\n    function concatenateTwo(string memory partOne, string memory partTwo)\n        internal\n        pure\n        returns (string memory)\n    {\n        return string(abi.encodePacked(partOne, partTwo));\n    }\n\n    function concatenateThree(\n        string memory partOne,\n        string memory partTwo,\n        string memory partThree\n    ) internal pure returns (string memory) {\n        return concatenateTwo(concatenateTwo(partOne, partTwo), partThree);\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity 0.8.12;\n\ncontract Utils {\n    function concatenateTwo(string memory partOne, string memory partTwo)\n        internal\n        pure\n        returns (string memory)\n    {\n        return string(abi.encodePacked(partOne, partTwo));\n    }\n\n    function concatenateThree(\n        string memory partOne,\n        string memory partTwo,\n        string memory partThree\n    ) internal pure returns (string memory) {\n        return concatenateTwo(concatenateTwo(partOne, partTwo), partThree);\n    }\n}\n",
   "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/Utils.sol",
   "ast": {
     "absolutePath": "project:/contracts/source/Utils.sol",
     "exportedSymbols": {
       "Utils": [
-        3296
+        3280
       ]
     },
-    "id": 3297,
+    "id": 3281,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3256,
+        "id": 3240,
         "literals": [
           "solidity",
           "0.8",
-          ".11"
+          ".12"
         ],
         "nodeType": "PragmaDirective",
         "src": "33:23:24"
@@ -39,9 +39,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 3296,
+        "id": 3280,
         "linearizedBaseContracts": [
-          3296
+          3280
         ],
         "name": "Utils",
         "nameLocation": "67:5:24",
@@ -49,7 +49,7 @@
         "nodes": [
           {
             "body": {
-              "id": 3274,
+              "id": 3258,
               "nodeType": "Block",
               "src": "215:66:24",
               "statements": [
@@ -59,11 +59,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 3269,
+                            "id": 3253,
                             "name": "partOne",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3258,
+                            "referencedDeclaration": 3242,
                             "src": "256:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -71,11 +71,11 @@
                             }
                           },
                           {
-                            "id": 3270,
+                            "id": 3254,
                             "name": "partTwo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3260,
+                            "referencedDeclaration": 3244,
                             "src": "265:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -95,7 +95,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 3267,
+                            "id": 3251,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -106,7 +106,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 3268,
+                          "id": 3252,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -119,7 +119,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 3271,
+                        "id": 3255,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -142,7 +142,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 3266,
+                      "id": 3250,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -154,14 +154,14 @@
                         "typeString": "type(string storage pointer)"
                       },
                       "typeName": {
-                        "id": 3265,
+                        "id": 3249,
                         "name": "string",
                         "nodeType": "ElementaryTypeName",
                         "src": "232:6:24",
                         "typeDescriptions": {}
                       }
                     },
-                    "id": 3272,
+                    "id": 3256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -176,14 +176,14 @@
                       "typeString": "string memory"
                     }
                   },
-                  "functionReturnParameters": 3264,
-                  "id": 3273,
+                  "functionReturnParameters": 3248,
+                  "id": 3257,
                   "nodeType": "Return",
                   "src": "225:49:24"
                 }
               ]
             },
-            "id": 3275,
+            "id": 3259,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -191,17 +191,17 @@
             "nameLocation": "88:14:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3261,
+              "id": 3245,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3258,
+                  "id": 3242,
                   "mutability": "mutable",
                   "name": "partOne",
                   "nameLocation": "117:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "103:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -210,7 +210,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3257,
+                    "id": 3241,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "103:6:24",
@@ -223,12 +223,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3260,
+                  "id": 3244,
                   "mutability": "mutable",
                   "name": "partTwo",
                   "nameLocation": "140:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "126:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -237,7 +237,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3259,
+                    "id": 3243,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "126:6:24",
@@ -252,17 +252,17 @@
               "src": "102:46:24"
             },
             "returnParameters": {
-              "id": 3264,
+              "id": 3248,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3263,
+                  "id": 3247,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "196:13:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -271,7 +271,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3262,
+                    "id": 3246,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "196:6:24",
@@ -285,7 +285,7 @@
               ],
               "src": "195:15:24"
             },
-            "scope": 3296,
+            "scope": 3280,
             "src": "79:202:24",
             "stateMutability": "pure",
             "virtual": false,
@@ -293,7 +293,7 @@
           },
           {
             "body": {
-              "id": 3294,
+              "id": 3278,
               "nodeType": "Block",
               "src": "452:83:24",
               "statements": [
@@ -303,11 +303,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 3288,
+                            "id": 3272,
                             "name": "partOne",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3277,
+                            "referencedDeclaration": 3261,
                             "src": "499:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -315,11 +315,11 @@
                             }
                           },
                           {
-                            "id": 3289,
+                            "id": 3273,
                             "name": "partTwo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3279,
+                            "referencedDeclaration": 3263,
                             "src": "508:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -338,18 +338,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 3287,
+                          "id": 3271,
                           "name": "concatenateTwo",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3275,
+                          "referencedDeclaration": 3259,
                           "src": "484:14:24",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$_t_string_memory_ptr_$",
                             "typeString": "function (string memory,string memory) pure returns (string memory)"
                           }
                         },
-                        "id": 3290,
+                        "id": 3274,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -365,11 +365,11 @@
                         }
                       },
                       {
-                        "id": 3291,
+                        "id": 3275,
                         "name": "partThree",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3281,
+                        "referencedDeclaration": 3265,
                         "src": "518:9:24",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -388,18 +388,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 3286,
+                      "id": 3270,
                       "name": "concatenateTwo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3275,
+                      "referencedDeclaration": 3259,
                       "src": "469:14:24",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$_t_string_memory_ptr_$",
                         "typeString": "function (string memory,string memory) pure returns (string memory)"
                       }
                     },
-                    "id": 3292,
+                    "id": 3276,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -414,14 +414,14 @@
                       "typeString": "string memory"
                     }
                   },
-                  "functionReturnParameters": 3285,
-                  "id": 3293,
+                  "functionReturnParameters": 3269,
+                  "id": 3277,
                   "nodeType": "Return",
                   "src": "462:66:24"
                 }
               ]
             },
-            "id": 3295,
+            "id": 3279,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -429,17 +429,17 @@
             "nameLocation": "296:16:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3282,
+              "id": 3266,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3277,
+                  "id": 3261,
                   "mutability": "mutable",
                   "name": "partOne",
                   "nameLocation": "336:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "322:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -448,7 +448,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3276,
+                    "id": 3260,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "322:6:24",
@@ -461,12 +461,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3279,
+                  "id": 3263,
                   "mutability": "mutable",
                   "name": "partTwo",
                   "nameLocation": "367:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "353:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -475,7 +475,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3278,
+                    "id": 3262,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:6:24",
@@ -488,12 +488,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3281,
+                  "id": 3265,
                   "mutability": "mutable",
                   "name": "partThree",
                   "nameLocation": "398:9:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "384:23:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -502,7 +502,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3280,
+                    "id": 3264,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "384:6:24",
@@ -517,17 +517,17 @@
               "src": "312:101:24"
             },
             "returnParameters": {
-              "id": 3285,
+              "id": 3269,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3284,
+                  "id": 3268,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "437:13:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -536,7 +536,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3283,
+                    "id": 3267,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "437:6:24",
@@ -550,14 +550,14 @@
               ],
               "src": "436:15:24"
             },
-            "scope": 3296,
+            "scope": 3280,
             "src": "287:248:24",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3297,
+        "scope": 3281,
         "src": "58:479:24",
         "usedErrors": []
       }
@@ -568,19 +568,19 @@
     "absolutePath": "project:/contracts/source/Utils.sol",
     "exportedSymbols": {
       "Utils": [
-        3296
+        3280
       ]
     },
-    "id": 3297,
+    "id": 3281,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3256,
+        "id": 3240,
         "literals": [
           "solidity",
           "0.8",
-          ".11"
+          ".12"
         ],
         "nodeType": "PragmaDirective",
         "src": "33:23:24"
@@ -592,9 +592,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 3296,
+        "id": 3280,
         "linearizedBaseContracts": [
-          3296
+          3280
         ],
         "name": "Utils",
         "nameLocation": "67:5:24",
@@ -602,7 +602,7 @@
         "nodes": [
           {
             "body": {
-              "id": 3274,
+              "id": 3258,
               "nodeType": "Block",
               "src": "215:66:24",
               "statements": [
@@ -612,11 +612,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 3269,
+                            "id": 3253,
                             "name": "partOne",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3258,
+                            "referencedDeclaration": 3242,
                             "src": "256:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -624,11 +624,11 @@
                             }
                           },
                           {
-                            "id": 3270,
+                            "id": 3254,
                             "name": "partTwo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3260,
+                            "referencedDeclaration": 3244,
                             "src": "265:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -648,7 +648,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 3267,
+                            "id": 3251,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -659,7 +659,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 3268,
+                          "id": 3252,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -672,7 +672,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 3271,
+                        "id": 3255,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -695,7 +695,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 3266,
+                      "id": 3250,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -707,14 +707,14 @@
                         "typeString": "type(string storage pointer)"
                       },
                       "typeName": {
-                        "id": 3265,
+                        "id": 3249,
                         "name": "string",
                         "nodeType": "ElementaryTypeName",
                         "src": "232:6:24",
                         "typeDescriptions": {}
                       }
                     },
-                    "id": 3272,
+                    "id": 3256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -729,14 +729,14 @@
                       "typeString": "string memory"
                     }
                   },
-                  "functionReturnParameters": 3264,
-                  "id": 3273,
+                  "functionReturnParameters": 3248,
+                  "id": 3257,
                   "nodeType": "Return",
                   "src": "225:49:24"
                 }
               ]
             },
-            "id": 3275,
+            "id": 3259,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -744,17 +744,17 @@
             "nameLocation": "88:14:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3261,
+              "id": 3245,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3258,
+                  "id": 3242,
                   "mutability": "mutable",
                   "name": "partOne",
                   "nameLocation": "117:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "103:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -763,7 +763,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3257,
+                    "id": 3241,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "103:6:24",
@@ -776,12 +776,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3260,
+                  "id": 3244,
                   "mutability": "mutable",
                   "name": "partTwo",
                   "nameLocation": "140:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "126:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -790,7 +790,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3259,
+                    "id": 3243,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "126:6:24",
@@ -805,17 +805,17 @@
               "src": "102:46:24"
             },
             "returnParameters": {
-              "id": 3264,
+              "id": 3248,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3263,
+                  "id": 3247,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3275,
+                  "scope": 3259,
                   "src": "196:13:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -824,7 +824,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3262,
+                    "id": 3246,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "196:6:24",
@@ -838,7 +838,7 @@
               ],
               "src": "195:15:24"
             },
-            "scope": 3296,
+            "scope": 3280,
             "src": "79:202:24",
             "stateMutability": "pure",
             "virtual": false,
@@ -846,7 +846,7 @@
           },
           {
             "body": {
-              "id": 3294,
+              "id": 3278,
               "nodeType": "Block",
               "src": "452:83:24",
               "statements": [
@@ -856,11 +856,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 3288,
+                            "id": 3272,
                             "name": "partOne",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3277,
+                            "referencedDeclaration": 3261,
                             "src": "499:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -868,11 +868,11 @@
                             }
                           },
                           {
-                            "id": 3289,
+                            "id": 3273,
                             "name": "partTwo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3279,
+                            "referencedDeclaration": 3263,
                             "src": "508:7:24",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -891,18 +891,18 @@
                               "typeString": "string memory"
                             }
                           ],
-                          "id": 3287,
+                          "id": 3271,
                           "name": "concatenateTwo",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3275,
+                          "referencedDeclaration": 3259,
                           "src": "484:14:24",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$_t_string_memory_ptr_$",
                             "typeString": "function (string memory,string memory) pure returns (string memory)"
                           }
                         },
-                        "id": 3290,
+                        "id": 3274,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -918,11 +918,11 @@
                         }
                       },
                       {
-                        "id": 3291,
+                        "id": 3275,
                         "name": "partThree",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3281,
+                        "referencedDeclaration": 3265,
                         "src": "518:9:24",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -941,18 +941,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 3286,
+                      "id": 3270,
                       "name": "concatenateTwo",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3275,
+                      "referencedDeclaration": 3259,
                       "src": "469:14:24",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$_t_string_memory_ptr_$",
                         "typeString": "function (string memory,string memory) pure returns (string memory)"
                       }
                     },
-                    "id": 3292,
+                    "id": 3276,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -967,14 +967,14 @@
                       "typeString": "string memory"
                     }
                   },
-                  "functionReturnParameters": 3285,
-                  "id": 3293,
+                  "functionReturnParameters": 3269,
+                  "id": 3277,
                   "nodeType": "Return",
                   "src": "462:66:24"
                 }
               ]
             },
-            "id": 3295,
+            "id": 3279,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -982,17 +982,17 @@
             "nameLocation": "296:16:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3282,
+              "id": 3266,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3277,
+                  "id": 3261,
                   "mutability": "mutable",
                   "name": "partOne",
                   "nameLocation": "336:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "322:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1001,7 +1001,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3276,
+                    "id": 3260,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "322:6:24",
@@ -1014,12 +1014,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3279,
+                  "id": 3263,
                   "mutability": "mutable",
                   "name": "partTwo",
                   "nameLocation": "367:7:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "353:21:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1028,7 +1028,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3278,
+                    "id": 3262,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:6:24",
@@ -1041,12 +1041,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3281,
+                  "id": 3265,
                   "mutability": "mutable",
                   "name": "partThree",
                   "nameLocation": "398:9:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "384:23:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1055,7 +1055,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3280,
+                    "id": 3264,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "384:6:24",
@@ -1070,17 +1070,17 @@
               "src": "312:101:24"
             },
             "returnParameters": {
-              "id": 3285,
+              "id": 3269,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3284,
+                  "id": 3268,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3295,
+                  "scope": 3279,
                   "src": "437:13:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1089,7 +1089,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3283,
+                    "id": 3267,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "437:6:24",
@@ -1103,14 +1103,14 @@
               ],
               "src": "436:15:24"
             },
-            "scope": 3296,
+            "scope": 3280,
             "src": "287:248:24",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3297,
+        "scope": 3281,
         "src": "58:479:24",
         "usedErrors": []
       }
@@ -1119,11 +1119,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+    "version": "0.8.12+commit.f00d7308.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-03-15T01:08:21.246Z",
+  "updatedAt": "2022-03-19T17:12:58.604Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

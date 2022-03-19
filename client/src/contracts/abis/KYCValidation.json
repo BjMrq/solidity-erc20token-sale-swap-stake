@@ -62,9 +62,9 @@
       "constant": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"KYCCompletedRegistry\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_buyer\",\"type\":\"address\"}],\"name\":\"requireKYCCompletion\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"seKYCCompletedFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"seKYCRevokedFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/KYCValidation.sol\":\"KYCValidation\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/source/KYCValidation.sol\":{\"keccak256\":\"0x8c54cd298efa7ee37b4c85cf12d0a0332deaaec0f67c3fcd2826170e4fc7fefa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://385b6a94f8269c682ca07487bfc160cb824cdd72a1d96686afacb501e2a8a49c\",\"dweb:/ipfs/QmPxgAEU6txnm6UMRHKmwtRfFu4fCjkS9cXtxjaG8PcDzg\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610405806100206000396000f3fe608060405234801561001057600080fd5b5060043610610069576000357c01000000000000000000000000000000000000000000000000000000009004806311e1464b1461006e57806337d6c8821461008a57806387c1172f146100ba578063b33d5a1f146100d6575b600080fd5b610088600480360381019061008391906102c9565b6100f2565b005b6100a4600480360381019061009f91906102c9565b61013d565b6040516100b19190610311565b60405180910390f35b6100d460048036038101906100cf91906102c9565b61015d565b005b6100f060048036038101906100eb91906102c9565b6101b7565b005b6100fb81610211565b61013a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610131906103af565b60405180910390fd5b50565b60006020528060005260406000206000915054906101000a900460ff1681565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006102968261026b565b9050919050565b6102a68161028b565b81146102b157600080fd5b50565b6000813590506102c38161029d565b92915050565b6000602082840312156102df576102de610266565b5b60006102ed848285016102b4565b91505092915050565b60008115159050919050565b61030b816102f6565b82525050565b60006020820190506103266000830184610302565b92915050565b600082825260208201905092915050565b7f596f75206d75737420636f6d706c657465204b5943206265666f72652070757260008201527f63686173696e6720746f6b656e73000000000000000000000000000000000000602082015250565b6000610399602e8361032c565b91506103a48261033d565b604082019050919050565b600060208201905081810360008301526103c88161038c565b905091905056fea264697066735822122012192e703ce57d2fa01d58dabab6327ddece8fb5c9179f99d09bfaa2f14b1d5564736f6c634300080b0033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610069576000357c01000000000000000000000000000000000000000000000000000000009004806311e1464b1461006e57806337d6c8821461008a57806387c1172f146100ba578063b33d5a1f146100d6575b600080fd5b610088600480360381019061008391906102c9565b6100f2565b005b6100a4600480360381019061009f91906102c9565b61013d565b6040516100b19190610311565b60405180910390f35b6100d460048036038101906100cf91906102c9565b61015d565b005b6100f060048036038101906100eb91906102c9565b6101b7565b005b6100fb81610211565b61013a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610131906103af565b60405180910390fd5b50565b60006020528060005260406000206000915054906101000a900460ff1681565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006102968261026b565b9050919050565b6102a68161028b565b81146102b157600080fd5b50565b6000813590506102c38161029d565b92915050565b6000602082840312156102df576102de610266565b5b60006102ed848285016102b4565b91505092915050565b60008115159050919050565b61030b816102f6565b82525050565b60006020820190506103266000830184610302565b92915050565b600082825260208201905092915050565b7f596f75206d75737420636f6d706c657465204b5943206265666f72652070757260008201527f63686173696e6720746f6b656e73000000000000000000000000000000000000602082015250565b6000610399602e8361032c565b91506103a48261033d565b604082019050919050565b600060208201905081810360008301526103c88161038c565b905091905056fea264697066735822122012192e703ce57d2fa01d58dabab6327ddece8fb5c9179f99d09bfaa2f14b1d5564736f6c634300080b0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.12+commit.f00d7308\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"KYCCompletedRegistry\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_buyer\",\"type\":\"address\"}],\"name\":\"requireKYCCompletion\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"seKYCCompletedFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"seKYCRevokedFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/source/KYCValidation.sol\":\"KYCValidation\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/source/KYCValidation.sol\":{\"keccak256\":\"0x9844a6db8cba14b7b6272f1e4c77a90e531b427797118dbec3393617abb9e124\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://78b6365391665138ce84e7cb6b904f465c6707619ce5be5f6e4a9a308a76b329\",\"dweb:/ipfs/QmZQPMvW9xzxmMtunwg2mwQLa99bfBFwT4dyBFRT3QeTey\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610405806100206000396000f3fe608060405234801561001057600080fd5b5060043610610069576000357c01000000000000000000000000000000000000000000000000000000009004806311e1464b1461006e57806337d6c8821461008a57806387c1172f146100ba578063b33d5a1f146100d6575b600080fd5b610088600480360381019061008391906102c9565b6100f2565b005b6100a4600480360381019061009f91906102c9565b61013d565b6040516100b19190610311565b60405180910390f35b6100d460048036038101906100cf91906102c9565b61015d565b005b6100f060048036038101906100eb91906102c9565b6101b7565b005b6100fb81610211565b61013a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610131906103af565b60405180910390fd5b50565b60006020528060005260406000206000915054906101000a900460ff1681565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006102968261026b565b9050919050565b6102a68161028b565b81146102b157600080fd5b50565b6000813590506102c38161029d565b92915050565b6000602082840312156102df576102de610266565b5b60006102ed848285016102b4565b91505092915050565b60008115159050919050565b61030b816102f6565b82525050565b60006020820190506103266000830184610302565b92915050565b600082825260208201905092915050565b7f596f75206d75737420636f6d706c657465204b5943206265666f72652070757260008201527f63686173696e6720746f6b656e73000000000000000000000000000000000000602082015250565b6000610399602e8361032c565b91506103a48261033d565b604082019050919050565b600060208201905081810360008301526103c88161038c565b905091905056fea2646970667358221220c53be9f5f37ac24feb8e48f78129143fcdae404bef84fb12976b1e54490b4da364736f6c634300080c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610069576000357c01000000000000000000000000000000000000000000000000000000009004806311e1464b1461006e57806337d6c8821461008a57806387c1172f146100ba578063b33d5a1f146100d6575b600080fd5b610088600480360381019061008391906102c9565b6100f2565b005b6100a4600480360381019061009f91906102c9565b61013d565b6040516100b19190610311565b60405180910390f35b6100d460048036038101906100cf91906102c9565b61015d565b005b6100f060048036038101906100eb91906102c9565b6101b7565b005b6100fb81610211565b61013a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610131906103af565b60405180910390fd5b50565b60006020528060005260406000206000915054906101000a900460ff1681565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006102968261026b565b9050919050565b6102a68161028b565b81146102b157600080fd5b50565b6000813590506102c38161029d565b92915050565b6000602082840312156102df576102de610266565b5b60006102ed848285016102b4565b91505092915050565b60008115159050919050565b61030b816102f6565b82525050565b60006020820190506103266000830184610302565b92915050565b600082825260208201905092915050565b7f596f75206d75737420636f6d706c657465204b5943206265666f72652070757260008201527f63686173696e6720746f6b656e73000000000000000000000000000000000000602082015250565b6000610399602e8361032c565b91506103a48261033d565b604082019050919050565b600060208201905081810360008301526103c88161038c565b905091905056fea2646970667358221220c53be9f5f37ac24feb8e48f78129143fcdae404bef84fb12976b1e54490b4da364736f6c634300080c0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -1377,26 +1377,26 @@
   ],
   "sourceMap": "59:698:17:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "59:698:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;560:195;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;88:52;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;269:115;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;147:116;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;560:195;651:25;669:6;651:17;:25::i;:::-;630:118;;;;;;;;;;;;:::i;:::-;;;;;;;;;560:195;:::o;88:52::-;;;;;;;;;;;;;;;;;;;;;;:::o;269:115::-;372:5;335:20;:34;356:12;335:34;;;;;;;;;;;;;;;;:42;;;;;;;;;;;;;;;;;;269:115;:::o;147:116::-;252:4;215:20;:34;236:12;215:34;;;;;;;;;;;;;;;;:41;;;;;;;;;;;;;;;;;;147:116;:::o;390:164::-;486:4;513:20;:34;534:12;513:34;;;;;;;;;;;;;;;;;;;;;;;;;506:41;;390:164;;;:::o;88:117:27:-;197:1;194;187:12;334:126;371:7;411:42;404:5;400:54;389:65;;334:126;;;:::o;466:96::-;503:7;532:24;550:5;532:24;:::i;:::-;521:35;;466:96;;;:::o;568:122::-;641:24;659:5;641:24;:::i;:::-;634:5;631:35;621:63;;680:1;677;670:12;621:63;568:122;:::o;696:139::-;742:5;780:6;767:20;758:29;;796:33;823:5;796:33;:::i;:::-;696:139;;;;:::o;841:329::-;900:6;949:2;937:9;928:7;924:23;920:32;917:119;;;955:79;;:::i;:::-;917:119;1075:1;1100:53;1145:7;1136:6;1125:9;1121:22;1100:53;:::i;:::-;1090:63;;1046:117;841:329;;;;:::o;1176:90::-;1210:7;1253:5;1246:13;1239:21;1228:32;;1176:90;;;:::o;1272:109::-;1353:21;1368:5;1353:21;:::i;:::-;1348:3;1341:34;1272:109;;:::o;1387:210::-;1474:4;1512:2;1501:9;1497:18;1489:26;;1525:65;1587:1;1576:9;1572:17;1563:6;1525:65;:::i;:::-;1387:210;;;;:::o;1603:169::-;1687:11;1721:6;1716:3;1709:19;1761:4;1756:3;1752:14;1737:29;;1603:169;;;;:::o;1778:233::-;1918:34;1914:1;1906:6;1902:14;1895:58;1987:16;1982:2;1974:6;1970:15;1963:41;1778:233;:::o;2017:366::-;2159:3;2180:67;2244:2;2239:3;2180:67;:::i;:::-;2173:74;;2256:93;2345:3;2256:93;:::i;:::-;2374:2;2369:3;2365:12;2358:19;;2017:366;;;:::o;2389:419::-;2555:4;2593:2;2582:9;2578:18;2570:26;;2642:9;2636:4;2632:20;2628:1;2617:9;2613:17;2606:47;2670:131;2796:4;2670:131;:::i;:::-;2662:139;;2389:419;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.11;\n\ncontract KYCValidation {\n    mapping(address => bool) public KYCCompletedRegistry;\n\n    function seKYCCompletedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = true;\n    }\n\n    function seKYCRevokedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = false;\n    }\n\n    function isKYCCompletedFor(address _userAddress)\n        internal\n        view\n        returns (bool)\n    {\n        return KYCCompletedRegistry[_userAddress];\n    }\n\n    function requireKYCCompletion(address _buyer) external view {\n        require(\n            isKYCCompletedFor(_buyer),\n            \"You must complete KYC before purchasing tokens\"\n        );\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.12;\n\ncontract KYCValidation {\n    mapping(address => bool) public KYCCompletedRegistry;\n\n    function seKYCCompletedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = true;\n    }\n\n    function seKYCRevokedFor(address _userAddress) external {\n        KYCCompletedRegistry[_userAddress] = false;\n    }\n\n    function isKYCCompletedFor(address _userAddress)\n        internal\n        view\n        returns (bool)\n    {\n        return KYCCompletedRegistry[_userAddress];\n    }\n\n    function requireKYCCompletion(address _buyer) external view {\n        require(\n            isKYCCompletedFor(_buyer),\n            \"You must complete KYC before purchasing tokens\"\n        );\n    }\n}\n",
   "sourcePath": "/Users/bmarquis/Crypto/solidity-swap-exchange/contracts/source/KYCValidation.sol",
   "ast": {
     "absolutePath": "project:/contracts/source/KYCValidation.sol",
     "exportedSymbols": {
       "KYCValidation": [
-        2762
+        2732
       ]
     },
-    "id": 2763,
+    "id": 2733,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2708,
+        "id": 2678,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".11"
+          ".12"
         ],
         "nodeType": "PragmaDirective",
         "src": "33:24:17"
@@ -1408,9 +1408,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2762,
+        "id": 2732,
         "linearizedBaseContracts": [
-          2762
+          2732
         ],
         "name": "KYCValidation",
         "nameLocation": "68:13:17",
@@ -1419,12 +1419,12 @@
           {
             "constant": false,
             "functionSelector": "37d6c882",
-            "id": 2712,
+            "id": 2682,
             "mutability": "mutable",
             "name": "KYCCompletedRegistry",
             "nameLocation": "120:20:17",
             "nodeType": "VariableDeclaration",
-            "scope": 2762,
+            "scope": 2732,
             "src": "88:52:17",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1433,9 +1433,9 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 2711,
+              "id": 2681,
               "keyType": {
-                "id": 2709,
+                "id": 2679,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "96:7:17",
@@ -1451,7 +1451,7 @@
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 2710,
+                "id": 2680,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "107:4:17",
@@ -1465,37 +1465,37 @@
           },
           {
             "body": {
-              "id": 2723,
+              "id": 2693,
               "nodeType": "Block",
               "src": "205:58:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2721,
+                    "id": 2691,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2717,
+                        "id": 2687,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2712,
+                        "referencedDeclaration": 2682,
                         "src": "215:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2719,
+                      "id": 2689,
                       "indexExpression": {
-                        "id": 2718,
+                        "id": 2688,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2714,
+                        "referencedDeclaration": 2684,
                         "src": "236:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1517,7 +1517,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 2720,
+                      "id": 2690,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1537,14 +1537,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2722,
+                  "id": 2692,
                   "nodeType": "ExpressionStatement",
                   "src": "215:41:17"
                 }
               ]
             },
             "functionSelector": "b33d5a1f",
-            "id": 2724,
+            "id": 2694,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1552,17 +1552,17 @@
             "nameLocation": "156:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2715,
+              "id": 2685,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2714,
+                  "id": 2684,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "182:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2724,
+                  "scope": 2694,
                   "src": "174:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1571,7 +1571,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2713,
+                    "id": 2683,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "174:7:17",
@@ -1587,12 +1587,12 @@
               "src": "173:22:17"
             },
             "returnParameters": {
-              "id": 2716,
+              "id": 2686,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "205:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "147:116:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1600,37 +1600,37 @@
           },
           {
             "body": {
-              "id": 2735,
+              "id": 2705,
               "nodeType": "Block",
               "src": "325:59:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2733,
+                    "id": 2703,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2729,
+                        "id": 2699,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2712,
+                        "referencedDeclaration": 2682,
                         "src": "335:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2731,
+                      "id": 2701,
                       "indexExpression": {
-                        "id": 2730,
+                        "id": 2700,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2726,
+                        "referencedDeclaration": 2696,
                         "src": "356:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1652,7 +1652,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "66616c7365",
-                      "id": 2732,
+                      "id": 2702,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1672,14 +1672,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2734,
+                  "id": 2704,
                   "nodeType": "ExpressionStatement",
                   "src": "335:42:17"
                 }
               ]
             },
             "functionSelector": "87c1172f",
-            "id": 2736,
+            "id": 2706,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1687,17 +1687,17 @@
             "nameLocation": "278:15:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2727,
+              "id": 2697,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2726,
+                  "id": 2696,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "302:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2736,
+                  "scope": 2706,
                   "src": "294:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1706,7 +1706,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2725,
+                    "id": 2695,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "294:7:17",
@@ -1722,12 +1722,12 @@
               "src": "293:22:17"
             },
             "returnParameters": {
-              "id": 2728,
+              "id": 2698,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "325:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "269:115:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1735,31 +1735,31 @@
           },
           {
             "body": {
-              "id": 2747,
+              "id": 2717,
               "nodeType": "Block",
               "src": "496:58:17",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 2743,
+                      "id": 2713,
                       "name": "KYCCompletedRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2712,
+                      "referencedDeclaration": 2682,
                       "src": "513:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 2745,
+                    "id": 2715,
                     "indexExpression": {
-                      "id": 2744,
+                      "id": 2714,
                       "name": "_userAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2738,
+                      "referencedDeclaration": 2708,
                       "src": "534:12:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1777,14 +1777,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 2742,
-                  "id": 2746,
+                  "functionReturnParameters": 2712,
+                  "id": 2716,
                   "nodeType": "Return",
                   "src": "506:41:17"
                 }
               ]
             },
-            "id": 2748,
+            "id": 2718,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1792,17 +1792,17 @@
             "nameLocation": "399:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2739,
+              "id": 2709,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2738,
+                  "id": 2708,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "425:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2748,
+                  "scope": 2718,
                   "src": "417:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1811,7 +1811,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2737,
+                    "id": 2707,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "417:7:17",
@@ -1827,17 +1827,17 @@
               "src": "416:22:17"
             },
             "returnParameters": {
-              "id": 2742,
+              "id": 2712,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2741,
+                  "id": 2711,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2748,
+                  "scope": 2718,
                   "src": "486:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1846,7 +1846,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2740,
+                    "id": 2710,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "486:4:17",
@@ -1860,7 +1860,7 @@
               ],
               "src": "485:6:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "390:164:17",
             "stateMutability": "view",
             "virtual": false,
@@ -1868,7 +1868,7 @@
           },
           {
             "body": {
-              "id": 2760,
+              "id": 2730,
               "nodeType": "Block",
               "src": "620:135:17",
               "statements": [
@@ -1878,11 +1878,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 2755,
+                            "id": 2725,
                             "name": "_buyer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2750,
+                            "referencedDeclaration": 2720,
                             "src": "669:6:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1897,18 +1897,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2754,
+                          "id": 2724,
                           "name": "isKYCCompletedFor",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2748,
+                          "referencedDeclaration": 2718,
                           "src": "651:17:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 2756,
+                        "id": 2726,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1925,7 +1925,7 @@
                       },
                       {
                         "hexValue": "596f75206d75737420636f6d706c657465204b5943206265666f72652070757263686173696e6720746f6b656e73",
-                        "id": 2757,
+                        "id": 2727,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1951,7 +1951,7 @@
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
                         }
                       ],
-                      "id": 2753,
+                      "id": 2723,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1965,7 +1965,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2758,
+                    "id": 2728,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1980,14 +1980,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2759,
+                  "id": 2729,
                   "nodeType": "ExpressionStatement",
                   "src": "630:118:17"
                 }
               ]
             },
             "functionSelector": "11e1464b",
-            "id": 2761,
+            "id": 2731,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1995,17 +1995,17 @@
             "nameLocation": "569:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2751,
+              "id": 2721,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2750,
+                  "id": 2720,
                   "mutability": "mutable",
                   "name": "_buyer",
                   "nameLocation": "598:6:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2761,
+                  "scope": 2731,
                   "src": "590:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2014,7 +2014,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2749,
+                    "id": 2719,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "590:7:17",
@@ -2030,19 +2030,19 @@
               "src": "589:16:17"
             },
             "returnParameters": {
-              "id": 2752,
+              "id": 2722,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "620:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "560:195:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2763,
+        "scope": 2733,
         "src": "59:698:17",
         "usedErrors": []
       }
@@ -2053,20 +2053,20 @@
     "absolutePath": "project:/contracts/source/KYCValidation.sol",
     "exportedSymbols": {
       "KYCValidation": [
-        2762
+        2732
       ]
     },
-    "id": 2763,
+    "id": 2733,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2708,
+        "id": 2678,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".11"
+          ".12"
         ],
         "nodeType": "PragmaDirective",
         "src": "33:24:17"
@@ -2078,9 +2078,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2762,
+        "id": 2732,
         "linearizedBaseContracts": [
-          2762
+          2732
         ],
         "name": "KYCValidation",
         "nameLocation": "68:13:17",
@@ -2089,12 +2089,12 @@
           {
             "constant": false,
             "functionSelector": "37d6c882",
-            "id": 2712,
+            "id": 2682,
             "mutability": "mutable",
             "name": "KYCCompletedRegistry",
             "nameLocation": "120:20:17",
             "nodeType": "VariableDeclaration",
-            "scope": 2762,
+            "scope": 2732,
             "src": "88:52:17",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2103,9 +2103,9 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 2711,
+              "id": 2681,
               "keyType": {
-                "id": 2709,
+                "id": 2679,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "96:7:17",
@@ -2121,7 +2121,7 @@
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 2710,
+                "id": 2680,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "107:4:17",
@@ -2135,37 +2135,37 @@
           },
           {
             "body": {
-              "id": 2723,
+              "id": 2693,
               "nodeType": "Block",
               "src": "205:58:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2721,
+                    "id": 2691,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2717,
+                        "id": 2687,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2712,
+                        "referencedDeclaration": 2682,
                         "src": "215:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2719,
+                      "id": 2689,
                       "indexExpression": {
-                        "id": 2718,
+                        "id": 2688,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2714,
+                        "referencedDeclaration": 2684,
                         "src": "236:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2187,7 +2187,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 2720,
+                      "id": 2690,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2207,14 +2207,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2722,
+                  "id": 2692,
                   "nodeType": "ExpressionStatement",
                   "src": "215:41:17"
                 }
               ]
             },
             "functionSelector": "b33d5a1f",
-            "id": 2724,
+            "id": 2694,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2222,17 +2222,17 @@
             "nameLocation": "156:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2715,
+              "id": 2685,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2714,
+                  "id": 2684,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "182:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2724,
+                  "scope": 2694,
                   "src": "174:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2241,7 +2241,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2713,
+                    "id": 2683,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "174:7:17",
@@ -2257,12 +2257,12 @@
               "src": "173:22:17"
             },
             "returnParameters": {
-              "id": 2716,
+              "id": 2686,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "205:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "147:116:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2270,37 +2270,37 @@
           },
           {
             "body": {
-              "id": 2735,
+              "id": 2705,
               "nodeType": "Block",
               "src": "325:59:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 2733,
+                    "id": 2703,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 2729,
+                        "id": 2699,
                         "name": "KYCCompletedRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2712,
+                        "referencedDeclaration": 2682,
                         "src": "335:20:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 2731,
+                      "id": 2701,
                       "indexExpression": {
-                        "id": 2730,
+                        "id": 2700,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2726,
+                        "referencedDeclaration": 2696,
                         "src": "356:12:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2322,7 +2322,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "66616c7365",
-                      "id": 2732,
+                      "id": 2702,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2342,14 +2342,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 2734,
+                  "id": 2704,
                   "nodeType": "ExpressionStatement",
                   "src": "335:42:17"
                 }
               ]
             },
             "functionSelector": "87c1172f",
-            "id": 2736,
+            "id": 2706,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2357,17 +2357,17 @@
             "nameLocation": "278:15:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2727,
+              "id": 2697,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2726,
+                  "id": 2696,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "302:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2736,
+                  "scope": 2706,
                   "src": "294:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2376,7 +2376,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2725,
+                    "id": 2695,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "294:7:17",
@@ -2392,12 +2392,12 @@
               "src": "293:22:17"
             },
             "returnParameters": {
-              "id": 2728,
+              "id": 2698,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "325:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "269:115:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2405,31 +2405,31 @@
           },
           {
             "body": {
-              "id": 2747,
+              "id": 2717,
               "nodeType": "Block",
               "src": "496:58:17",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 2743,
+                      "id": 2713,
                       "name": "KYCCompletedRegistry",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2712,
+                      "referencedDeclaration": 2682,
                       "src": "513:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 2745,
+                    "id": 2715,
                     "indexExpression": {
-                      "id": 2744,
+                      "id": 2714,
                       "name": "_userAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2738,
+                      "referencedDeclaration": 2708,
                       "src": "534:12:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2447,14 +2447,14 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 2742,
-                  "id": 2746,
+                  "functionReturnParameters": 2712,
+                  "id": 2716,
                   "nodeType": "Return",
                   "src": "506:41:17"
                 }
               ]
             },
-            "id": 2748,
+            "id": 2718,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2462,17 +2462,17 @@
             "nameLocation": "399:17:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2739,
+              "id": 2709,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2738,
+                  "id": 2708,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "425:12:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2748,
+                  "scope": 2718,
                   "src": "417:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2481,7 +2481,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2737,
+                    "id": 2707,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "417:7:17",
@@ -2497,17 +2497,17 @@
               "src": "416:22:17"
             },
             "returnParameters": {
-              "id": 2742,
+              "id": 2712,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2741,
+                  "id": 2711,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2748,
+                  "scope": 2718,
                   "src": "486:4:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2516,7 +2516,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2740,
+                    "id": 2710,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "486:4:17",
@@ -2530,7 +2530,7 @@
               ],
               "src": "485:6:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "390:164:17",
             "stateMutability": "view",
             "virtual": false,
@@ -2538,7 +2538,7 @@
           },
           {
             "body": {
-              "id": 2760,
+              "id": 2730,
               "nodeType": "Block",
               "src": "620:135:17",
               "statements": [
@@ -2548,11 +2548,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 2755,
+                            "id": 2725,
                             "name": "_buyer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2750,
+                            "referencedDeclaration": 2720,
                             "src": "669:6:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2567,18 +2567,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 2754,
+                          "id": 2724,
                           "name": "isKYCCompletedFor",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2748,
+                          "referencedDeclaration": 2718,
                           "src": "651:17:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 2756,
+                        "id": 2726,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2595,7 +2595,7 @@
                       },
                       {
                         "hexValue": "596f75206d75737420636f6d706c657465204b5943206265666f72652070757263686173696e6720746f6b656e73",
-                        "id": 2757,
+                        "id": 2727,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2621,7 +2621,7 @@
                           "typeString": "literal_string \"You must complete KYC before purchasing tokens\""
                         }
                       ],
-                      "id": 2753,
+                      "id": 2723,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2635,7 +2635,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2758,
+                    "id": 2728,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2650,14 +2650,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2759,
+                  "id": 2729,
                   "nodeType": "ExpressionStatement",
                   "src": "630:118:17"
                 }
               ]
             },
             "functionSelector": "11e1464b",
-            "id": 2761,
+            "id": 2731,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2665,17 +2665,17 @@
             "nameLocation": "569:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2751,
+              "id": 2721,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2750,
+                  "id": 2720,
                   "mutability": "mutable",
                   "name": "_buyer",
                   "nameLocation": "598:6:17",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2761,
+                  "scope": 2731,
                   "src": "590:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2684,7 +2684,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2749,
+                    "id": 2719,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "590:7:17",
@@ -2700,19 +2700,19 @@
               "src": "589:16:17"
             },
             "returnParameters": {
-              "id": 2752,
+              "id": 2722,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "620:0:17"
             },
-            "scope": 2762,
+            "scope": 2732,
             "src": "560:195:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2763,
+        "scope": 2733,
         "src": "59:698:17",
         "usedErrors": []
       }
@@ -2721,18 +2721,18 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+    "version": "0.8.12+commit.f00d7308.Emscripten.clang"
   },
   "networks": {
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x1e67BF6Ac4F7021a081F4E83d3aDF303A3C7887B",
-      "transactionHash": "0x97bb14106fa143c54e02afcb952ce36bb7195d4fd55d7ef8fa41a0935b9657b1"
+      "address": "0x9E4DAf97746a74569D1bB5FCbD809FaeA0445B2F",
+      "transactionHash": "0x0e11d5fa694a37e8f0df9248233ed7e90db9e6cf9fd96f40e0689c3a25d81365"
     }
   },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-03-18T21:53:32.335Z",
+  "updatedAt": "2022-03-19T17:19:58.019Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

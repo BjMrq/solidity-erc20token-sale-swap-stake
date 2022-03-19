@@ -43,7 +43,7 @@ export function Web3Root() {
     <FlexDiv>
       <TopDivSale>
         <STILogo style={{height: "70px", marginRight: "20px"}}></STILogo>
-        <img style={{height: "70px", marginRight: "20px"}} src="https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/STI.svg"/><h2>Sati token sale</h2>
+        <h2>Sati token sale</h2>
       </TopDivSale>
       {connected 
         ? 

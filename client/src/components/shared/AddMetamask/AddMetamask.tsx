@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import { Web3Context } from "../../../contexts/web3/context";
 import { ERC20 } from "../../../contracts/types/ERC20";
@@ -22,12 +22,12 @@ const MetamaskLogoDiv = styled.div`
 export function AddMetamask({tokenContract, displayText}: {tokenContract: ERC20, displayText: string}) {
   const { addTokenToWallet } = useContext(Web3Context);
 
-  const addTokenToMetamask = async () => addTokenToWallet(tokenContract)
+  console.log(tokenContract);
   
   return (
     <AddWalletDiv>
       <Button style={{display: "flex", padding: "6px", height: "35px", fontSize: "14px", alignSelf: "flex-end"}}
-        onClick={addTokenToMetamask}><MetamaskLogoDiv><MetamaskLogo/></MetamaskLogoDiv>{displayText && displayText}</Button>
+        onClick={() => addTokenToWallet(tokenContract)}><MetamaskLogoDiv><MetamaskLogo/></MetamaskLogoDiv>{displayText && displayText}</Button>
     </AddWalletDiv>
   );
 }

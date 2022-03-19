@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useQuery } from 'react-query';
 import styled from "styled-components";
-import { Web3Context } from "../../../../contexts/web3/context";
+// import { Web3Context } from "../../../../contexts/web3/context";
 import { ReactComponent as BATLogo } from '../../../../contracts/crypto-logos/BAT.svg';
 import { ReactComponent as BNBLogo } from '../../../../contracts/crypto-logos/BNB.svg';
 import { ReactComponent as DAILogo } from '../../../../contracts/crypto-logos/DAI.svg';
@@ -184,9 +184,9 @@ const tokenSelectedStyle ={
 type PossibleBaseToken = keyof typeof tokenSelectedStyle
 
 export function MarketRate() { 
-  const { contracts: {factorySwapContract}} = useContext(Web3Context);
+  // const { contracts: {factorySwapContract}} = useContext(Web3Context);
   
-  const { data: possibleSwapPairs } = useQuery<string[]>('swapPairs', () => factorySwapContract.methods.getAllSwapPairs().call())
+  const { data: possibleSwapPairs } = useQuery<string[]>('swapPairs', () => [])
 
   
   const [sellingAmount, setSellingAmount] = useState("")
@@ -207,29 +207,29 @@ export function MarketRate() {
   useEffect(() => {
     (async () => {
 
-      if(possibleSwapPairs)
+      // if(possibleSwapPairs)
 
-      // reduce instead with build object with swapPair as ke?
-        console.log(await Promise.all(possibleSwapPairs.map(async (pairName) => {
-          const [baseTokenName, quoteTokenName] = pairName.split("/")
+      // // reduce instead with build object with swapPair as ke?
+      //   console.log(await Promise.all(possibleSwapPairs.map(async (pairName) => {
+      //     const [baseTokenName, quoteTokenName] = pairName.split("/")
 
-          const swapTokenInfo = await factorySwapContract.methods.deployedSwapContractsRegistry(pairName).call()
+      //     const swapTokenInfo = await factorySwapContract.methods.deployedSwapContractsRegistry(pairName).call()
 
-          //do this ion context ?
-          // build ERC20 Tokens contract in this function instead of address the token contract
-          return {
-            pairName, 
-            swapContractAddress: swapTokenInfo.swapContractAddress,
-            baseToken: {
-              name: baseTokenName,
-              address: swapTokenInfo.baseTokenAddress
-            },
-            quoteToken: {
-              name: quoteTokenName,
-              address: swapTokenInfo.quoteTokenAddress
-            }
-          }
-        })));
+      //     //do this ion context ?
+      //     // build ERC20 Tokens contract in this function instead of address the token contract
+      //     return {
+      //       pairName, 
+      //       swapContractAddress: swapTokenInfo.swapContractAddress,
+      //       baseToken: {
+      //         name: baseTokenName,
+      //         address: swapTokenInfo.baseTokenAddress
+      //       },
+      //       quoteToken: {
+      //         name: quoteTokenName,
+      //         address: swapTokenInfo.quoteTokenAddress
+      //       }
+      //     }
+      //   })));
     }
     )();   
   }, [])
