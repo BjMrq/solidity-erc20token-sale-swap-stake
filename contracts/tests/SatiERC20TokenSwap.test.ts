@@ -1,18 +1,18 @@
 import {
-  deployERC20TokenMockWithAddressOf,
+  deployERC20TokenMock,
   deployPriceFeedMockWithRateOf,
 } from "../helpers/deploy-mocks";
-import { foundAccountFrom, nameAccounts } from "../helpers/founding";
+import { foundAddressFrom, nameAccounts } from "../helpers/founding";
 import { toToken, toUnit } from "../helpers/utils";
 import { satiTokenSupply } from "../helpers/variables";
 import {
   MockERC20TokenInstance,
-  SatiERC20TokenSwapInstance,
+  ERC20TokensSwapInstance,
   SatiTokenInstance,
 } from "../types";
 
 const SatiToken = artifacts.require("SatiToken");
-const SatiERC20TokenSwap = artifacts.require("SatiERC20TokenSwap");
+const ERC20TokensSwap = artifacts.require("ERC20TokensSwap");
 
 const initialSwapTestSatiSupply = "100";
 
@@ -21,23 +21,26 @@ const stiERC20TokenRate = 18;
 const freshTokenAndSwapContractsDeploy = async (accounts: Truffle.Accounts) => {
   const satiTokenInstance = await SatiToken.new(satiTokenSupply.total);
 
-  const erc20TokenInstance = await deployERC20TokenMockWithAddressOf(
-    nameAccounts(accounts).deployerAccount
-  );
+  const erc20TokenInstance = await deployERC20TokenMock("Chain link", "LINK");
 
   const mockPriceFeedERC20Token = await deployPriceFeedMockWithRateOf(
     `${stiERC20TokenRate}00000000`
   );
 
-  const swapInstance = await SatiERC20TokenSwap.new(
-    satiTokenInstance.address,
+  const swapInstance = await ERC20TokensSwap.new(
     erc20TokenInstance.address,
+    satiTokenInstance.address,
     mockPriceFeedERC20Token.address
   );
 
   await satiTokenInstance.transfer(
     swapInstance.address,
     toUnit(initialSwapTestSatiSupply)
+  );
+
+  await erc20TokenInstance.transfer(
+    swapInstance.address,
+    "50000000000000000000000"
   );
 
   return {
@@ -47,13 +50,13 @@ const freshTokenAndSwapContractsDeploy = async (accounts: Truffle.Accounts) => {
   };
 };
 
-contract("SatiERC20TokenSwap", (accounts) => {
+contract("ERC20TokensSwap", (accounts) => {
   const { swapERC20TokenBuyerAccount, swapSatiBuyerAccount } =
     nameAccounts(accounts);
 
-  const foundAccountWith = foundAccountFrom(accounts);
+  const foundAddressWith = foundAddressFrom(accounts);
 
-  let swapInstance: SatiERC20TokenSwapInstance;
+  let swapInstance: ERC20TokensSwapInstance;
   let satiTokenInstance: SatiTokenInstance;
   let erc20TokenInstance: MockERC20TokenInstance;
 
@@ -79,13 +82,13 @@ contract("SatiERC20TokenSwap", (accounts) => {
         }
       );
 
-      await swapInstance.swapPairedTokenForSati(ERC20TokenAmountToEmptySupply, {
+      await swapInstance.swapBaseForQuoteToken(ERC20TokenAmountToEmptySupply, {
         from: swapSatiBuyerAccount,
       });
     };
 
-    await foundAccountWith(erc20TokenInstance, {
-      accountToFound: swapSatiBuyerAccount,
+    await foundAddressWith(erc20TokenInstance, {
+      addressToFound: swapSatiBuyerAccount,
       amount: toUnit("1000"),
     });
 
@@ -96,7 +99,7 @@ contract("SatiERC20TokenSwap", (accounts) => {
     });
 
     try {
-      await swapInstance.swapPairedTokenForSati(toUnit("1"), {
+      await swapInstance.swapBaseForQuoteToken(toUnit("1"), {
         from: swapSatiBuyerAccount,
       });
     } catch (error) {
@@ -110,8 +113,8 @@ contract("SatiERC20TokenSwap", (accounts) => {
     const pairedTokenToSwap = toUnit("1");
     const supposedSatiTokenAmount = toUnit(1 * stiERC20TokenRate);
 
-    await foundAccountWith(erc20TokenInstance, {
-      accountToFound: swapSatiBuyerAccount,
+    await foundAddressWith(erc20TokenInstance, {
+      addressToFound: swapSatiBuyerAccount,
       amount: pairedTokenToSwap,
     });
 
@@ -119,7 +122,7 @@ contract("SatiERC20TokenSwap", (accounts) => {
       from: swapSatiBuyerAccount,
     });
 
-    await swapInstance.swapPairedTokenForSati(pairedTokenToSwap, {
+    await swapInstance.swapBaseForQuoteToken(pairedTokenToSwap, {
       from: swapSatiBuyerAccount,
     });
 
@@ -141,8 +144,8 @@ contract("SatiERC20TokenSwap", (accounts) => {
   });
 
   it("Emit an event with swap info when swapping ERC20Token for sati", async () => {
-    await foundAccountWith(erc20TokenInstance, {
-      accountToFound: swapSatiBuyerAccount,
+    await foundAddressWith(erc20TokenInstance, {
+      addressToFound: swapSatiBuyerAccount,
       amount: toUnit("1"),
     });
 
@@ -150,7 +153,7 @@ contract("SatiERC20TokenSwap", (accounts) => {
       from: swapSatiBuyerAccount,
     });
 
-    const { logs: swapLogs } = await swapInstance.swapPairedTokenForSati(
+    const { logs: swapLogs } = await swapInstance.swapBaseForQuoteToken(
       toUnit("1"),
       {
         from: swapSatiBuyerAccount,
@@ -167,11 +170,11 @@ contract("SatiERC20TokenSwap", (accounts) => {
     expect(rateEvent.args.timeStamp.toString()).equal("1");
     expect(rateEvent.args.scaledPrice.toString()).equal(toUnit(18));
 
-    expect(swapRateEvent.event).equal("SwapRate");
+    expect(swapRateEvent.event).equal("SwapRateInfo");
     expect(swapRateEvent.args.sellingAmount.toString()).equal(toUnit(1));
     expect(swapRateEvent.args.buyingAmount.toString()).equal(toUnit(18));
 
-    expect(swapTransferEvent.event).equal("SwapTransfer");
+    expect(swapTransferEvent.event).equal("SwapTransferInfo");
     expect(swapTransferEvent.args.beneficiary.toString()).equal(
       swapSatiBuyerAccount
     );
@@ -181,7 +184,7 @@ contract("SatiERC20TokenSwap", (accounts) => {
 
   it("Can not swap sati for ERC20 Token if buyer does not have enough sati", async () => {
     try {
-      await swapInstance.swapSatiForPairedToken(toUnit("100"), {
+      await swapInstance.swapQuoteForBaseToken(toUnit("100"), {
         from: swapERC20TokenBuyerAccount,
       });
     } catch (error) {
@@ -194,8 +197,8 @@ contract("SatiERC20TokenSwap", (accounts) => {
   it("Can swap Sati for ERC20Token", async () => {
     await satiTokenInstance.transfer(swapERC20TokenBuyerAccount, toUnit("100"));
 
-    await foundAccountWith(erc20TokenInstance, {
-      accountToFound: swapInstance.address,
+    await foundAddressWith(erc20TokenInstance, {
+      addressToFound: swapInstance.address,
       amount: toUnit("100"),
     });
 
@@ -207,7 +210,7 @@ contract("SatiERC20TokenSwap", (accounts) => {
       }
     );
 
-    await swapInstance.swapSatiForPairedToken(toUnit("100"), {
+    await swapInstance.swapQuoteForBaseToken(toUnit("100"), {
       from: swapERC20TokenBuyerAccount,
     });
 

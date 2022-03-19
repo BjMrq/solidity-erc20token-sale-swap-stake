@@ -13,23 +13,20 @@ export const nameAccounts = (accounts: Truffle.Accounts) => ({
   maliciousAccount: accounts[7],
 });
 
-export const foundAccountFrom =
+export const foundAddressFrom =
   (accounts: Truffle.Accounts) =>
   async (
     tokenInstance: ERC20Instance,
     {
-      accountToFound,
+      addressToFound,
       amount,
     }: {
-      accountToFound: string;
+      addressToFound: string;
       amount: number | string;
     }
   ) => {
     const { deployerAccount } = nameAccounts(accounts);
-    await tokenInstance.approve(deployerAccount, amount, {
-      from: deployerAccount,
-    });
-    await tokenInstance.transferFrom(deployerAccount, accountToFound, amount, {
+    await tokenInstance.transfer(addressToFound, amount, {
       from: deployerAccount,
     });
   };

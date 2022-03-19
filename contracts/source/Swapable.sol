@@ -5,18 +5,18 @@ pragma solidity ^0.8.11;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./Ratable.sol";
 import "./Utils.sol";
-import "./ISatiSwapable.sol";
+import "./ISwapable.sol";
 
-abstract contract Swapable is Ratable, Utils, ISatiSwapable {
+abstract contract Swapable is Ratable, Utils, ISwapable {
     uint8 precisionDecimals = 18;
 
-    event SwapTransfer(
+    event SwapTransferInfo(
         address indexed beneficiary,
         uint256 indexed amountSent,
         uint256 indexed amountReceived
     );
 
-    event SwapRate(
+    event SwapRateInfo(
         string indexed exchangeType,
         uint256 indexed sellingAmount,
         uint256 indexed buyingAmount
@@ -29,7 +29,7 @@ abstract contract Swapable is Ratable, Utils, ISatiSwapable {
     ) internal view {
         require(
             _tokenAddress.balanceOf(_addressToValidate) >= _requiredAmount,
-            concatenate("Not enough ", _tokenAddress.symbol())
+            concatenateTwo("Not enough ", _tokenAddress.symbol())
         );
     }
 
@@ -41,7 +41,7 @@ abstract contract Swapable is Ratable, Utils, ISatiSwapable {
         return _tokenToCheckBalanceOf.balanceOf(address(this));
     }
 
-    function getSatiTokenAmountForFromRate(uint256 _ERC20TokenAmount)
+    function getQuoteTokenAmountForFromRate(uint256 _ERC20TokenAmount)
         internal
         returns (uint256)
     {
@@ -52,7 +52,7 @@ abstract contract Swapable is Ratable, Utils, ISatiSwapable {
             uint256(exchangeRate);
     }
 
-    function getERC20TokenAmountFromRate(uint256 _satiAmount)
+    function getBaseTokenAmountFromRate(uint256 _satiAmount)
         internal
         returns (uint256)
     {

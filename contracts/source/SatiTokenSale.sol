@@ -10,11 +10,11 @@ contract SatiTokenSale is Crowdsale {
     KYCValidation kycValidation;
 
     constructor(
-        uint256 _fixedExchangeRate,
+        uint256 _fixedexchangeRate,
         address payable _wallet,
         IERC20 _token,
         KYCValidation _kycValidation
-    ) Crowdsale(_fixedExchangeRate, _wallet, _token) {
+    ) Crowdsale(_fixedexchangeRate, _wallet, _token) {
         kycValidation = _kycValidation;
     }
 

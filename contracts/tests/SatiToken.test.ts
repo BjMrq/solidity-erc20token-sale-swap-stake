@@ -1,11 +1,11 @@
 import { SatiTokenInstance } from "../types";
-import { foundAccountFrom, nameAccounts } from "../helpers/founding";
+import { foundAddressFrom, nameAccounts } from "../helpers/founding";
 
 const SatiToken = artifacts.require("SatiToken");
 
 contract("SatiToken", (accounts) => {
   const { senderAccount, receiverAccount } = nameAccounts(accounts);
-  const foundAccountWith = foundAccountFrom(accounts);
+  const foundAddressWith = foundAddressFrom(accounts);
 
   let newSatiTokenInstance: SatiTokenInstance;
 
@@ -18,8 +18,8 @@ contract("SatiToken", (accounts) => {
 
     const amount = 1;
 
-    await foundAccountWith(satiTokenInstance, {
-      accountToFound: senderAccount,
+    await foundAddressWith(satiTokenInstance, {
+      addressToFound: senderAccount,
       amount,
     });
 
@@ -37,8 +37,8 @@ contract("SatiToken", (accounts) => {
   it("Is not possible to send more tokens then the amount hold by an account", async () => {
     const satiTokenInstance = newSatiTokenInstance;
 
-    await foundAccountWith(satiTokenInstance, {
-      accountToFound: senderAccount,
+    await foundAddressWith(satiTokenInstance, {
+      addressToFound: senderAccount,
       amount: 1,
     });
 
@@ -69,8 +69,8 @@ contract("SatiToken", (accounts) => {
   it("Is not possible to send more token than total available supply", async () => {
     const satiTokenInstance = newSatiTokenInstance;
     try {
-      await foundAccountWith(satiTokenInstance, {
-        accountToFound: senderAccount,
+      await foundAddressWith(satiTokenInstance, {
+        addressToFound: senderAccount,
         amount: "1000000000000000000000001",
       });
     } catch (error) {

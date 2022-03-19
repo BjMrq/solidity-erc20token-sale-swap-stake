@@ -13,7 +13,9 @@ export interface ISatiSwapableContract
 type AllEvents = never;
 
 export interface ISatiSwapableInstance extends Truffle.ContractInstance {
-  getAmountOfSatiFromPairedToken: {
+  getPairName(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+  getAskPrice: {
     (
       _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -32,7 +34,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapPairedTokenForSati: {
+  swapBaseForQuoteToken: {
     (
       _ERC20TokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -51,7 +53,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  getNumberOfPairedTokenFromSati: {
+  getBidPrice: {
     (
       _satiAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -70,7 +72,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  swapSatiForPairedToken: {
+  swapQuoteForBaseToken: {
     (
       _satiAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
@@ -90,7 +92,9 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
   };
 
   methods: {
-    getAmountOfSatiFromPairedToken: {
+    getPairName(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+    getAskPrice: {
       (
         _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -109,7 +113,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    swapPairedTokenForSati: {
+    swapBaseForQuoteToken: {
       (
         _ERC20TokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -128,7 +132,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    getNumberOfPairedTokenFromSati: {
+    getBidPrice: {
       (
         _satiAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
@@ -147,7 +151,7 @@ export interface ISatiSwapableInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    swapSatiForPairedToken: {
+    swapQuoteForBaseToken: {
       (
         _satiAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails

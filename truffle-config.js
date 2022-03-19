@@ -21,7 +21,7 @@ module.exports = {
   },
   networks: {
     development: {
-      network_id: "5777",
+      network_id: "*",
       host: "127.0.0.1",
       port: 8545,
     },
@@ -39,11 +39,21 @@ module.exports = {
       provider() {
         return new HDWalletProvider(
           process.env.MNEMONIC,
-          process.env.NODE_ENDPOINT,
+          process.env.KOVAN_NODE_ENDPOINT,
           0
         );
       },
       network_id: "42",
+    },
+    rinkeby: {
+      provider() {
+        return new HDWalletProvider(
+          process.env.MNEMONIC,
+          process.env.RINKEBY_NODE_ENDPOINT,
+          0
+        );
+      },
+      network_id: "4",
     },
   },
 };

@@ -5,14 +5,13 @@
 import BN from "bn.js";
 import { EventData, PastEventOptions } from "web3-eth-contract";
 
-export interface ERC20TokenSatiContract
-  extends Truffle.Contract<ERC20TokenSatiInstance> {
+export interface EthQuoteSwapContract
+  extends Truffle.Contract<EthQuoteSwapInstance> {
   "new"(
-    _satiToken: string,
-    _ERC20Token: string,
-    _ERC20TokenToUsdRate: string,
+    _quoteToken: string,
+    _ethToUsdRate: string,
     meta?: Truffle.TransactionDetails
-  ): Promise<ERC20TokenSatiInstance>;
+  ): Promise<EthQuoteSwapInstance>;
 }
 
 export interface OwnershipTransferred {
@@ -35,8 +34,8 @@ export interface Rate {
   };
 }
 
-export interface SwapRate {
-  name: "SwapRate";
+export interface SwapRateInfo {
+  name: "SwapRateInfo";
   args: {
     exchangeType: string;
     sellingAmount: BN;
@@ -47,8 +46,8 @@ export interface SwapRate {
   };
 }
 
-export interface SwapTransfer {
-  name: "SwapTransfer";
+export interface SwapTransferInfo {
+  name: "SwapTransferInfo";
   args: {
     beneficiary: string;
     amountSent: BN;
@@ -59,9 +58,9 @@ export interface SwapTransfer {
   };
 }
 
-type AllEvents = OwnershipTransferred | Rate | SwapRate | SwapTransfer;
+type AllEvents = OwnershipTransferred | Rate | SwapRateInfo | SwapTransferInfo;
 
-export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
+export interface EthQuoteSwapInstance extends Truffle.ContractInstance {
   getScaledRate: {
     (
       _scalingDecimal: number | BN | string,
@@ -86,6 +85,10 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
    */
   owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
+  pairName(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+  quoteToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
   /**
    * Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
    */
@@ -97,10 +100,6 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
     sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
-
-  satitoToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
-
-  swaptoToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
   /**
    * Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.
@@ -123,86 +122,78 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
-  getAvailableERC20TokenAmount(
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<BN>;
-
-  getAvailableSatiTokenAmount(
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<BN>;
-
-  getAmountOfSatiFromPairedToken: {
+  getAskPrice: {
     (
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
     sendTransaction(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  ERC20TokenForSatiSwap: {
+  swapBaseForQuoteToken: {
     (
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _ERC20TokenAmount: number | BN | string,
+      _baseTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  getNumberOfPairedTokenFromSati: {
+  getBidPrice: {
     (
-      _satiAmount: number | BN | string,
+      _quoteToken: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _satiAmount: number | BN | string,
+      _quoteToken: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
     sendTransaction(
-      _satiAmount: number | BN | string,
+      _quoteToken: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _satiAmount: number | BN | string,
+      _quoteToken: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  satiForERC20TokenSwap: {
+  swapQuoteForBaseToken: {
     (
-      _satiAmount: number | BN | string,
+      _quoteTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      _satiAmount: number | BN | string,
+      _quoteTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      _satiAmount: number | BN | string,
+      _quoteTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      _satiAmount: number | BN | string,
+      _quoteTokenAmount: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
@@ -232,6 +223,10 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
      */
     owner(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
+    pairName(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+    quoteToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
     /**
      * Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
      */
@@ -243,10 +238,6 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
       sendTransaction(txDetails?: Truffle.TransactionDetails): Promise<string>;
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
-
-    satitoToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
-
-    swaptoToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
     /**
      * Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.
@@ -269,86 +260,78 @@ export interface ERC20TokenSatiInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
-    getAvailableERC20TokenAmount(
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<BN>;
-
-    getAvailableSatiTokenAmount(
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<BN>;
-
-    getAmountOfSatiFromPairedToken: {
+    getAskPrice: {
       (
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<BN>;
       sendTransaction(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
-    ERC20TokenForSatiSwap: {
+    swapBaseForQuoteToken: {
       (
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _ERC20TokenAmount: number | BN | string,
+        _baseTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
-    getNumberOfPairedTokenFromSati: {
+    getBidPrice: {
       (
-        _satiAmount: number | BN | string,
+        _quoteToken: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _satiAmount: number | BN | string,
+        _quoteToken: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<BN>;
       sendTransaction(
-        _satiAmount: number | BN | string,
+        _quoteToken: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _satiAmount: number | BN | string,
+        _quoteToken: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
-    satiForERC20TokenSwap: {
+    swapQuoteForBaseToken: {
       (
-        _satiAmount: number | BN | string,
+        _quoteTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        _satiAmount: number | BN | string,
+        _quoteTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        _satiAmount: number | BN | string,
+        _quoteTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        _satiAmount: number | BN | string,
+        _quoteTokenAmount: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

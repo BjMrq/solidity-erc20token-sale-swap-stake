@@ -55,7 +55,7 @@ contract("SatiTokenSale", (accounts) => {
     assert.equal(buyerBalance.toString(), "0");
   });
 
-  it("Sale can distribute token to buyers after KYC verification", async () => {
+  it("Sale can distribute token to buyers", async () => {
     const deployedSatiTokenInstance = await SatiToken.deployed();
     const deployedSatiTokenSalesInstance = await SatiTokenSale.deployed();
     const kYCValidationInstance = await KYCValidation.deployed();

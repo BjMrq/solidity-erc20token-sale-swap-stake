@@ -7,22 +7,22 @@ import { CrowdsaleContract } from "./Crowdsale";
 import { ERC20Contract } from "./ERC20";
 import { ERC20BurnableContract } from "./ERC20Burnable";
 import { ERC20PresetFixedSupplyContract } from "./ERC20PresetFixedSupply";
+import { ERC20TokensSwapContract } from "./ERC20TokensSwap";
+import { EthQuoteSwapContract } from "./EthQuoteSwap";
 import { FaucetContract } from "./Faucet";
 import { IERC20Contract } from "./IERC20";
 import { IERC20MetadataContract } from "./IERC20Metadata";
-import { ISatiSwapableContract } from "./ISatiSwapable";
+import { ISwapableContract } from "./ISwapable";
 import { KYCValidationContract } from "./KYCValidation";
 import { MigrationsContract } from "./Migrations";
 import { MockERC20TokenContract } from "./MockERC20Token";
 import { MockV3AggregatorContract } from "./MockV3Aggregator";
 import { OwnableContract } from "./Ownable";
 import { RatableContract } from "./Ratable";
-import { SatiERC20TokenSwapContract } from "./SatiERC20TokenSwap";
-import { SatiEthSwapContract } from "./SatiEthSwap";
-import { SatiSwapContractFactoryContract } from "./SatiSwapContractFactory";
 import { SatiTokenContract } from "./SatiToken";
 import { SatiTokenSaleContract } from "./SatiTokenSale";
 import { SwapableContract } from "./Swapable";
+import { SwapContractFactoryContract } from "./SwapContractFactory";
 
 declare global {
   namespace Truffle {
@@ -32,22 +32,22 @@ declare global {
       require(name: "ERC20"): ERC20Contract;
       require(name: "ERC20Burnable"): ERC20BurnableContract;
       require(name: "ERC20PresetFixedSupply"): ERC20PresetFixedSupplyContract;
+      require(name: "ERC20TokensSwap"): ERC20TokensSwapContract;
+      require(name: "EthQuoteSwap"): EthQuoteSwapContract;
       require(name: "Faucet"): FaucetContract;
       require(name: "IERC20"): IERC20Contract;
       require(name: "IERC20Metadata"): IERC20MetadataContract;
-      require(name: "ISatiSwapable"): ISatiSwapableContract;
+      require(name: "ISwapable"): ISwapableContract;
       require(name: "KYCValidation"): KYCValidationContract;
       require(name: "Migrations"): MigrationsContract;
       require(name: "MockERC20Token"): MockERC20TokenContract;
       require(name: "MockV3Aggregator"): MockV3AggregatorContract;
       require(name: "Ownable"): OwnableContract;
       require(name: "Ratable"): RatableContract;
-      require(name: "SatiERC20TokenSwap"): SatiERC20TokenSwapContract;
-      require(name: "SatiEthSwap"): SatiEthSwapContract;
-      require(name: "SatiSwapContractFactory"): SatiSwapContractFactoryContract;
       require(name: "SatiToken"): SatiTokenContract;
       require(name: "SatiTokenSale"): SatiTokenSaleContract;
       require(name: "Swapable"): SwapableContract;
+      require(name: "SwapContractFactory"): SwapContractFactoryContract;
     }
   }
 }
@@ -63,13 +63,18 @@ export {
   ERC20PresetFixedSupplyContract,
   ERC20PresetFixedSupplyInstance,
 } from "./ERC20PresetFixedSupply";
+export {
+  ERC20TokensSwapContract,
+  ERC20TokensSwapInstance,
+} from "./ERC20TokensSwap";
+export { EthQuoteSwapContract, EthQuoteSwapInstance } from "./EthQuoteSwap";
 export { FaucetContract, FaucetInstance } from "./Faucet";
 export { IERC20Contract, IERC20Instance } from "./IERC20";
 export {
   IERC20MetadataContract,
   IERC20MetadataInstance,
 } from "./IERC20Metadata";
-export { ISatiSwapableContract, ISatiSwapableInstance } from "./ISatiSwapable";
+export { ISwapableContract, ISwapableInstance } from "./ISwapable";
 export { KYCValidationContract, KYCValidationInstance } from "./KYCValidation";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
 export {
@@ -82,15 +87,10 @@ export {
 } from "./MockV3Aggregator";
 export { OwnableContract, OwnableInstance } from "./Ownable";
 export { RatableContract, RatableInstance } from "./Ratable";
-export {
-  SatiERC20TokenSwapContract,
-  SatiERC20TokenSwapInstance,
-} from "./SatiERC20TokenSwap";
-export { SatiEthSwapContract, SatiEthSwapInstance } from "./SatiEthSwap";
-export {
-  SatiSwapContractFactoryContract,
-  SatiSwapContractFactoryInstance,
-} from "./SatiSwapContractFactory";
 export { SatiTokenContract, SatiTokenInstance } from "./SatiToken";
 export { SatiTokenSaleContract, SatiTokenSaleInstance } from "./SatiTokenSale";
 export { SwapableContract, SwapableInstance } from "./Swapable";
+export {
+  SwapContractFactoryContract,
+  SwapContractFactoryInstance,
+} from "./SwapContractFactory";

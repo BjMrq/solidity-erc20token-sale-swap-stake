@@ -8,8 +8,8 @@ import { EventData, PastEventOptions } from "web3-eth-contract";
 export interface MockERC20TokenContract
   extends Truffle.Contract<MockERC20TokenInstance> {
   "new"(
-    _initialSupply: number | BN | string,
-    _owner: string,
+    _name: string,
+    _symbol: string,
     meta?: Truffle.TransactionDetails
   ): Promise<MockERC20TokenInstance>;
 }

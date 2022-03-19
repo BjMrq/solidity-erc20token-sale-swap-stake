@@ -1,6 +1,6 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
-import { backGroundColor } from "../../../style/colors";
+import { backGroundColor, lightMainColor, lightSecondColor, mainColor, secondColor } from "../../../style/colors";
 import { FixRate } from "./FixeRate/FixRate";
 import { MarketRate } from "./MarketRate/MarketRate";
 
@@ -23,9 +23,10 @@ const CardDiv = styled.div`
     width: 98%;
  }
 
- border-radius: 6px; 
+ border-radius: 6px;
 
-  background: linear-gradient(132deg, #8b1b1b, #721616, #441868, #541d81);
+  background: linear-gradient(132deg, ${lightMainColor}, ${mainColor}, ${secondColor}, ${lightSecondColor});
+
   background-size: 300% 300%;
   
   -webkit-animation: GradientMove 60s ease infinite;
@@ -51,7 +52,7 @@ const CardDiv = styled.div`
 
 const SaleTypeDiv = styled.div<{active: boolean, saleType: keyof typeof saleTypes}>`
   background-color: ${({active}) => active ? "transparent" : backGroundColor};
-  border-radius: ${({saleType}) => saleType === "fixed" ? "0 0 6px 0" : "0 0 0 6px"}; 
+  border-radius: ${({saleType}) => saleType === "fixed" ? "0 0 6px 0" : "0 0 0 6px"};
   width: 100%;
   padding: 16px;
 `

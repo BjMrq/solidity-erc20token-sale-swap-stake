@@ -1,11 +1,13 @@
-import React, {  Fragment, useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
+import styled from "styled-components";
 import { Web3Context } from "../../contexts/web3/context";
+import { ReactComponent as STILogo } from '../../contracts/crypto-logos/STI.svg';
+import { AddSatiMetamask } from "./AddSatiMetamask/AddSatiMetamask";
 import { Connect } from "./Connect/Connect";
 import { Faucet } from "./Faucet/Faucet";
 import { NotDeployed } from "./NotDeployed/NotDeployed";
-import styled from "styled-components";
 import { SatiSale } from "./SatiSale/SatiSale";
-import { AddSatiMetamask } from "./AddSatiMetamask/AddSatiMetamask";
+
 
 const FlexDiv = styled.div`
   min-height: 100vh;
@@ -40,6 +42,7 @@ export function Web3Root() {
   return (
     <FlexDiv>
       <TopDivSale>
+        <STILogo style={{height: "70px", marginRight: "20px"}}></STILogo>
         <img style={{height: "70px", marginRight: "20px"}} src="https://raw.githubusercontent.com/BjMrq/solidity-erc20token-sale-swap-stake/main/client/src/contracts/crypto-logos/STI.svg"/><h2>Sati token sale</h2>
       </TopDivSale>
       {connected 

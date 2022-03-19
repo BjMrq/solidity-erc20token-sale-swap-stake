@@ -13,7 +13,7 @@ module.exports = async function (deployer) {
   await deployer.deploy(KYCValidation);
   await deployer.deploy(
     SatiTokenSale,
-    1000,
+    3000,
     deployerAddress,
     SatiToken.address,
     KYCValidation.address

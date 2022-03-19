@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { accentColor, mainColor, secondColor, thirdColor } from "./colors";
+import { mainColor, lightMainColor, lightSecondColor } from "./colors";
 
 export const scrollbar = css`
   overflow-y: auto;
@@ -14,9 +14,9 @@ export const scrollbar = css`
       linear,
       left bottom,
       left top,
-      color-stop(0.02, ${accentColor}),
-      color-stop(0.44, ${thirdColor}),
-      color-stop(0.72, ${secondColor}),
+      color-stop(0.02, ${lightSecondColor}),
+      color-stop(0.44, ${lightMainColor}),
+      color-stop(0.72, ${mainColor}),
       color-stop(0.86, ${mainColor})
     );
   }

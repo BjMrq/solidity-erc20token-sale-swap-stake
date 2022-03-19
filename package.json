@@ -4,33 +4,33 @@
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
-    "generate-types": "typechain --target=truffle-v5 --out-dir ./contracts/types './contracts/build/abis/*.json'",
-    "compile": "truffle compile --network ganache",
-    "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset --network ganache",
-    "deploy-kovan": "truffle compile --network kovan && rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --network kovan",
-    "new-contracts": "npm run compile && npm run migrate",
-    "fresh": "npm run compile && generate-types && npm run migrate",
-    "test": "rimraf ./contracts/build/tests && tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test --network ganache",
-    "type-check": "tsc --noEmit"
+    "ganache": "npm run migrate:ganache && ganache-cli --networkId 1337 --mnemonic \"torch blur drum ridge venue surface ecology round pond happy maximum crush\"",
+    "types": "typechain --target=truffle-v5 --out-dir ./contracts/types './contracts/build/abis/*.json'",
+    "compile": "truffle compile && npm run types",
+    "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset",
+    "test": "rimraf ./contracts/build/tests && tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test",
+    "fresh": "npm run compile && npm run types && npm run migrate",
+    "migrate:ganache": "truffle compile --network ganache && truffle migrate --reset --network ganache",
+    "migrate:kovan": "truffle compile --network kovan && truffle migrate --network kovan"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.0",
     "@openzeppelin/contracts": "^4.5.0",
-    "@truffle/hdwallet-provider": "^2.0.3",
-    "dotenv": "^16.0.0",
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "dotenv-cli": "^5.0.0",
     "rimraf": "^3.0.2",
-    "truffle": "5.5.3",
+    "truffle": "5.5.4",
     "truffle-typings": "^1.0.8",
-    "typechain": "^7.0.0"
+    "typechain": "^7.0.1"
   },
   "devDependencies": {
     "@typechain/truffle-v5": "^7.0.0",
     "@types/bn.js": "^5.1.0",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
-    "@types/node": "^17.0.18",
+    "@types/node": "^17.0.21",
     "@types/web3": "1.2.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   },
   "author": "",
   "license": "ISC"

@@ -1,30 +1,27 @@
 import {
-  deployERC20TokenMockWithAddressOf,
+  deployERC20TokenMock,
   deployPriceFeedMockWithRateOf,
 } from "../helpers/deploy-mocks";
 import { nameAccounts } from "../helpers/founding";
 
-const SatiSwapContractFactory = artifacts.require("SatiSwapContractFactory");
+const SwapContractFactory = artifacts.require("SwapContractFactory");
 const SatiToken = artifacts.require("SatiToken");
 
-contract("SatiSwapContractFactory", (accounts: Truffle.Accounts) => {
-  const { deployerAccount, maliciousAccount } = nameAccounts(accounts);
+contract("SwapContractFactory", (accounts: Truffle.Accounts) => {
+  const { maliciousAccount } = nameAccounts(accounts);
 
   it("Only owner can deploy swap contract", async () => {
-    const deployedSatiSwapContractFactory =
-      await SatiSwapContractFactory.deployed();
+    const deployedSwapContractFactory = await SwapContractFactory.deployed();
     const deployedSatiToken = await SatiToken.deployed();
 
-    const erc20TokenInstance = await deployERC20TokenMockWithAddressOf(
-      nameAccounts(accounts).deployerAccount
-    );
+    const erc20TokenInstance = await deployERC20TokenMock("Chain link", "LINK");
 
     const mockPriceFeedERC20Token = await deployPriceFeedMockWithRateOf(
       `100000000`
     );
 
     try {
-      await deployedSatiSwapContractFactory.deployNewSwapContract(
+      await deployedSwapContractFactory.deployNewSwapContract(
         deployedSatiToken.address,
         erc20TokenInstance.address,
         mockPriceFeedERC20Token.address,
@@ -35,5 +32,31 @@ contract("SatiSwapContractFactory", (accounts: Truffle.Accounts) => {
         "Returned error: VM Exception while processing transaction: revert Ownable: caller is not the owner -- Reason given: Ownable: caller is not the owner."
       );
     }
+  });
+
+  it("Get deployed swap contract info", async () => {
+    const deployedSwapContractFactory = await SwapContractFactory.deployed();
+    const deployedSatiToken = await SatiToken.deployed();
+
+    const deployedPairs = await deployedSwapContractFactory.getAllSwapPairs();
+
+    const swapAddressesInfo =
+      await deployedSwapContractFactory.deployedSwapContractsRegistry(
+        deployedPairs[0]
+      );
+
+    expect(deployedPairs[0]).to.equal("LINK/STI");
+    expect(Object.keys(swapAddressesInfo)).to.eql([
+      "0",
+      "1",
+      "2",
+      "swapContractAddress",
+      "quoteTokenAddress",
+      "baseTokenAddress",
+    ]);
+    //@ts-expect-error
+    expect(swapAddressesInfo.quoteTokenAddress).to.equal(
+      deployedSatiToken.address
+    );
   });
 });

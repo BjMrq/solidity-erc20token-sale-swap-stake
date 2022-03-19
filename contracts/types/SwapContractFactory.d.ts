@@ -5,11 +5,11 @@
 import BN from "bn.js";
 import { EventData, PastEventOptions } from "web3-eth-contract";
 
-export interface SatiSwapContractFactoryContract
-  extends Truffle.Contract<SatiSwapContractFactoryInstance> {
+export interface SwapContractFactoryContract
+  extends Truffle.Contract<SwapContractFactoryInstance> {
   "new"(
     meta?: Truffle.TransactionDetails
-  ): Promise<SatiSwapContractFactoryInstance>;
+  ): Promise<SwapContractFactoryInstance>;
 }
 
 export interface OwnershipTransferred {
@@ -24,12 +24,11 @@ export interface OwnershipTransferred {
 
 type AllEvents = OwnershipTransferred;
 
-export interface SatiSwapContractFactoryInstance
-  extends Truffle.ContractInstance {
-  deployedSatiSwapContractsRegistry(
+export interface SwapContractFactoryInstance extends Truffle.ContractInstance {
+  deployedSwapContractsRegistry(
     arg0: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<string>;
+  ): Promise<{ 0: string; 1: string; 2: string }>;
 
   /**
    * Returns the address of the current owner.
@@ -78,25 +77,25 @@ export interface SatiSwapContractFactoryInstance
     (
       _baseToken: string,
       _quoteToken: string,
-      _ERC20TokenToUsdRate: string,
+      _exchangeRate: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       _baseToken: string,
       _quoteToken: string,
-      _ERC20TokenToUsdRate: string,
+      _exchangeRate: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       _baseToken: string,
       _quoteToken: string,
-      _ERC20TokenToUsdRate: string,
+      _exchangeRate: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       _baseToken: string,
       _quoteToken: string,
-      _ERC20TokenToUsdRate: string,
+      _exchangeRate: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
@@ -104,10 +103,10 @@ export interface SatiSwapContractFactoryInstance
   getAllSwapPairs(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
 
   methods: {
-    deployedSatiSwapContractsRegistry(
+    deployedSwapContractsRegistry(
       arg0: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<string>;
+    ): Promise<{ 0: string; 1: string; 2: string }>;
 
     /**
      * Returns the address of the current owner.
@@ -156,25 +155,25 @@ export interface SatiSwapContractFactoryInstance
       (
         _baseToken: string,
         _quoteToken: string,
-        _ERC20TokenToUsdRate: string,
+        _exchangeRate: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         _baseToken: string,
         _quoteToken: string,
-        _ERC20TokenToUsdRate: string,
+        _exchangeRate: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         _baseToken: string,
         _quoteToken: string,
-        _ERC20TokenToUsdRate: string,
+        _exchangeRate: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         _baseToken: string,
         _quoteToken: string,
-        _ERC20TokenToUsdRate: string,
+        _exchangeRate: string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };

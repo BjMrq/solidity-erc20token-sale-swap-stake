@@ -1,16 +1,16 @@
-type PossibleNetwork = "development" | "ganache" | "kovan";
-type PossibleSwapTokensNames = "LINK" | "BAT";
+import { ERC20Instance } from "../types";
 
-type SwapTokenAddressInfo = {
-  name: PossibleSwapTokensNames;
-  tokenAddress: string;
+export type PossibleNetwork = "development" | "ganache" | "rinkeby";
+
+export type SwapTokenAddressInfo = {
+  name: string;
+  erc20Token: ERC20Instance;
   priceFeedAddress: string;
 };
 
-type AllSwapTokenAddressInfo = Record<
+export type AllSwapTokenAddressInfo = Record<
   PossibleNetwork,
   {
-    ETH: Pick<SwapTokenAddressInfo, "priceFeedAddress">;
     ERCTokens: SwapTokenAddressInfo[];
   }
 >;
