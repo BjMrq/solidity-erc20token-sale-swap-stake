@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from "styled-components";
-import { Web3Context } from "../../../../contexts/web3/context";
+import { Web3Context } from "../../../../contracts/context";
 import { Button } from "../../../../style/tags/button";
 import { Input } from "../../../../style/tags/input";
 import { toUnit } from "../../../../utils/token";

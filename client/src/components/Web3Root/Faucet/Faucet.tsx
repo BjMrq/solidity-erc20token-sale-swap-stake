@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Web3Context } from "../../../contexts/web3/context";
-import { Button } from "../../../style/tags/button";
 import styled from "styled-components";
+import { Web3Context } from "../../../contracts/context";
+import { Button } from "../../../style/tags/button";
 
 const FacetDiv = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const FacetDiv = styled.div`
   padding-bottom: 0;
 `
 
-const FaucetCatchP = styled.p`
+const FaucetCatchP = styled.div`
   font-size: 20px
 `;
 

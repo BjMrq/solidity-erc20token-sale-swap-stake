@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Web3Context } from "../../../contexts/web3/context";
-import { Button } from "../../../style/tags/button";
 import styled from "styled-components";
+import { Web3Context } from "../../../contracts/context";
+import { Button } from "../../../style/tags/button";
 
 
 const ConnectDiv = styled.div`

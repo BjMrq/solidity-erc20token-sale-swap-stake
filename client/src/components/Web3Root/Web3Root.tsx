@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import styled from "styled-components";
-import { Web3Context } from "../../contexts/web3/context";
+import { Web3Context } from "../../contracts/context";
 import { ReactComponent as STILogo } from '../../contracts/crypto-logos/STI.svg';
 import { AddSatiMetamask } from "./AddSatiMetamask/AddSatiMetamask";
 import { Connect } from "./Connect/Connect";
@@ -22,6 +22,7 @@ const BottomDiv = styled.div`
  display: flex;
  align-self: end;
  flex: auto;
+ padding-bottom: 12px
 `
 
 

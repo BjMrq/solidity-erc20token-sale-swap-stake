@@ -1,12 +1,12 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import styled from "styled-components";
 import { Toast } from "./components/Toast/Toast";
 import { Web3Root } from "./components/Web3Root/Web3Root";
-import Web3ContextProvider from "./contexts/web3/context";
 import { Whitepaper } from "./components/Whitepaper/Whitepaper";
-import styled from "styled-components";
+import Web3ContextProvider from "./contracts/context";
 import { GlobalStyle } from "./style/general";
 "styled-components";
-import { QueryClient, QueryClientProvider } from 'react-query'
  
 const queryClient = new QueryClient({
   defaultOptions: {

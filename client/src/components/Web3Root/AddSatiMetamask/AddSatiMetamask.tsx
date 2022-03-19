@@ -1,7 +1,6 @@
-import React, {useContext} from 'react';
-import { Web3Context } from "../../../contexts/web3/context";
+import React, { useContext } from 'react';
+import { Web3Context } from "../../../contracts/context";
 import { AddMetamask } from "../../shared/AddMetamask/AddMetamask";
-
 
 
 export function AddSatiMetamask() {

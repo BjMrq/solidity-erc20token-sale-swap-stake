@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-modal';
-import { useQuery } from 'react-query';
+import React, { useState } from 'react';
 import styled from "styled-components";
-// import { Web3Context } from "../../../../contexts/web3/context";
-import { ReactComponent as BATLogo } from '../../../../contracts/crypto-logos/BAT.svg';
-import { ReactComponent as BNBLogo } from '../../../../contracts/crypto-logos/BNB.svg';
-import { ReactComponent as DAILogo } from '../../../../contracts/crypto-logos/DAI.svg';
-import { ReactComponent as LINKLogo } from '../../../../contracts/crypto-logos/LINK.svg';
-import { ReactComponent as MATICLogo } from '../../../../contracts/crypto-logos/MATIC.svg';
-import { ReactComponent as STILogo } from '../../../../contracts/crypto-logos/STI.svg';
-import { ReactComponent as TRXLogo } from '../../../../contracts/crypto-logos/TRX.svg';
-import { ReactComponent as USDCLogo } from '../../../../contracts/crypto-logos/USDC.svg';
-import { ReactComponent as WBTCLogo } from '../../../../contracts/crypto-logos/WBTC.svg';
-import { ReactComponent as WLTCLogo } from '../../../../contracts/crypto-logos/WLTC.svg';
-import { borderRadius } from "../../../../style/characteristics";
-import { backGroundColor, lightColor } from "../../../../style/colors";
+import { tokenLogos } from "../../../../contracts/crypto-logos";
+import { PossibleSellToken } from "../../../../contracts/types";
 import { bordered } from "../../../../style/input-like";
 import { Button } from "../../../../style/tags/button";
+import { SellTokenSelectModal } from "./SellTokenSelectModal/SellTokenSelectModal";
 // import { AddMetamask } from "../../../shared/AddMetamask/AddMetamask";
 
 // import { WebsocketClient, DefaultLogger } from "binance";
@@ -28,24 +16,6 @@ import { Button } from "../../../../style/tags/button";
 //   beautify: true,
 // }, {...DefaultLogger});
 
-Modal.setAppElement('#root');
-
-const modalStyle = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    maxHeight: "80vh",
-    width: '400px',
-    backgroundColor: backGroundColor,
-    borderRadius: borderRadius,
-    color: lightColor,
-    border: "none"
-  },
-};
 
 const MarketSaleContentDiv = styled.div`
   height: 100%;
@@ -150,52 +120,16 @@ const DownArrow = styled.i`
   -webkit-transform: rotate(45deg);
 `
 
-const TokenToSellListElement = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: left;
-  font-size: 24px;
-  margin: 6px
-  height: 40px;
-  justify-content: space-between;
-`
-
-const QuoteTokenLogo = styled.div`
-  width: 10%;
-  margin-right: 20px;
-  /* height: 80vh; */
-  /* overflow-y: scroll; */
-`
 
 // This could be the origin of the list of base token selection  then acces result in dict with any that 
-const tokenSelectedStyle ={
-  BAT: {logo: <BATLogo style={{maxHeight: "90%"}}/>, name: "BAT"},
-  BNB: {logo: <BNBLogo style={{maxHeight: "90%"}}/>, name: "BNB"},
-  DAI: {logo: <DAILogo style={{maxHeight: "90%"}}/>, name: "DAI"},
-  LINK: {logo: <LINKLogo style={{maxHeight: "90%"}}/>, name: "LINK"},
-  MATIC: {logo: <MATICLogo style={{maxHeight: "90%"}}/>, name: "MATIC"},
-  STI: {logo: <STILogo style={{maxHeight: "90%"}}/>, name: "STI"},
-  TRX: {logo: <TRXLogo style={{maxHeight: "90%"}}/>, name: "TRX"},
-  USDC: {logo: <USDCLogo style={{maxHeight: "90%"}}/>, name: "USDC"},
-  WBTC: {logo: <WBTCLogo style={{maxHeight: "90%"}}/>, name: "WBTC"},
-  WLTC: {logo: <WLTCLogo style={{maxHeight: "90%"}}/>, name: "WLTC"},
-} as const
-
-type PossibleBaseToken = keyof typeof tokenSelectedStyle
 
 export function MarketRate() { 
-  // const { contracts: {factorySwapContract}} = useContext(Web3Context);
-  
-  const { data: possibleSwapPairs } = useQuery<string[]>('swapPairs', () => [])
-
+  const [tokenSelectionModalOpen, setTokenSelectionModalOpen] = useState(false)
   
   const [sellingAmount, setSellingAmount] = useState("")
-  const [tokenSelectionModalOpen, setTokenSelectionModalOpen] = useState(false)
-  const [selectedBaseToken, setSelectedBaseToken] = useState<PossibleBaseToken>(tokenSelectedStyle.WLTC.name)
+  const [selectedBaseToken, setSelectedBaseToken] = useState<PossibleSellToken>(tokenLogos.WBTC.name)
 
-  const getPossibleBaseTokenFromPairs = (possiblePairs: string[] | undefined): PossibleBaseToken[] => Array.from(new Set((possiblePairs || []).reduce((allSwapPairs, currentSwapPair) => [...allSwapPairs, ...currentSwapPair.split("/")],[] as string[]))) as PossibleBaseToken[] 
-
-  const selectNewTokenToSell = (tokenName: PossibleBaseToken) => {
+  const selectNewTokenToSell = (tokenName: PossibleSellToken) => {
     setSelectedBaseToken(tokenName)
     setTokenSelectionModalOpen(false)
   }
@@ -204,38 +138,6 @@ export function MarketRate() {
     console.log("Swaping", sellingAmount);
   }
 
-  useEffect(() => {
-    (async () => {
-
-      // if(possibleSwapPairs)
-
-      // // reduce instead with build object with swapPair as ke?
-      //   console.log(await Promise.all(possibleSwapPairs.map(async (pairName) => {
-      //     const [baseTokenName, quoteTokenName] = pairName.split("/")
-
-      //     const swapTokenInfo = await factorySwapContract.methods.deployedSwapContractsRegistry(pairName).call()
-
-      //     //do this ion context ?
-      //     // build ERC20 Tokens contract in this function instead of address the token contract
-      //     return {
-      //       pairName, 
-      //       swapContractAddress: swapTokenInfo.swapContractAddress,
-      //       baseToken: {
-      //         name: baseTokenName,
-      //         address: swapTokenInfo.baseTokenAddress
-      //       },
-      //       quoteToken: {
-      //         name: quoteTokenName,
-      //         address: swapTokenInfo.quoteTokenAddress
-      //       }
-      //     }
-      //   })));
-    }
-    )();   
-  }, [])
-  
-
-
   return (
     <MarketSaleContentDiv>
       <SwapTitle>Swap tokens for STI at market price using oracles</SwapTitle>
@@ -243,7 +145,7 @@ export function MarketRate() {
         <PayP>Sell:</PayP>
         <TokenPseudoInputDiv>
           <TokenSelect onClick={() => setTokenSelectionModalOpen(true)}>
-            {tokenSelectedStyle[selectedBaseToken].logo}<TokenNameDiv>{tokenSelectedStyle[selectedBaseToken].name}</TokenNameDiv><DownArrowDiv>
+            {tokenLogos[selectedBaseToken].logo}<TokenNameDiv>{tokenLogos[selectedBaseToken].name}</TokenNameDiv><DownArrowDiv>
               <DownArrow/></DownArrowDiv>
           </TokenSelect>
 
@@ -256,20 +158,11 @@ export function MarketRate() {
       </div>
 
       
-      <Modal
-        isOpen={tokenSelectionModalOpen}
-        onRequestClose={() => setTokenSelectionModalOpen(false)}
-        style={modalStyle}
-        contentLabel="Example Modal"
-      >
-        <h2>Select token to sell</h2>
-        {getPossibleBaseTokenFromPairs(possibleSwapPairs).map((token) => 
-          <TokenToSellListElement onClick={() => selectNewTokenToSell(token)} key={token}>
-            <QuoteTokenLogo>{tokenSelectedStyle[token].logo}</QuoteTokenLogo>
-            {token}
-          </TokenToSellListElement>
-        )}
-      </Modal>
+      <SellTokenSelectModal
+        selectNewTokenToSell={selectNewTokenToSell}
+        setTokenSelectionModalOpen={setTokenSelectionModalOpen} 
+        tokenSelectionModalOpen={tokenSelectionModalOpen}
+      />
     </MarketSaleContentDiv>
   );
 }

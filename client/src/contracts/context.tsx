@@ -7,20 +7,22 @@ import React, {
 import { toast, ToastContentProps } from "react-toastify";
 import Web3 from "web3";
 import { TransactionReceipt } from "web3-core/types";
-import ERC20TokenAbi from "../../contracts/abis/ERC20.json";
-import FaucetAbi from "../../contracts/abis/Faucet.json";
-import SatiAbi from "../../contracts/abis/SatiToken.json";
-import SatiSaleAbi from "../../contracts/abis/SatiTokenSale.json";
-import SwapContractFactoryAbi from "../../contracts/abis/SwapContractFactory.json";
-import { ERC20 } from "../../contracts/types/ERC20";
-import { Faucet } from "../../contracts/types/Faucet";
-import { SatiToken } from "../../contracts/types/SatiToken";
-import { SatiTokenSale } from "../../contracts/types/SatiTokenSale";
-import { SwapContractFactory } from "../../contracts/types/SwapContractFactory";
-import { errorColor, successColor } from "../../style/colors";
-import { stringFromHexadecimalNumber } from "../../utils";
-import { dummyErrorParser } from "../../utils/error-parser";
-import { AbiWithNetworks, AddTokenToWallet, DeployedNetwork, EthereumAvailableGuard, ToastContractSend, VoidCall, Web3ContextFunctions } from "./types";
+import { errorColor, successColor } from "../style/colors";
+import { stringFromHexadecimalNumber } from "../utils";
+import { dummyErrorParser } from "../utils/error-parser";
+import ERC20TokenAbi from "./abis/ERC20.json";
+import SwapAbi from "./abis/ERC20TokensSwap.json";
+import FaucetAbi from "./abis/Faucet.json";
+import SatiAbi from "./abis/SatiToken.json";
+import SatiSaleAbi from "./abis/SatiTokenSale.json";
+import SwapContractFactoryAbi from "./abis/SwapContractFactory.json";
+import { AbiWithNetworks, AddTokenToWallet, DeployedNetwork, EthereumAvailableGuard, PossibleSellToken, SwapContractInfo, ToastContractSend, VoidCall, Web3ContextFunctions } from "./types";
+import { ERC20 } from "./types/ERC20";
+import { ERC20TokensSwap } from "./types/ERC20TokensSwap";
+import { Faucet } from "./types/Faucet";
+import { SatiToken } from "./types/SatiToken";
+import { SatiTokenSale } from "./types/SatiTokenSale";
+import { SwapContractFactory } from "./types/SwapContractFactory";
 
 
 //State
@@ -33,7 +35,8 @@ const initialWeb3ContextState = {
     faucetContract: {} as Faucet, 
     satiSaleContract: {} as SatiTokenSale, 
     factorySwapContract: {} as SwapContractFactory,
-    satiTokenContract: {} as SatiToken
+    satiTokenContract: {} as SatiToken,
+    swapContracts: [] as SwapContractInfo[]
   },
 };
 
@@ -97,8 +100,8 @@ export default function Web3ContextProvider({
   //@ts-expect-error since chainIdToCheck can not directly access the abi but it is what we are testing
   const areContractsDeployedOnChain = (chainIdToCheck: string): chainIdToCheck is DeployedNetwork => Boolean(FaucetAbi.networks[chainIdToCheck])
 
-  const buildSwapPairInfo = (factorySwapContract: SwapContractFactory) => async (pairName: string) => {
-    const [baseTokenName, quoteTokenName] = pairName.split("/")
+  const buildSwapPairInfo = (factorySwapContract: SwapContractFactory) => async (pairName: string): Promise<SwapContractInfo> => {
+    const [baseTokenName, quoteTokenName] = pairName.split("/") as [PossibleSellToken, PossibleSellToken]
 
     const {
       swapContractAddress,
@@ -108,7 +111,10 @@ export default function Web3ContextProvider({
 
     return {
       pairName, 
-      swapContractAddress: swapContractAddress,
+      swapContract: new web3InstanceRef.current.eth.Contract(
+        SwapAbi.abi as AbiWithNetworks["abi"],
+        swapContractAddress
+      ) as unknown as ERC20TokensSwap,
       baseToken: {
         name: baseTokenName,
         contract: new web3InstanceRef.current.eth.Contract(
@@ -126,11 +132,8 @@ export default function Web3ContextProvider({
     }
   }
 
-  const loadSwapContacts = async (factorySwapContract: SwapContractFactory): Promise<void> => {
-   
-    const swapPairInfos = (await factorySwapContract.methods.getAllSwapPairs().call()).map(buildSwapPairInfo(factorySwapContract))
+  const loadSwapContacts = async (factorySwapContract: SwapContractFactory): Promise<SwapContractInfo[]> => await Promise.all((await factorySwapContract.methods.getAllSwapPairs().call()).map(buildSwapPairInfo(factorySwapContract)))
 
-  }
 
   const loadContractsIfDeployedOnChain = async (chainId: DeployedNetwork): Promise<void> => {
     
@@ -159,6 +162,7 @@ export default function Web3ContextProvider({
       faucetContract,
       satiSaleContract,
       factorySwapContract,
+      swapContracts: await loadSwapContacts(factorySwapContract)
     })
     
   }
