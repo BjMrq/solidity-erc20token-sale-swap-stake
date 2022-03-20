@@ -11,7 +11,7 @@ module.exports = {
   migrations_directory: "./contracts/build/migrations/migrations",
   compilers: {
     solc: {
-      version: "0.8.11",
+      version: "0.8.12",
       optimizer: {
         enable: true,
         runs: 200,
@@ -24,16 +24,18 @@ module.exports = {
       network_id: "*",
       host: "127.0.0.1",
       port: 8545,
+      gas: 4612388,
     },
     ganache: {
       provider() {
         return new HDWalletProvider(
-          process.env.LOCAL_MNEMONIC,
+          "torch blur drum ridge venue surface ecology round pond happy maximum crush",
           "http://127.0.0.1:8545",
           0
         );
       },
       network_id: "1337",
+      gas: 4612388,
     },
     kovan: {
       provider() {

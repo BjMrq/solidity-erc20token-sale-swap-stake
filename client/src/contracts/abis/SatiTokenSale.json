@@ -11107,12 +11107,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x6dBAD64A421752efd13A5DE9CFB2b3866617e4FD",
-      "transactionHash": "0xf2a2c442e74cfc043718ad140be4c283cb91cad81c2519358907b5c055500410"
+      "address": "0x7Cc2b6F37d25Ac2aB72C68b9CCF760A89d32A219",
+      "transactionHash": "0xcfeeb7740c4e5e7af9d8032b52a139ab3508b4d7c1091024e12e016aa6e9f7ce"
     }
   },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-03-19T17:19:58.015Z",
+  "updatedAt": "2022-03-20T15:49:27.080Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

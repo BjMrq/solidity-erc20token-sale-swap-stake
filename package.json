@@ -4,14 +4,14 @@
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
-    "ganache": "npm run migrate:ganache && ganache-cli --networkId 1337 --mnemonic \"torch blur drum ridge venue surface ecology round pond happy maximum crush\"",
+    "ganache": "ganache-cli --networkId 1337 --mnemonic \"torch blur drum ridge venue surface ecology round pond happy maximum crush\"",
     "types": "typechain --target=truffle-v5 --out-dir ./contracts/types './contracts/build/abis/*.json'",
     "compile": "truffle compile && npm run types",
     "migrate": "rimraf ./contracts/build/migrations && tsc -p ./tsconfig.migrate.json --outDir ./contracts/build/migrations && truffle migrate --reset",
     "test": "rimraf ./contracts/build/tests && tsc -p ./tsconfig.test.json --outDir ./contracts/build/tests && truffle test",
     "fresh": "npm run compile && npm run types && npm run migrate",
-    "migrate:ganache": "truffle compile --network ganache && truffle migrate --reset --network ganache",
-    "migrate:kovan": "truffle compile --network kovan && truffle migrate --network kovan"
+    "migrate:ganache": "truffle migrate --reset --network ganache",
+    "migrate:kovan": "truffle migrate --network kovan"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.4.0",
@@ -19,7 +19,7 @@
     "@truffle/hdwallet-provider": "^2.0.4",
     "dotenv-cli": "^5.0.0",
     "rimraf": "^3.0.2",
-    "truffle": "5.5.4",
+    "truffle": "5.5.5",
     "truffle-typings": "^1.0.8",
     "typechain": "^7.0.1"
   },

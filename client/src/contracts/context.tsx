@@ -16,7 +16,7 @@ import FaucetAbi from "./abis/Faucet.json";
 import SatiAbi from "./abis/SatiToken.json";
 import SatiSaleAbi from "./abis/SatiTokenSale.json";
 import SwapContractFactoryAbi from "./abis/SwapContractFactory.json";
-import { AbiWithNetworks, AddTokenToWallet, DeployedNetwork, EthereumAvailableGuard, PossibleSellToken, SwapContractInfo, ToastContractSend, VoidCall, Web3ContextFunctions } from "./types";
+import { AbiWithNetworks, AddTokenToWallet, DeployedNetwork, EthereumAvailableGuard, PossibleSwapToken, SwapContractInfo, ToastContractSend, VoidCall, Web3ContextFunctions } from "./types";
 import { ERC20 } from "./types/ERC20";
 import { ERC20TokensSwap } from "./types/ERC20TokensSwap";
 import { Faucet } from "./types/Faucet";
@@ -101,8 +101,7 @@ export default function Web3ContextProvider({
   const areContractsDeployedOnChain = (chainIdToCheck: string): chainIdToCheck is DeployedNetwork => Boolean(FaucetAbi.networks[chainIdToCheck])
 
   const buildSwapPairInfo = (factorySwapContract: SwapContractFactory) => async (pairName: string): Promise<SwapContractInfo> => {
-    const [baseTokenName, quoteTokenName] = pairName.split("/") as [PossibleSellToken, PossibleSellToken]
-
+    const [baseTokenName, quoteTokenName] = pairName.split("/") as [PossibleSwapToken, PossibleSwapToken]
     const {
       swapContractAddress,
       baseTokenAddress,

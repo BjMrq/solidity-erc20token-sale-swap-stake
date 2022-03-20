@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from "styled-components";
+import { Web3Context } from "../../../../contracts/context";
 import { tokenLogos } from "../../../../contracts/crypto-logos";
-import { PossibleSellToken } from "../../../../contracts/types";
-import { bordered } from "../../../../style/input-like";
-import { Button } from "../../../../style/tags/button";
-import { SellTokenSelectModal } from "./SellTokenSelectModal/SellTokenSelectModal";
+import { PossibleSwapToken } from "../../../../contracts/types";
+import { TokenPseudoInput } from "../../../shared/TokenPseudoInput/TokenPseudoInput";
+import { SatiSaleContent } from "../SatiSaleContent";
+import { TokenSelectModal } from "./TokenSelectModal/TokenSelectModal";
+
 // import { AddMetamask } from "../../../shared/AddMetamask/AddMetamask";
 
 // import { WebsocketClient, DefaultLogger } from "binance";
@@ -17,152 +19,99 @@ import { SellTokenSelectModal } from "./SellTokenSelectModal/SellTokenSelectModa
 // }, {...DefaultLogger});
 
 
-const MarketSaleContentDiv = styled.div`
-  height: 100%;
+const TokenDiv = styled.div`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: column;
-`
-
-const TokenToPayDiv = styled.div`
-  width: 76%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 600px) { 
-    width: 96%;
- }
 `
 
-const SwapTitle= styled.div`
-  width: 70%;
-`
-
-const TokenPseudoInputDiv = styled.div`
-  display: flex;
-  margin: 20px auto;
-  padding: 10px;
-  width: 100%;
-  height: 40px;
-  background-color: #FFFFFF;
-  color: #000000;
-  border-radius: 6px;
-`
-
-const PayP = styled.div`
-  width: 100%;
-  font-size: 1.5rem;
-  text-align: left
-`
-
-const PayAmountInput = styled.input`
-  width: 70%;
-  border: none;
-  background-color: transparent;
-  resize: none;
-  outline: none;
-  text-align: right;
-  font-size: 1.5rem;
-  &:hover {
-    border: none;
-    background-color: transparent;
-    resize: none;
-    outline: none;
-  }
-  &:focus {
-    border: none;
-    background-color: transparent;
-    resize: none;
-    outline: none;
-  } 
-`
-
-const TokenSelect = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 40%;
-  background-color: transparent;
-  margin: 0;
-  padding: 4px;
-  font-size: 75%;
-  font-style: oblique;
-  font-weight: 600;
-  ${bordered}
-  cursor: pointer
-`
-
-
-const DownArrowDiv = styled.div`
-  width: 15%;
-  height: 100%;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-`
-
-const TokenNameDiv = styled.div`
-  width: 55%;
-`
-
-const DownArrow = styled.i`
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  margin: auto;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-`
 
 
 // This could be the origin of the list of base token selection  then acces result in dict with any that 
 
 export function MarketRate() { 
-  const [tokenSelectionModalOpen, setTokenSelectionModalOpen] = useState(false)
+
+  const { contracts: {swapContracts}} = useContext(Web3Context);
+
+  const [sellTokenSelectionModalOpen, setSellTokenSelectionModalOpen] = useState(false)
+  const [buyTokenSelectionModalOpen, setBuyTokenSelectionModalOpen] = useState(false)
   
   const [sellingAmount, setSellingAmount] = useState("")
-  const [selectedBaseToken, setSelectedBaseToken] = useState<PossibleSellToken>(tokenLogos.WBTC.name)
+  const [selectedSellToken, setSelectedSellToken] = useState<PossibleSwapToken>(tokenLogos.WBTC.name)
+  const [selectedBuyToken, setSelectedBuyToken] = useState<PossibleSwapToken>(tokenLogos.STI.name)
+  
+  const [possibleBuyToken] = useState<PossibleSwapToken[]>([tokenLogos.STI.name, tokenLogos.STI.name])
 
-  const selectNewTokenToSell = (tokenName: PossibleSellToken) => {
-    setSelectedBaseToken(tokenName)
-    setTokenSelectionModalOpen(false)
+  const hasMoreThanOneChoice = (choices: any[]) => choices.length > 1
+
+  const selectSellToken = (tokenName: PossibleSwapToken) => {
+    setSelectedSellToken(tokenName)
+    setSellTokenSelectionModalOpen(false)
   }
+
+  const selectBuyToken = (tokenName: PossibleSwapToken) => {
+    setSelectedBuyToken(tokenName)
+    setBuyTokenSelectionModalOpen(false)
+  }
+
+
+  useEffect(()=> {
+    console.log(swapContracts.filter(contract => contract.pairName.includes(selectedSellToken)));
+  }, [swapContracts, selectedSellToken])
+
+  //TODO use effect on both token that try to find matching contract and set it
 
   const swapTokens= ()=>{
-    console.log("Swaping", sellingAmount);
+    console.log("Swapping", sellingAmount);
   }
+  //TODO module sell and buy pseudo input out
 
+
+  // REFACTOR modal to be reused for token to buy selection, extract data and token list and pass it to style only components
   return (
-    <MarketSaleContentDiv>
-      <SwapTitle>Swap tokens for STI at market price using oracles</SwapTitle>
-      <TokenToPayDiv>
-        <PayP>Sell:</PayP>
-        <TokenPseudoInputDiv>
-          <TokenSelect onClick={() => setTokenSelectionModalOpen(true)}>
-            {tokenLogos[selectedBaseToken].logo}<TokenNameDiv>{tokenLogos[selectedBaseToken].name}</TokenNameDiv><DownArrowDiv>
-              <DownArrow/></DownArrowDiv>
-          </TokenSelect>
-
-          <PayAmountInput type="text" placeholder="0.0" value={sellingAmount} onChange={({target: {value}}) => setSellingAmount(value.replace(/[^0-9.]/g, ''))}/>
-        </TokenPseudoInputDiv>
-      </TokenToPayDiv>
-        For:
-      <div style={{width: "100%"}}>
-        <Button style={{ height: "35px"}} onClick={swapTokens}>Swap</Button>
-      </div>
-
+    <SatiSaleContent 
+      saleTitle={"Swap tokens for STI at market price using oracles"}
+      callToAction={{display: "Swap", callback: swapTokens}}
+    >
+      <TokenDiv>
+        <TokenPseudoInput 
+          inputLabel="Sell"
+          multipleTokenChoice={true}
+          onTokenClick={() => setSellTokenSelectionModalOpen(true)}
+          tokenToDisplay={tokenLogos[selectedSellToken]}
+          inputValue={sellingAmount}
+          setInputValue={setSellingAmount}
+        />
+      </TokenDiv>
+      <TokenDiv>
+        <TokenPseudoInput 
+          inputLabel="For"
+          multipleTokenChoice={hasMoreThanOneChoice(possibleBuyToken)}
+          onTokenClick={() => hasMoreThanOneChoice(possibleBuyToken) && setBuyTokenSelectionModalOpen(true)}
+          tokenToDisplay={tokenLogos[selectedBuyToken]}
+          inputValue={"0.0"}
+          inputDisabled={true}
+        />
+      </TokenDiv>
       
-      <SellTokenSelectModal
-        selectNewTokenToSell={selectNewTokenToSell}
-        setTokenSelectionModalOpen={setTokenSelectionModalOpen} 
-        tokenSelectionModalOpen={tokenSelectionModalOpen}
+      <TokenSelectModal
+        tokenType={"sell"}
+        swapContractListToExtractTokensFrom={swapContracts}
+        selectTokenCallback={selectSellToken}
+        setTokenSelectionModalOpen={setSellTokenSelectionModalOpen} 
+        tokenSelectionModalOpen={sellTokenSelectionModalOpen}
       />
-    </MarketSaleContentDiv>
+      <TokenSelectModal
+        tokenType={"buy"}
+        swapContractListToExtractTokensFrom={swapContracts.filter(contract => contract.pairName.includes(selectedSellToken))}
+        selectTokenCallback={selectBuyToken}
+        selectedPairToken={selectedSellToken}
+        setTokenSelectionModalOpen={setBuyTokenSelectionModalOpen} 
+        tokenSelectionModalOpen={buyTokenSelectionModalOpen}
+      />
+    </SatiSaleContent>
   );
 }

@@ -8,13 +8,21 @@ const SatiSaleCard = styled.div`
   height: 58vh;
   border-radius: 6px;
   box-shadow: 14px 20px 10px rgba(0, 0, 0, 0.4);
-  padding: 5%;
+  padding: 8% 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media screen and (max-width: 600px) { 
+    padding: 8% 6%;
+ }
 `
 
 const SaleTypesDiv = styled.div`
   display: flex;
   justify-content: space-around;
-  font-weight: 500;
+  font-weight: bold;
 `
 
 const CardDiv = styled.div`
@@ -54,8 +62,9 @@ const SaleTypeDiv = styled.div<{active: boolean, saleType: keyof typeof saleType
   background-color: ${({active}) => active ? "transparent" : backGroundColor};
   border-radius: ${({saleType}) => saleType === "fixed" ? "0 0 6px 0" : "0 0 0 6px"};
   width: 100%;
-  padding: 16px;
+  padding: 20px;
 `
+
 
 const saleTypes = {
   fixed: "fixed",

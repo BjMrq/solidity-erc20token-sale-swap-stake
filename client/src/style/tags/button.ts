@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { bordered } from "../input-like";
- 
 
 export const Button = styled.button`
-  height: 60px;
+  height: 40px;
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   ${bordered}
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 20px;
@@ -32,13 +32,13 @@ export const Button = styled.button`
     transition-duration: 0.1s;
   }
   &:disabled {
-    background-color: #FAFBFC;
+    background-color: #fafbfc;
     border-color: rgba(27, 31, 35, 0.15);
-    color: #959DA5;
+    color: #959da5;
     cursor: default;
   }
   &:active {
-    background-color: #EDEFF2;
+    background-color: #edeff2;
     box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
     transition: none 0s;
   }
@@ -50,5 +50,10 @@ export const Button = styled.button`
   }
   &:-webkit-details-marker {
     display: none;
-  } */
+  }
+  @media screen and (max-width: 600px) {
+    height: 35px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
 `;

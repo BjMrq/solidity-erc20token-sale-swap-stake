@@ -2727,12 +2727,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x9E4DAf97746a74569D1bB5FCbD809FaeA0445B2F",
-      "transactionHash": "0x0e11d5fa694a37e8f0df9248233ed7e90db9e6cf9fd96f40e0689c3a25d81365"
+      "address": "0x380A808710c08Eb44E751635951A4B9679E29Cc7",
+      "transactionHash": "0xb2da7b6f7b00e4d1d1091e84a0d36cb6c39ec78c9d3a35520e1d3aa60b90d3a8"
     }
   },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-03-19T17:19:58.019Z",
+  "updatedAt": "2022-03-20T15:49:27.085Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

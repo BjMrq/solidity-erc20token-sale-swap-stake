@@ -6,7 +6,7 @@ import { PayableTx } from "./types/types";
 import { tokenLogos } from "./crypto-logos";
 
 export type SellTokenLogos = typeof tokenLogos;
-export type PossibleSellToken = keyof SellTokenLogos;
+export type PossibleSwapToken = keyof SellTokenLogos;
 
 export type EthereumAvailableGuard = <TCallback extends (...args: any) => any>(
   web3Callback: TCallback
@@ -19,7 +19,7 @@ export type AbiWithNetworks = {
 export type DeployedNetwork = "1337";
 
 export type ERC20TokenInfo = {
-  name: PossibleSellToken;
+  name: PossibleSwapToken;
   contract: ERC20;
 };
 
