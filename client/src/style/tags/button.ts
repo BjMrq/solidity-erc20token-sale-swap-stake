@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { bordered } from "../input-like";
 
 export const Button = styled.button`
-  height: 40px;
+  height: 45px;
   appearance: none;
-  background-color: #fafbfc;
+  background-color: #ffffff;
   ${bordered}
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
@@ -27,12 +27,12 @@ export const Button = styled.button`
   white-space: nowrap;
   word-wrap: break-word;
   &:hover {
-    background-color: #e8eaed;
+    background-color: #f7f3f3;
     text-decoration: none;
     transition-duration: 0.1s;
   }
   &:disabled {
-    background-color: #fafbfc;
+    background-color: #ffffff;
     border-color: rgba(27, 31, 35, 0.15);
     color: #959da5;
     cursor: default;

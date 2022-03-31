@@ -17,6 +17,7 @@
     "@chainlink/contracts": "^0.4.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@truffle/hdwallet-provider": "^2.0.4",
+    "axios": "^0.26.1",
     "dotenv-cli": "^5.0.0",
     "rimraf": "^3.0.2",
     "truffle": "5.5.5",

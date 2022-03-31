@@ -13,7 +13,7 @@ const TokenToSellListElement = styled.div`
   align-items: center;
   font-size: 24px;
   margin: 26px 0;
-  height: 40px;
+  height: 45px;
   justify-content: space-between;
   font-size: 1.5rem;
 `
@@ -49,8 +49,8 @@ const TokenBalance = styled.div`
   `
 
 export function TokenToSelect({
-  tokenName, 
-  tokenContract, 
+  tokenName,
+  tokenContract,
   selectTokenCallback
 }: {
   tokenName: PossibleSwapToken, 
@@ -62,7 +62,9 @@ export function TokenToSelect({
 
   useEffect(() => {
     (async () => {
-      setTokenBalance(await tokenContract.methods.balanceOf(currentAccount).call())
+      const fullBalance = toToken(await tokenContract.methods.balanceOf(currentAccount).call())
+      const flooredBalance = fullBalance.includes(".") ? fullBalance.slice(0, -16) : fullBalance
+      setTokenBalance(flooredBalance)
     }
     )();
   }, [])
@@ -71,7 +73,7 @@ export function TokenToSelect({
   return (
     <TokenToSellListElement >
       <ClickableToken onClick={() => selectTokenCallback(tokenName)}>
-        <TokenBalance>{toToken(tokenBalance)}</TokenBalance>
+        <TokenBalance>{tokenBalance}</TokenBalance>
         <TokenName>{tokenName}</TokenName>
         <SellTokenLogo>{tokenLogos[tokenName].logo}</SellTokenLogo>
       </ClickableToken>

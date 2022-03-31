@@ -1,9 +1,9 @@
 import { PromiEvent, TransactionReceipt } from "web3-core/types";
 import { AbiItem } from "web3-utils";
+import { tokenLogos } from "./crypto-logos";
 import { ERC20 } from "./types/ERC20";
 import { ERC20TokensSwap } from "./types/ERC20TokensSwap";
 import { PayableTx } from "./types/types";
-import { tokenLogos } from "./crypto-logos";
 
 export type SellTokenLogos = typeof tokenLogos;
 export type PossibleSwapToken = keyof SellTokenLogos;
@@ -36,7 +36,8 @@ export type ToastContractSend = (
   contractFunctionToSend: {
     send: (transactionOptions: PayableTx) => PromiEvent<TransactionReceipt>;
   },
-  transactionOptions?: PayableTx | undefined
+  transactionOptions?: PayableTx,
+  transactionDisplayName?: string,
 ) => Promise<TransactionReceipt>;
 
 export type AddTokenToWallet = (tokenInfo: ERC20) => Promise<void>;

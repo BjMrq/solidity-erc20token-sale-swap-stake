@@ -198,27 +198,28 @@ export default function Web3ContextProvider({
   }, []);
 
 
-  const TransactionSuccessToast = ({ data }: ToastContentProps<TransactionReceipt>) => (
+  const TransactionSuccessToast = ({ data }: ToastContentProps<TransactionReceipt>, transactionDisplayName: string) => (
     <div>
-      <div>Transaction succeeded</div>
+      <div>{transactionDisplayName} succeeded</div>
       <a target="_blank" style= {{color: "#23379d", textDecoration: "none", fontSize: "1.2rem"}} href={`https://kovan.etherscan.io/tx/${data?.transactionHash}`}>🔎 view on etherscan</a>
     </div>
   ) as ReactElement
   
-  const toastContractSend: ToastContractSend = async (contractFunctionToSend, transactionOptions) => 
+  const toastContractSend: ToastContractSend = async (contractFunctionToSend, transactionOptions = {}, transactionDisplayName = "Transaction") => 
     toast.promise(
       async () => contractFunctionToSend.send({ from: mainAccount, ...transactionOptions }),
       {
         pending: {
           render(){
-            return "Transaction pending.."
+            return `${transactionDisplayName} pending..`
           },
           icon: true,
         
         },
         success: {
           render({data, closeToast, toastProps}: ToastContentProps<TransactionReceipt>){
-            return TransactionSuccessToast({closeToast, toastProps, data})
+            console.info(data);
+            return TransactionSuccessToast({closeToast, toastProps, data}, transactionDisplayName)
           },
           style: {backgroundColor: successColor},
         },

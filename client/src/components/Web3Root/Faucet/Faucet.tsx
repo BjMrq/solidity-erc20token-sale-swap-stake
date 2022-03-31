@@ -20,7 +20,7 @@ export function Faucet() {
   const { toastContractSend , contracts: {faucetContract}} = useContext(Web3Context);
 
   const makeItRain = async () => {
-    await toastContractSend(faucetContract.methods.makeItRain())
+    await toastContractSend(faucetContract.methods.makeItRain(), {}, "Faucet distribution")
   }
 
   return (

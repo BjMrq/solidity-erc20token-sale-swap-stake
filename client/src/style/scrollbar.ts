@@ -24,7 +24,7 @@ export const scrollbar = css`
 
 export const scrollBarObject = {
   WebkitScrollbar: {
-    width: "40px",
+    width: "45px",
     boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.1)",
   },
   WebkitScrollbarThumb: {

@@ -1,23 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useEffect, useRef, useState } from 'react';
 import styled from "styled-components";
 import { Web3Context } from "../../../../contracts/context";
 import { tokenLogos } from "../../../../contracts/crypto-logos";
-import { PossibleSwapToken } from "../../../../contracts/types";
+import { PossibleSwapToken, SwapContractInfo } from "../../../../contracts/types";
+import { hasMoreThanOne } from "../../../../utils";
+import { getPossiblePairedSwapToken, getPossibleSwapContractFromSellToken, getTokenPairMatchingSwapContract, toUnit } from "../../../../utils/token";
 import { TokenPseudoInput } from "../../../shared/TokenPseudoInput/TokenPseudoInput";
 import { SatiSaleContent } from "../SatiSaleContent";
 import { TokenSelectModal } from "./TokenSelectModal/TokenSelectModal";
-
-// import { AddMetamask } from "../../../shared/AddMetamask/AddMetamask";
-
-// import { WebsocketClient, DefaultLogger } from "binance";
-// import socket from "socket.io-client";
-
-// const binance = new WebsocketClient({
-//   api_key: '',
-//   api_secret: '',
-//   beautify: true,
-// }, {...DefaultLogger});
-
+import useWebSocket from 'react-use-websocket';
+import axios from "axios"
 
 const TokenDiv = styled.div`
   width: 100%;
@@ -29,51 +21,186 @@ const TokenDiv = styled.div`
 `
 
 
+type BinanceSocketPriceMessage = 
+{
+  "e": string,  // Event type
+  "E": number,  // Event time
+  "s": string,  // Symbol
+  "c": string,  // Close price
+  "o": string,  // Open price
+  "h": string,  // High price
+  "l": string,  // Low price
+  "v": string,  // Total traded base asset volume
+  "q": string   // Total traded quote asset volume
+}
 
-// This could be the origin of the list of base token selection  then acces result in dict with any that 
+
+type StreamName = `${string}@${string}`
+
+type BinanceWebsocketMessage = {stream: StreamName, data: BinanceSocketPriceMessage}
+
+type BinanceStreamSubscriptionInfo = {
+  method: 'SUBSCRIBE' | 'UNSUBSCRIBE',
+  params: [StreamName],
+  id: 1,
+}
+
+type SwapInfo = {
+  sellTokenType: "quoteToken" | "baseToken",
+  swapMethod: "swapQuoteForBaseToken" | 'swapBaseForQuoteToken'
+}
+
+type UseBinanceWebSocket = { sendJsonMessage: (jsonMessage: BinanceStreamSubscriptionInfo) => void, lastJsonMessage: BinanceWebsocketMessage | undefined }
+
+const noPricePlaceholder = "0"
 
 export function MarketRate() { 
 
-  const { contracts: {swapContracts}} = useContext(Web3Context);
+  const { contracts: {swapContracts}, toastContractSend} = useContext(Web3Context);
 
   const [sellTokenSelectionModalOpen, setSellTokenSelectionModalOpen] = useState(false)
   const [buyTokenSelectionModalOpen, setBuyTokenSelectionModalOpen] = useState(false)
+
+  const [presentedSwapContract, setPresentedSwapContract] = useState<SwapContractInfo>(swapContracts[0])
   
-  const [sellingAmount, setSellingAmount] = useState("")
+  const [sellingAmount, setSellingAmount] = useState(noPricePlaceholder)
   const [selectedSellToken, setSelectedSellToken] = useState<PossibleSwapToken>(tokenLogos.WBTC.name)
+
   const [selectedBuyToken, setSelectedBuyToken] = useState<PossibleSwapToken>(tokenLogos.STI.name)
-  
-  const [possibleBuyToken] = useState<PossibleSwapToken[]>([tokenLogos.STI.name, tokenLogos.STI.name])
 
-  const hasMoreThanOneChoice = (choices: any[]) => choices.length > 1
+  const [possibleSwapContractFromSellTokenSelect, setPossibleSwapContractFromSellTokenSelect] = useState<SwapContractInfo[]>(swapContracts)
 
-  const selectSellToken = (tokenName: PossibleSwapToken) => {
-    setSelectedSellToken(tokenName)
-    setSellTokenSelectionModalOpen(false)
+
+  const swapInfo = useRef<SwapInfo>({sellTokenType: "baseToken", swapMethod: "swapBaseForQuoteToken"})
+  const currentPriceRate = useRef<string>(noPricePlaceholder)
+
+
+  const { sendJsonMessage, lastJsonMessage: priceSocketMessage }: UseBinanceWebSocket = useWebSocket(
+    "wss://stream.binance.com:9443/stream",
+  );
+
+
+  const changeProposedBuyTokenIfNotSupported = (swapContracts:SwapContractInfo[], sellTokenName: PossibleSwapToken) => {
+    const possibleSwapPairedToken = getPossiblePairedSwapToken(swapContracts, sellTokenName)
+    if(!possibleSwapPairedToken.includes(selectedBuyToken)) setSelectedBuyToken(possibleSwapPairedToken[0])
   }
 
-  const selectBuyToken = (tokenName: PossibleSwapToken) => {
-    setSelectedBuyToken(tokenName)
+  const selectSellToken = (sellTokenName: PossibleSwapToken) => {
+    setSelectedSellToken(sellTokenName)
+    setSellTokenSelectionModalOpen(false)
+    setSellingAmount(noPricePlaceholder)
+    const newPossibleSwapContracts = getPossibleSwapContractFromSellToken(swapContracts, sellTokenName)
+    setPossibleSwapContractFromSellTokenSelect(newPossibleSwapContracts)
+    changeProposedBuyTokenIfNotSupported(newPossibleSwapContracts, sellTokenName)
+    currentPriceRate.current = noPricePlaceholder
+  }
+
+  const selectBuyToken = (buyTokenName: PossibleSwapToken) => {
+    setSelectedBuyToken(buyTokenName)
+    currentPriceRate.current = noPricePlaceholder
     setBuyTokenSelectionModalOpen(false)
   }
 
+  const calculateDisplayPrice = (priceRate: string, sellAmount: string) => {
+    const priceToDisplay = swapInfo.current.swapMethod === "swapBaseForQuoteToken" ?
+      parseFloat(priceRate) * parseFloat(sellAmount) : 
+      parseFloat(sellAmount) / parseFloat(priceRate)
+
+    if(priceToDisplay < 1 ) return priceToDisplay.toFixed(8)
+    return priceToDisplay.toFixed(2)
+  }
+
+  useEffect(() => {
+    if(priceSocketMessage?.data?.c) currentPriceRate.current = priceSocketMessage.data.c
+  } , 
+  [priceSocketMessage]
+  )
+
+
+  useEffect(() => {
+    if(presentedSwapContract?.pairName){
+
+      (async () => {
+        const tradePriceToTrack = presentedSwapContract.pairName.replace("/", "").replace("STI", 'USDT').replace("WBTC", "BTC").replace("WLTC", "LTC")
+      
+        const {data} = await axios.get(`https://api.binance.com/api/v3/ticker/price?symbol=${tradePriceToTrack.toUpperCase()}`)
+        
+        if(data?.price) currentPriceRate.current = data.price  
+      }
+      )()
+    }
+  }
+  ,
+  [presentedSwapContract]
+  )
+
+  
+
+  const initPriceSocket = (smartContractInfo: SwapContractInfo) => {
+
+    const tradePriceToTrack = smartContractInfo.pairName.replace("/", "").replace("STI", 'USDT').replace("WBTC", "BTC").replace("WLTC", "LTC")
+      .toLowerCase()
+
+    return {
+      subscribe: () => sendJsonMessage({
+        method: 'SUBSCRIBE',
+        params: [`${tradePriceToTrack}@miniTicker`],
+        id: 1,
+      }),
+      unsubscribe: () => sendJsonMessage({
+        method: 'UNSUBSCRIBE',
+        params: [`${tradePriceToTrack}@miniTicker`],
+        id: 1,
+      })
+    }}
+
 
   useEffect(()=> {
-    console.log(swapContracts.filter(contract => contract.pairName.includes(selectedSellToken)));
-  }, [swapContracts, selectedSellToken])
+    const currentSwapContractInfo = getTokenPairMatchingSwapContract(
+      swapContracts, 
+      selectedBuyToken, 
+      selectedSellToken
+    )
 
-  //TODO use effect on both token that try to find matching contract and set it
+    if(currentSwapContractInfo?.pairName) {
+     
+      setPresentedSwapContract(currentSwapContractInfo)
+  
+      swapInfo.current = currentSwapContractInfo.baseToken.name === selectedBuyToken ? 
+        {sellTokenType: "quoteToken", swapMethod: "swapQuoteForBaseToken"} : 
+        {sellTokenType: "baseToken", swapMethod: "swapBaseForQuoteToken"}
+  
+      const {subscribe, unsubscribe} = initPriceSocket(currentSwapContractInfo)
+  
+      subscribe()
+        
+      return unsubscribe
+      
+    }
+  }, [swapContracts, selectedSellToken, selectedBuyToken])
 
-  const swapTokens= ()=>{
-    console.log("Swapping", sellingAmount);
+
+
+  const swapTokens= async () => {
+    const sellTokenAmount = toUnit(sellingAmount)
+
+    await toastContractSend(
+      presentedSwapContract[swapInfo.current.sellTokenType].contract
+        .methods.approve(
+          presentedSwapContract.swapContract.options.address, 
+          sellTokenAmount
+        ), {}, "Approval")
+
+    await toastContractSend(
+      presentedSwapContract.swapContract
+        .methods[swapInfo.current.swapMethod](sellTokenAmount), {}, "Swap")
   }
-  //TODO module sell and buy pseudo input out
 
 
-  // REFACTOR modal to be reused for token to buy selection, extract data and token list and pass it to style only components
-  return (
+  
+  return ( 
     <SatiSaleContent 
-      saleTitle={"Swap tokens for STI at market price using oracles"}
+      saleTitle={"Swap tokens for STI at market price using oracles (STI will launch at 1$)"}
       callToAction={{display: "Swap", callback: swapTokens}}
     >
       <TokenDiv>
@@ -88,11 +215,13 @@ export function MarketRate() {
       </TokenDiv>
       <TokenDiv>
         <TokenPseudoInput 
-          inputLabel="For"
-          multipleTokenChoice={hasMoreThanOneChoice(possibleBuyToken)}
-          onTokenClick={() => hasMoreThanOneChoice(possibleBuyToken) && setBuyTokenSelectionModalOpen(true)}
+          inputLabel="For approximately"
+          multipleTokenChoice={hasMoreThanOne(possibleSwapContractFromSellTokenSelect)}
+          onTokenClick={() => hasMoreThanOne(possibleSwapContractFromSellTokenSelect) && setBuyTokenSelectionModalOpen(true)}
           tokenToDisplay={tokenLogos[selectedBuyToken]}
-          inputValue={"0.0"}
+          inputValue={(currentPriceRate.current !== noPricePlaceholder && sellingAmount !== noPricePlaceholder) ? 
+            calculateDisplayPrice(currentPriceRate.current, sellingAmount) :
+            noPricePlaceholder}
           inputDisabled={true}
         />
       </TokenDiv>
@@ -106,7 +235,7 @@ export function MarketRate() {
       />
       <TokenSelectModal
         tokenType={"buy"}
-        swapContractListToExtractTokensFrom={swapContracts.filter(contract => contract.pairName.includes(selectedSellToken))}
+        swapContractListToExtractTokensFrom={possibleSwapContractFromSellTokenSelect}
         selectTokenCallback={selectBuyToken}
         selectedPairToken={selectedSellToken}
         setTokenSelectionModalOpen={setBuyTokenSelectionModalOpen} 

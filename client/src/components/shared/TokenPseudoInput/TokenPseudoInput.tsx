@@ -46,7 +46,7 @@ const TokenPseudoInputDiv = styled.div`
   margin: 10px auto;
   padding: 10px;
   width: 100%;
-  height: 40px;
+  height: 45px;
   background-color: #FFFFFF;
   color: #000000;
   border-radius: 6px;
@@ -121,10 +121,10 @@ export function TokenPseudoInput({
           {tokenToDisplay.logo}
           <TokenNameDiv>{tokenToDisplay.name}</TokenNameDiv>
           <DownArrowDiv>
-            <DownArrow/>
+            {multipleTokenChoice && <DownArrow/>}
           </DownArrowDiv>
         </TokenSelect>
-        <PayAmountInput type="text" placeholder="0.0" value={inputValue} disabled={inputDisabled} onChange={({target: {value}}) => setInputValue && setInputValue(value.replace(/[^0-9.]/g, ''))}/>
+        <PayAmountInput type="text" placeholder="0" value={inputValue !== "0" ? inputValue : ""} disabled={inputDisabled} onChange={({target: {value}}) => setInputValue && setInputValue(value.replace(/[^0-9.]/g, '') || "0")}/>
       </TokenPseudoInputDiv>
     </Container>
   );

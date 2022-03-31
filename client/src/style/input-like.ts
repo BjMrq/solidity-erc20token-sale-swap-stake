@@ -7,7 +7,7 @@ export const bordered = css`
 `;
 
 export const inputLike = css`
-  height: 40px;
+  height: 45px;
   width: 100%;
   ${bordered}
   padding: 9px;

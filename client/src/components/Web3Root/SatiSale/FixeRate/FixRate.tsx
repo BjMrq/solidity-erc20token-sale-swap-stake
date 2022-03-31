@@ -11,11 +11,11 @@ export function FixRate() {
   const { toastContractSend , contracts: {satiSaleContract}, currentAccount} = useContext(Web3Context);
 
 
-  const buySati = async () => await toastContractSend(satiSaleContract.methods.buyTokens(currentAccount), {value: toUnit(buyingSatiAmount)})
+  const buySati = async () => await toastContractSend(satiSaleContract.methods.buyTokens(currentAccount), {value: toUnit(buyingSatiAmount)}, "Buying Sati")
   
   return (
     <SatiSaleContent 
-      saleTitle={"Buy Sati with Ether at a fixed 1ETH/100STI rate"}
+      saleTitle={"Buy Sati with Ether at a fixed 1ETH/3000STI rate"}
       callToAction={{display: "Buy", callback: buySati}}
     >
       <TokenPseudoInput

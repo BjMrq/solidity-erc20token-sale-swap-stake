@@ -26,7 +26,8 @@ const modalStyle = {
     borderRadius: borderRadius,
     color: lightColor,
     border: "none",
-    padding: "0"
+    padding: "0",
+    matchMedia: "screen and (max-width: 768px)",
   },
 };
 
@@ -59,7 +60,7 @@ export function TokenSelectModal({
   swapContractListToExtractTokensFrom,
   tokenSelectionModalOpen,
   selectedPairToken,
-  setTokenSelectionModalOpen, 
+  setTokenSelectionModalOpen,
   selectTokenCallback
 }:{
   tokenSelectionModalOpen: boolean, 

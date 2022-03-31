@@ -52,6 +52,7 @@ experienced team. This is not financial advise but do not miss this opportunity!
       <WhiteRoadMap>2022 Q1: Sati sale</WhiteRoadMap>
       <WhiteRoadMap>2022 Q2: Sati swap</WhiteRoadMap>
       <WhiteRoadMap>2022 Q3: Sati stake</WhiteRoadMap>
+      <WhiteRoadMap>2022 Q4: Sati DAO</WhiteRoadMap>
     </PageDiv>
   );
 }

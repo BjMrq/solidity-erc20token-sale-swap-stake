@@ -14,9 +14,9 @@ const SatiSaleCard = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: column;
-  @media screen and (max-width: 600px) { 
-    padding: 8% 6%;
- }
+  @media screen and (max-width: 1200px) { 
+      padding: 6% 10%;
+  }
 `
 
 const SaleTypesDiv = styled.div`

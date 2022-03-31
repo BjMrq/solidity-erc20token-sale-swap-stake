@@ -70,6 +70,6 @@ contract("SatiTokenSale", (accounts) => {
       saleBuyerAccount
     );
 
-    assert.equal(buyerBalance.toString(), toUnit(10));
+    assert.equal(buyerBalance.toString(), toUnit(30));
   });
 });
